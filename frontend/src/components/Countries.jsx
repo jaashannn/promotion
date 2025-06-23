@@ -34,7 +34,7 @@ const Countries = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-16">
+        {/* <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-16">
           {countries.map((country, index) => (
             <motion.div
               key={index}
@@ -57,11 +57,10 @@ const Countries = () => {
                 {country.code}
               </div>
               
-              {/* Glow effect on hover */}
               <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/10 to-neon-violet/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </motion.div>
           ))}
-        </div>
+        </div> */}
 
         {/* Expansion Notice */}
         <motion.div

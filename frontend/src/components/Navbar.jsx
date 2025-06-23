@@ -1,87 +1,89 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { Menu, X, Zap } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Menu, X, Zap, ChevronDown } from 'lucide-react';
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const [isLegalMenuOpen, setIsLegalMenuOpen] = useState(false);
 
   const navItems = [
-    { label: 'How It Works', href: '#how-it-works' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'Countries', href: '#countries' },
-    { label: 'Success Stories', href: '#testimonials' },
+    { label: 'About', href: '/about' },
+    { label: 'Pricing', href: '/pricing' },
+    { label: 'Contact Us', href: '/contact' },
+    { label: 'Blog', href: '/blog' },
+  ];
+
+  const legalItems = [
+    { label: 'Privacy Policy', href: '/privacy-policy' },
+    { label: 'Terms & Conditions', href: '/terms-and-conditions' },
   ];
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-dark-bg/80 backdrop-blur-xl border-b border-white/5' 
-          : 'bg-transparent'
-      }`}
-    >
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-xl border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <motion.div 
-            className="flex items-center space-x-2"
-            whileHover={{ scale: 1.05 }}
-          >
-            <div className="w-8 h-8 bg-gradient-to-r from-neon-blue to-neon-violet rounded-lg flex items-center justify-center">
+          <Link to="/" className="flex items-center space-x-2">
+            <div className="w-8 h-8 bg-gradient-to-r from-cyan-500 to-violet-500 rounded-lg flex items-center justify-center">
               <Zap className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-bold text-dark-text">ReflowHub</span>
-          </motion.div>
+            <span className="text-xl font-bold text-white">RefloHub</span>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
-              <motion.a
+              <Link
                 key={item.label}
-                href={item.href}
-                className="text-dark-text hover:text-neon-blue transition-colors duration-200 relative group"
-                whileHover={{ y: -2 }}
+                to={item.href}
+                className="text-white hover:text-cyan-500 transition-colors duration-200 relative group"
               >
                 {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-neon-blue group-hover:w-full transition-all duration-300"></span>
-              </motion.a>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-500 group-hover:w-full transition-all duration-300"></span>
+              </Link>
             ))}
+            
+            {/* Legal Dropdown */}
+            <div className="relative group">
+              <button 
+                className="flex items-center text-white hover:text-cyan-500 transition-colors duration-200"
+                onClick={() => setIsLegalMenuOpen(!isLegalMenuOpen)}
+              >
+                Legal
+                <ChevronDown className={`w-4 h-4 ml-1 transition-transform ${isLegalMenuOpen ? 'rotate-180' : ''}`} />
+              </button>
+              <div 
+                className={`absolute right-0 mt-2 w-48 bg-gray-800 rounded-md shadow-lg overflow-hidden ${isLegalMenuOpen ? 'block' : 'hidden'} group-hover:block`}
+                onMouseLeave={() => setIsLegalMenuOpen(false)}
+              >
+                {legalItems.map((item) => (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className="block px-4 py-2 text-white hover:bg-gray-700 transition-colors duration-200"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
 
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 text-dark-text hover:text-neon-blue transition-colors duration-200"
-            >
-              Login
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 212, 255, 0.5)' }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-2 bg-gradient-to-r from-neon-blue to-neon-violet text-white rounded-lg hover:shadow-lg transition-all duration-200"
+          {/* CTA Button */}
+          <div className="hidden md:flex items-center">
+            <Link
+              to="/get-started"
+              className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-violet-500 text-white rounded-lg hover:shadow-lg transition-all duration-200"
             >
               Get Started
-            </motion.button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-dark-text hover:text-neon-blue transition-colors duration-200"
+              className="text-white hover:text-cyan-500 transition-colors duration-200"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -90,34 +92,46 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden bg-dark-surface/95 backdrop-blur-xl rounded-lg mt-2 p-4 border border-white/10"
-          >
+          <div className="md:hidden bg-gray-800/95 backdrop-blur-xl rounded-lg mt-2 p-4 border border-white/10">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.label}
-                href={item.href}
-                className="block py-2 text-dark-text hover:text-neon-blue transition-colors duration-200"
+                to={item.href}
+                className="block py-2 text-white hover:text-cyan-500 transition-colors duration-200"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
-            <div className="pt-4 border-t border-white/10 mt-4">
-              <button className="w-full py-2 text-dark-text hover:text-neon-blue transition-colors duration-200 mb-2">
-                Login
-              </button>
-              <button className="w-full py-2 bg-gradient-to-r from-neon-blue to-neon-violet text-white rounded-lg hover:shadow-lg transition-all duration-200">
-                Get Started
-              </button>
+            
+            {/* Mobile Legal Links */}
+            <div className="pt-2 border-t border-white/10 mt-2">
+              <div className="text-gray-400 text-sm py-2">Legal</div>
+              {legalItems.map((item) => (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className="block py-2 pl-4 text-white hover:text-cyan-500 transition-colors duration-200"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
             </div>
-          </motion.div>
+            
+            <div className="pt-4 border-t border-white/10 mt-4">
+              <Link
+                to="/get-started"
+                className="w-full py-2 bg-gradient-to-r from-cyan-500 to-violet-500 text-white rounded-lg hover:shadow-lg transition-all duration-200"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Get Started
+              </Link>
+            </div>
+          </div>
         )}
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 
