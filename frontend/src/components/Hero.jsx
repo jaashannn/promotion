@@ -48,19 +48,6 @@ const Hero = () => {
             <span className="text-sm text-dark-text">Now Available in 6 Countries</span>
           </motion.div>
 
-          {/* <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-dark-text mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Lead Generation
-            <br />
-            <span className="bg-gradient-to-r from-neon-blue to-neon-violet bg-clip-text text-transparent">
-              Reimagined.
-            </span>
-          </motion.h1> */}
-
           <motion.p
             className="text-xl md:text-2xl text-dark-muted max-w-3xl mx-auto mb-12"
             initial={{ opacity: 0, y: 30 }}
@@ -77,35 +64,39 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <motion.button
-              whileHover={{ 
-                scale: 1.05, 
-                boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)' 
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="group relative px-8 py-4 bg-gradient-to-r from-neon-blue to-neon-violet text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
-            >
-              <span className="relative z-10 flex items-center">
-                Join as Freelancer
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-r from-neon-violet to-neon-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-            </motion.button>
+            <a href="/freelancer-agreement">
+              <motion.button
+                whileHover={{ 
+                  scale: 1.05, 
+                  boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)' 
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="group relative px-8 py-4 bg-gradient-to-r from-neon-blue to-neon-violet text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+              >
+                <span className="relative z-10 flex items-center">
+                  Join as Freelancer
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-neon-violet to-neon-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </motion.button>
+            </a>
 
-            <motion.button
-              whileHover={{ 
-                scale: 1.05,
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                boxShadow: '0 0 40px rgba(138, 43, 226, 0.3)' 
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="group px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-dark-text rounded-xl font-semibold text-lg hover:border-neon-violet/50 transition-all duration-300"
-            >
-              <span className="flex items-center">
-                Join as Business
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
-              </span>
-            </motion.button>
+            <a href="/business-agreement">
+              <motion.button
+                whileHover={{ 
+                  scale: 1.05,
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  boxShadow: '0 0 40px rgba(138, 43, 226, 0.3)' 
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="group px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-dark-text rounded-xl font-semibold text-lg hover:border-neon-violet/50 transition-all duration-300"
+              >
+                <span className="flex items-center">
+                  Join as Business
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+                </span>
+              </motion.button>
+            </a>
           </motion.div>
         </motion.div>
 

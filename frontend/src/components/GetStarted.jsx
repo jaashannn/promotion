@@ -43,6 +43,7 @@ const GetStarted = () => {
   const [capturedImage, setCapturedImage] = useState(null);
   const [crop, setCrop] = useState({ unit: '%', width: 80, height: 80, x: 10, y: 10 });
   const [completedCrop, setCompletedCrop] = useState(null);
+  const [streamError, setStreamError] = useState(null);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const imgRef = useRef(null);
@@ -74,12 +75,46 @@ const GetStarted = () => {
   }, []);
 
   useEffect(() => {
+    // Cleanup camera stream on component unmount or when camera is closed
     return () => {
       if (cameraStream) {
         cameraStream.getTracks().forEach((track) => track.stop());
+        setCameraStream(null);
       }
     };
   }, [cameraStream]);
+
+  useEffect(() => {
+    // Assign stream to video element when both are available
+    if (isCameraOpen && cameraStream && videoRef.current) {
+      videoRef.current.srcObject = cameraStream;
+      videoRef.current.onloadedmetadata = () => {
+        console.log('Video metadata loaded:', {
+          width: videoRef.current.videoWidth,
+          height: videoRef.current.videoHeight,
+        });
+        videoRef.current
+          .play()
+          .then(() => console.log('Video playback started'))
+          .catch((err) => {
+            console.error('Error playing video:', err);
+            setStreamError('Failed to start video. Please try again or use the upload option.');
+          });
+      };
+      // Retry playback after a delay to handle timing issues
+      const timer = setTimeout(() => {
+        if (videoRef.current && !videoRef.current.paused) return;
+        videoRef.current.play().catch((err) => {
+          console.error('Retry play failed:', err);
+          setStreamError('Video failed to load. Please try again or use the upload option.');
+        });
+      }, 1000);
+      return () => clearTimeout(timer);
+    } else if (isCameraOpen && !videoRef.current) {
+      console.error('Video element not found in DOM');
+      setStreamError('Video element not initialized. Please try again or use the upload option.');
+    }
+  }, [isCameraOpen, cameraStream]);
 
   const resetForm = () => {
     setFormData({
@@ -114,6 +149,7 @@ const GetStarted = () => {
       },
     });
     setErrors({});
+    setStreamError(null);
   };
 
   const validateForm = (data, type) => {
@@ -191,27 +227,57 @@ const GetStarted = () => {
 
   const openCamera = async () => {
     try {
-      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      // Check for camera availability
+      const devices = await navigator.mediaDevices.enumerateDevices();
+      const hasCamera = devices.some((device) => device.kind === 'videoinput');
+      if (!hasCamera) {
+        setErrors((prev) => ({ ...prev, liveImage: 'No camera detected on this device' }));
+        setStreamError('No camera detected. Please use the upload option.');
+        return;
+      }
+
+      // Request camera with constraints
+      const stream = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: 'user', width: { ideal: 1280 }, height: { ideal: 720 } },
+      });
       setCameraStream(stream);
       setIsCameraOpen(true);
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-      }
+      setStreamError(null);
+      console.log('Camera stream acquired successfully');
     } catch (err) {
       console.error('Error accessing camera:', err);
-      setErrors((prev) => ({ ...prev, liveImage: 'Unable to access camera' }));
+      let errorMessage = 'Unable to access camera. Please allow camera permissions or try another device.';
+      if (err.name === 'NotAllowedError') {
+        errorMessage = 'Camera access denied. Please enable camera permissions in your browser settings.';
+      } else if (err.name === 'NotFoundError') {
+        errorMessage = 'No camera found on this device.';
+      }
+      setErrors((prev) => ({ ...prev, liveImage: errorMessage }));
+      setStreamError(errorMessage);
     }
   };
 
   const captureImage = () => {
-    if (videoRef.current && canvasRef.current) {
+    if (videoRef.current && canvasRef.current && videoRef.current.videoWidth > 0) {
       const video = videoRef.current;
       const canvas = canvasRef.current;
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
-      canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-      const imageDataUrl = canvas.toDataURL('image/jpeg');
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const imageDataUrl = canvas.toDataURL('image/jpeg', 0.8);
       setCapturedImage(imageDataUrl);
+      console.log('Image captured:', { width: canvas.width, height: canvas.height });
+    } else {
+      console.error('Capture failed:', {
+        videoRef: !!videoRef.current,
+        canvasRef: !!canvasRef.current,
+        videoDimensions: videoRef.current
+          ? { width: videoRef.current.videoWidth, height: videoRef.current.videoHeight }
+          : 'No video',
+      });
+      setErrors((prev) => ({ ...prev, liveImage: 'Failed to capture image. Please try again.' }));
+      setStreamError('Cannot capture image. Ensure the camera is active or use the upload option.');
     }
   };
 
@@ -220,14 +286,15 @@ const GetStarted = () => {
   };
 
   const saveCroppedImage = () => {
-    if (imgRef.current && completedCrop) {
+    if (imgRef.current && completedCrop && canvasRef.current) {
       const canvas = canvasRef.current;
       const img = imgRef.current;
       const scaleX = img.naturalWidth / img.width;
       const scaleY = img.naturalHeight / img.height;
       canvas.width = completedCrop.width * scaleX;
       canvas.height = completedCrop.height * scaleY;
-      canvas.getContext('2d').drawImage(
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(
         img,
         completedCrop.x * scaleX,
         completedCrop.y * scaleY,
@@ -238,15 +305,28 @@ const GetStarted = () => {
         canvas.width,
         canvas.height
       );
-      canvas.toBlob((blob) => {
-        const file = new File([blob], `liveImage-${Date.now()}.jpg`, { type: 'image/jpeg' });
-        setFormData((prev) => ({
-          ...prev,
-          [userType]: { ...prev[userType], liveImage: file },
-        }));
-        setErrors((prev) => ({ ...prev, liveImage: '' }));
-        closeCamera();
-      }, 'image/jpeg');
+      canvas.toBlob(
+        (blob) => {
+          const file = new File([blob], `liveImage-${Date.now()}.jpg`, { type: 'image/jpeg' });
+          setFormData((prev) => ({
+            ...prev,
+            [userType]: { ...prev[userType], liveImage: file },
+          }));
+          setErrors((prev) => ({ ...prev, liveImage: '' }));
+          setStreamError(null);
+          closeCamera();
+          console.log('Cropped image saved:', file.name);
+        },
+        'image/jpeg',
+        0.8
+      );
+    } else {
+      console.error('Crop save failed:', {
+        imgRef: !!imgRef.current,
+        completedCrop: !!completedCrop,
+        canvasRef: !!canvasRef.current,
+      });
+      setErrors((prev) => ({ ...prev, liveImage: 'Failed to save cropped image.' }));
     }
   };
 
@@ -259,6 +339,11 @@ const GetStarted = () => {
     setCapturedImage(null);
     setCrop({ unit: '%', width: 80, height: 80, x: 10, y: 10 });
     setCompletedCrop(null);
+    setStreamError(null);
+    if (videoRef.current) {
+      videoRef.current.srcObject = null;
+    }
+    console.log('Camera closed');
   };
 
   const handleSubmit = async (e, type) => {
@@ -855,19 +940,28 @@ const GetStarted = () => {
             <h3 className="text-xl font-bold text-white mb-4">Take Your Selfie</h3>
             {!capturedImage ? (
               <>
-                <video
-                  ref={videoRef}
-                  autoPlay
-                  className="w-full rounded-lg mb-4"
-                  style={{ maxHeight: '400px' }}
-                />
+                <div className="relative w-full h-80 bg-black rounded-lg mb-4 overflow-hidden">
+                  <video
+                    ref={videoRef}
+                    autoPlay
+                    playsInline
+                    muted
+                    className="w-full h-full object-cover"
+                  />
+                  {streamError && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/50">
+                      <p className="text-red-400 text-sm text-center">{streamError}</p>
+                    </div>
+                  )}
+                </div>
                 <div className="flex gap-4 justify-center">
                   <motion.button
                     type="button"
                     onClick={captureImage}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-4 py-2 bg-gradient-to-r from-cyan-600 to-violet-600 text-white rounded-lg font-semibold"
+                    disabled={streamError}
+                    whileHover={{ scale: streamError ? 1 : 1.05 }}
+                    whileTap={{ scale: streamError ? 1 : 0.95 }}
+                    className={`px-4 py-2 bg-gradient-to-r from-cyan-600 to-violet-600 text-white rounded-lg font-semibold ${streamError ? 'opacity-50 cursor-not-allowed' : ''}`}
                   >
                     Capture
                   </motion.button>
@@ -891,7 +985,13 @@ const GetStarted = () => {
                   aspect={1}
                   className="mb-4"
                 >
-                  <img ref={imgRef} src={capturedImage} alt="Captured" style={{ maxWidth: '100%' }} />
+                  <img
+                    ref={imgRef}
+                    src={capturedImage}
+                    alt="Captured"
+                    style={{ maxWidth: '100%', maxHeight: '400px' }}
+                    onLoad={() => console.log('Captured image loaded')}
+                  />
                 </ReactCrop>
                 <div className="flex gap-4 justify-center">
                   <motion.button

@@ -56,11 +56,11 @@ const JoinCTA = () => {
           </h2>
           
           <p className="text-xl md:text-2xl text-dark-muted max-w-3xl mx-auto mb-12">
-            Join thousands of freelancers and businesses already earning more with ReflowHub.
+            Join thousands of freelancers and businesses already earning more with RefloHub.
             Start your journey today with exclusive early access.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+          {/* <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
             <motion.button
               whileHover={{ 
                 scale: 1.05, 
@@ -90,7 +90,7 @@ const JoinCTA = () => {
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
               </span>
             </motion.button>
-          </div>
+          </div> */}
 
           {/* Features Grid */}
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">

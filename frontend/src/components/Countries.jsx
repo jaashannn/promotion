@@ -75,7 +75,7 @@ const Countries = () => {
               Expanding Soon
             </h3>
             <p className="text-dark-muted mb-6">
-              We're actively working to bring ReflowHub to more countries. 
+              We're actively working to bring RefloHub to more countries. 
               Join our waitlist to be notified when we launch in your region.
             </p>
             <motion.button

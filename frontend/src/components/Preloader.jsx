@@ -32,7 +32,7 @@ const Preloader = ({ isLoading }) => {
           transition={{ delay: 0.2 }}
           className="text-2xl font-bold text-dark-text mb-2"
         >
-          ReflowHub
+          RefloHub
         </motion.h1>
         
         <motion.p

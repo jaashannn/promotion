@@ -4,7 +4,6 @@ import { Toaster } from 'react-hot-toast';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import HowItWorks from './components/HowItWorks';
-import Pricing from './components/Pricing';
 import Countries from './components/Countries';
 import Testimonials from './components/Testimonials';
 import JoinCTA from './components/JoinCTA';
@@ -17,6 +16,8 @@ import Blog from './components/Blog';
 import GetStarted from './components/GetStarted';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsAndConditions from './components/TermsAndConditions';
+import Freelancer from './components/Freelancer';
+import Business from './components/Business';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -77,9 +78,10 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/blog" element={<Blog />} />
               <Route path="/get-started" element={<GetStarted />} />
-              <Route path="/pricing" element={<Pricing />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+              <Route path="/freelancer-agreement" element={<Freelancer />} />
+              <Route path="/business-agreement" element={<Business />} />
             </Routes>
           </>
         )}

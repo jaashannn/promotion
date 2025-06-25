@@ -84,7 +84,7 @@ const Footer = () => {
               <div className="w-8 h-8 bg-gradient-to-r from-neon-blue to-neon-violet rounded-lg flex items-center justify-center">
                 <Zap className="w-5 h-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-dark-text">ReflowHub</span>
+              <span className="text-xl font-bold text-dark-text">RefloHub</span>
             </div>
             <p className="text-dark-muted mb-6">
               Leading the future of lead generation with innovative solutions for freelancers and businesses worldwide.
@@ -181,7 +181,7 @@ const Footer = () => {
             transition={{ duration: 0.8 }}
             className="text-dark-muted text-center md:text-left mb-4 md:mb-0"
           >
-            © 2025 ReflowHub. All rights reserved.
+            © 2025 RefloHub. All rights reserved.
           </motion.p>
           <motion.p
             initial={{ opacity: 0 }}
