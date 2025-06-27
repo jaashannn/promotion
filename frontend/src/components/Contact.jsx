@@ -180,13 +180,7 @@ const Contact = () => {
                   </a>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <MapPin className="w-6 h-6 text-cyan-400 mt-1" />
-                <div>
-                  <h3 className="text-lg font-medium">Head Office</h3>
-                  <p className="text-gray-300">[]</p>
-                </div>
-              </div>
+              
               <div className="flex items-start gap-4">
                 <div className="w-6 h-6 text-cyan-400 mt-1">
                   <Sparkles className="w-6 h-6" />
