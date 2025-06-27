@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Sparkles, Check, Star, Zap, Coins, Shield, Globe, BadgeCheck, TrendingUp } from 'lucide-react';
+import { ArrowRight, Sparkles, Check, Coins, Shield, Globe, Star } from 'lucide-react';
 import { useRef } from 'react';
 
 const Freelancer = () => {
@@ -89,7 +89,7 @@ const Freelancer = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Freelancer <span className="bg-gradient-to-r from-neon-blue to-neon-violet bg-clip-text text-transparent">Membership</span>
+              Reflo Hub Ltd <span className="bg-gradient-to-r from-neon-blue to-neon-violet bg-clip-text text-transparent">Freelancer</span>
             </motion.h1>
 
             <motion.p
@@ -98,8 +98,7 @@ const Freelancer = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Join our global lead-referral platform and unlock unlimited earning potential. 
-              Connect with businesses worldwide and get paid for successful referrals.
+              A platform for independent contractors to earn passive income by referring leads from your network. Connect with businesses worldwide, no selling required.
             </motion.p>
 
             <motion.div
@@ -112,25 +111,59 @@ const Freelancer = () => {
                 whileHover={{ y: -5 }}
                 className="flex items-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2"
               >
-                <Zap className="w-4 h-4 text-neon-blue mr-2" />
-                <span className="text-sm">Instant Payouts</span>
+                <Coins className="w-4 h-4 text-neon-blue mr-2" />
+                <span className="text-sm">Recurring Commissions</span>
               </motion.div>
               <motion.div 
                 whileHover={{ y: -5 }}
                 className="flex items-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2"
               >
                 <Globe className="w-4 h-4 text-neon-blue mr-2" />
-                <span className="text-sm">Global Network</span>
+                <span className="text-sm">Global Opportunities</span>
               </motion.div>
               <motion.div 
                 whileHover={{ y: -5 }}
                 className="flex items-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2"
               >
                 <Shield className="w-4 h-4 text-neon-blue mr-2" />
-                <span className="text-sm">Secure Platform</span>
+                <span className="text-sm">Secure & Transparent</span>
               </motion.div>
             </motion.div>
           </motion.div>
+        </section>
+
+        {/* How It Works Section */}
+        <section className="py-16">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            How It <span className="bg-gradient-to-r from-neon-blue to-neon-violet bg-clip-text text-transparent">Works</span>
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            {[
+              { title: "Sign Up", description: "Fast registration with live photo verification for secure profiles." },
+              { title: "Submit Leads", description: "Choose from 50+ business sectors and submit leads using monthly coins." },
+              { title: "Track Leads", description: "Monitor lead status and communicate directly with businesses via chat." },
+              { title: "Get Paid", description: "Receive direct payments from businesses for successful conversions." }
+            ].map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center"
+              >
+                <div className="text-2xl font-semibold mb-4">{step.title}</div>
+                <p className="text-dark-muted">{step.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </section>
 
         {/* Pricing Section */}
@@ -145,8 +178,49 @@ const Freelancer = () => {
             Simple, <span className="bg-gradient-to-r from-neon-blue to-neon-violet bg-clip-text text-transparent">Transparent</span> Pricing
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {/* Basic Plan */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -10 }}
+              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 flex flex-col"
+            >
+              <div className="mb-6">
+                <h3 className="text-xl font-semibold mb-2">Freelancer Subscription</h3>
+                <p className="text-dark-muted text-sm mb-4">Perfect for independent contractors</p>
+                <div className="flex items-end mb-4">
+                  <span className="text-4xl font-bold">$9.99</span>
+                  <span className="text-dark-muted ml-1">/month (USD)</span>
+                </div>
+                <p className="text-sm text-neon-blue mb-4">33% off (was $14.99) + extra 30% off with Student ID</p>
+                <div className="h-px bg-white/10 my-4"></div>
+              </div>
+              <ul className="space-y-3 flex-1">
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-neon-blue mr-2" />
+                  <span>5 Lead Submission Coins Monthly</span>
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-neon-blue mr-2" />
+                  <span>Freelancer Dashboard Access</span>
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-neon-blue mr-2" />
+                  <span>Access to Premium Enterprises</span>
+                </li>
+              </ul>
+              <motion.a
+                href="#"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="mt-8 inline-block w-full text-center bg-gradient-to-r from-neon-blue to-neon-violet text-dark-bg font-medium rounded-lg py-3 px-6 transition-all duration-300 hover:shadow-lg hover:shadow-neon-blue/20"
+              >
+                Get Started
+              </motion.a>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -156,26 +230,26 @@ const Freelancer = () => {
               className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 flex flex-col"
             >
               <div className="mb-6">
-                <h3 className="text-xl font-semibold mb-2">Starter</h3>
-                <p className="text-dark-muted text-sm mb-4">Perfect for testing the platform</p>
+                <h3 className="text-xl font-semibold mb-2">Verified Business Badge</h3>
+                <p className="text-dark-muted text-sm mb-4">Enhance your profile credibility</p>
                 <div className="flex items-end mb-4">
-                  <span className="text-4xl font-bold">$14.99</span>
-                  <span className="text-dark-muted ml-1">/month</span>
+                  <span className="text-4xl font-bold">$25.00</span>
+                  <span className="text-dark-muted ml-1">/month (USD)</span>
                 </div>
                 <div className="h-px bg-white/10 my-4"></div>
               </div>
               <ul className="space-y-3 flex-1">
                 <li className="flex items-center">
                   <Check className="w-4 h-4 text-neon-blue mr-2" />
-                  <span>5 Lead Submission Coins</span>
+                  <span>Verified Badge Display</span>
                 </li>
                 <li className="flex items-center">
                   <Check className="w-4 h-4 text-neon-blue mr-2" />
-                  <span>Freelancer Dashboard Access</span>
+                  <span>Increased Trust from Businesses</span>
                 </li>
                 <li className="flex items-center">
                   <Check className="w-4 h-4 text-neon-blue mr-2" />
-                  <span>Basic Support</span>
+                  <span>Stand Out on Leaderboard</span>
                 </li>
               </ul>
               <motion.a
@@ -184,115 +258,7 @@ const Freelancer = () => {
                 whileTap={{ scale: 0.98 }}
                 className="mt-8 inline-block w-full text-center bg-white/10 hover:bg-white/20 border border-white/10 rounded-lg py-3 px-6 transition-colors duration-300"
               >
-                Get Started
-              </motion.a>
-            </motion.div>
-
-            {/* Popular Plan */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-              className="bg-gradient-to-br from-neon-blue/10 to-neon-violet/10 backdrop-blur-sm border border-neon-blue/30 rounded-xl p-8 flex flex-col relative overflow-hidden"
-            >
-              <div className="absolute top-4 right-4 bg-neon-blue text-dark-bg text-xs font-bold px-3 py-1 rounded-full flex items-center">
-                <Star className="w-3 h-3 mr-1" />
-                <span>POPULAR</span>
-              </div>
-              <div className="mb-6">
-                <h3 className="text-xl font-semibold mb-2">Professional</h3>
-                <p className="text-dark-muted text-sm mb-4">Best for serious freelancers</p>
-                <div className="flex items-end mb-4">
-                  <span className="text-4xl font-bold">$29.99</span>
-                  <span className="text-dark-muted ml-1">/month</span>
-                </div>
-                <div className="h-px bg-white/10 my-4"></div>
-              </div>
-              <ul className="space-y-3 flex-1">
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-neon-blue mr-2" />
-                  <span>15 Lead Submission Coins</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-neon-blue mr-2" />
-                  <span>Priority Lead Access</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-neon-blue mr-2" />
-                  <span>Advanced Analytics</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-neon-blue mr-2" />
-                  <span>Priority Support</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-neon-blue mr-2" />
-                  <span>Verified Badge</span>
-                </li>
-              </ul>
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="mt-8 inline-block w-full text-center bg-gradient-to-r from-neon-blue to-neon-violet text-dark-bg font-medium rounded-lg py-3 px-6 transition-all duration-300 hover:shadow-lg hover:shadow-neon-blue/20"
-              >
-                Get Professional
-              </motion.a>
-            </motion.div>
-
-            {/* Enterprise Plan */}
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 flex flex-col"
-            >
-              <div className="mb-6">
-                <h3 className="text-xl font-semibold mb-2">Enterprise</h3>
-                <p className="text-dark-muted text-sm mb-4">For high-volume referrers</p>
-                <div className="flex items-end mb-4">
-                  <span className="text-4xl font-bold">$99.99</span>
-                  <span className="text-dark-muted ml-1">/month</span>
-                </div>
-                <div className="h-px bg-white/10 my-4"></div>
-              </div>
-              <ul className="space-y-3 flex-1">
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-neon-blue mr-2" />
-                  <span>50 Lead Submission Coins</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-neon-blue mr-2" />
-                  <span>Exclusive Lead Access</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-neon-blue mr-2" />
-                  <span>Advanced Analytics</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-neon-blue mr-2" />
-                  <span>24/7 VIP Support</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-neon-blue mr-2" />
-                  <span>Verified Badge</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-neon-blue mr-2" />
-                  <span>Dedicated Account Manager</span>
-                </li>
-              </ul>
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="mt-8 inline-block w-full text-center bg-white/10 hover:bg-white/20 border border-white/10 rounded-lg py-3 px-6 transition-colors duration-300"
-              >
-                Contact Sales
+                Add Badge
               </motion.a>
             </motion.div>
           </div>
@@ -306,11 +272,10 @@ const Freelancer = () => {
             className="mt-16 max-w-4xl mx-auto"
           >
             <h3 className="text-2xl font-semibold text-center mb-8">Need More Coins?</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {[
                 { coins: 10, price: "$5.00", perCoin: "$0.50", popular: false },
-                { coins: 14, price: "$7.00", perCoin: "$0.50", popular: true },
-                { coins: 20, price: "$10.00", perCoin: "$0.50", popular: false },
+                { coins: 20, price: "$10.00", perCoin: "$0.50", popular: true },
               ].map((pkg, index) => (
                 <motion.div
                   key={index}
@@ -341,37 +306,7 @@ const Freelancer = () => {
           </motion.div>
         </section>
 
-        {/* Stats Section */}
-        <section className="py-16">
-          <motion.div 
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            {[
-              { value: "10,000+", label: "Active Freelancers", icon: <TrendingUp className="w-6 h-6" /> },
-              { value: "$5M+", label: "Paid to Freelancers", icon: <Coins className="w-6 h-6" /> },
-              { value: "50+", label: "Countries", icon: <Globe className="w-6 h-6" /> },
-              { value: "98%", label: "Satisfaction Rate", icon: <BadgeCheck className="w-6 h-6" /> },
-            ].map((stat, index) => (
-              <motion.div 
-                key={index}
-                whileHover={{ y: -5 }}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center"
-              >
-                <div className="flex justify-center text-neon-blue mb-3">
-                  {stat.icon}
-                </div>
-                <div className="text-3xl font-bold mb-2">{stat.value}</div>
-                <div className="text-sm text-dark-muted">{stat.label}</div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </section>
-
-        {/* Agreement Sections */}
+        {/* Special Earning Opportunities */}
         <section className="py-16">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-center mb-16"
@@ -380,122 +315,146 @@ const Freelancer = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            Freelancer <span className="bg-gradient-to-r from-neon-blue to-neon-violet bg-clip-text text-transparent">Agreement</span>
+            Special Earning <span className="bg-gradient-to-r from-neon-blue to-neon-violet bg-clip-text text-transparent">Opportunities</span>
           </motion.h2>
 
-          <div className="space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6"
+            >
+              <h3 className="text-xl font-semibold mb-4">Virtual Tech Masters (VTM)</h3>
+              <p className="text-dark-muted mb-4">Earn a 10% monthly recurring commission for clients signing up for web development, app development, or digital marketing packages.</p>
+              <p className="text-dark-muted">Ideal for freelancers with connections to startups, small businesses, or entrepreneurs.</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6"
+            >
+              <h3 className="text-xl font-semibold mb-4">Overseas Travels Ltd.</h3>
+              <p className="text-dark-muted mb-4">Earn ongoing commissions for referrals using travel services like airfare, lodging, cruises, and more.</p>
+              <p className="text-dark-muted">Perfect for freelancers with corporate clients, families, or frequent travelers.</p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Freelancer Dashboard Features */}
+        <section className="py-16">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            Freelancer <span className="bg-gradient-to-r from-neon-blue to-neon-violet bg-clip-text text-transparent">Dashboard</span>
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
-              {
-                title: "1. Eligibility and Verification",
-                content: [
-                  "You must be at least 18 years old or the legal majority age in your jurisdiction to register as a freelancer.",
-                  "Complete a live photo verification during registration to activate your account.",
-                  "Provide accurate, up-to-date, and complete information, updating it promptly if it changes."
-                ]
-              },
-              {
-                title: "2. Access and Subscription",
-                content: [
-                  "Pay $14.99 CAD/USD monthly for Freelancer Membership, including access to the Freelancer Dashboard and 5 monthly lead submission coins.",
-                  "Purchase additional coins: $5.00 (10 coins), $7.00 (14 coins), or $10.00 (20 coins).",
-                  "All payments are non-refundable; cancel your subscription at the end of the billing period."
-                ]
-              },
-              {
-                title: "3. Platform and Payment Responsibilities",
-                content: [
-                  "Reflo Hub Ltd is a SaaS provider, not an employer, agent, broker, or payment processor.",
-                  "Businesses pay you directly outside the platform for successful leads.",
-                  "No guarantees are made for lead acceptance, conversion, or payment."
-                ]
-              },
-              {
-                title: "4. Lead Submission and Behaviour",
-                content: [
-                  "Submit only genuine, approved leads; fraudulent submissions may lead to suspension or termination.",
-                  "Prohibited actions include impersonation, spamming, harassment, or bypassing the platform.",
-                  "Submit leads from any location, provided they align with platform business listings."
-                ]
-              },
-              {
-                title: "5. Platform Integrity and Non-Circumvention",
-                content: [
-                  "Do not engage in off-platform arrangements to bypass subscription fees.",
-                  "Optional commission agreement templates are available but not enforced by Reflo Hub Ltd."
-                ]
-              },
-              {
-                title: "6. Dispute Settlement",
-                content: [
-                  "Use the platform's internal ticketing system for informal dispute resolution.",
-                  "Reflo Hub Ltd is not liable for unpaid commissions or disputes arising from freelancer-business interactions."
-                ]
-              },
-              {
-                title: "7. Termination and Suspension of Accounts",
-                content: [
-                  "Accounts may be suspended or terminated for fraudulent leads, rule breaches, unpaid fees, abuse, or multiple complaints.",
-                  "Cancel your membership anytime via the dashboard; no refunds for remaining time."
-                ]
-              },
-              {
-                title: "8. Property Rights",
-                content: [
-                  "All platform content, branding, and tools are owned by Reflo Hub Ltd.",
-                  "Do not duplicate, reverse-engineer, or resell Reflo Hub Ltd's technology without permission."
-                ]
-              },
-              {
-                title: "9. Modifications",
-                content: [
-                  "Reflo Hub Ltd may update this Agreement, notifying you via email or platform notification.",
-                  "Continued use after changes indicates acceptance of updated terms."
-                ]
-              },
-              {
-                title: "10. Jurisdiction and Governing Law",
-                content: [
-                  "This Agreement is governed by the laws of Ontario, Canada.",
-                  "All disputes fall under the exclusive jurisdiction of Ontario courts."
-                ]
-              },
-              {
-                title: "11. Contact",
-                content: [
-                  "For inquiries, contact us at legal@reflohubltd.com or visit reflohubltd.com."
-                ]
-              }
-            ].map((section, index) => (
+              { feature: "Coin Balance", description: "View your available coins for submitting leads." },
+              { feature: "Lead Submission", description: "Easy-to-use form for entering client details." },
+              { feature: "Lead Tracker", description: "Real-time updates on submitted leads." },
+              { feature: "Earnings Overview", description: "Track earnings history and pending payments." },
+              { feature: "Chat Interface", description: "Communicate directly with businesses." },
+              { feature: "Support & Resources", description: "Access FAQs, guide videos, and support tickets." }
+            ].map((item, index) => (
               <motion.div
                 key={index}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl overflow-hidden"
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6"
               >
-                <motion.div 
-                  className="p-6 cursor-pointer"
-                  whileHover={{ backgroundColor: 'rgba(255, 255, 255, 0.03)' }}
-                >
-                  <h2 className="text-2xl font-semibold text-dark-text mb-4 flex items-center">
-                    <span className="bg-gradient-to-r from-neon-blue to-neon-violet bg-clip-text text-transparent">
-                      {section.title.split(' ')[0]}
-                    </span>
-                    <span className="ml-2">{section.title.split(' ').slice(1).join(' ')}</span>
-                  </h2>
-                  <ul className="list-disc list-inside space-y-2 text-dark-muted pl-4">
-                    {section.content.map((item, i) => (
-                      <motion.li 
-                        key={i} 
-                        className="hover:text-white transition-colors duration-200"
-                        whileHover={{ x: 5 }}
-                      >
-                        {item}
-                      </motion.li>
-                    ))}
-                  </ul>
-                </motion.div>
+                <h3 className="text-lg font-semibold mb-3">{item.feature}</h3>
+                <p className="text-dark-muted">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Top Niches Section */}
+        <section className="py-16">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            Top Niches for <span className="bg-gradient-to-r from-neon-blue to-neon-violet bg-clip-text text-transparent">Higher Income</span>
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              { niche: "Real Estate", description: "Higher commissions from high-value sales." },
+              { niche: "Immigration & Legal", description: "High demand in international communities." },
+              { niche: "Education & Tuition", description: "Ongoing demand from parents and students." },
+              { niche: "VTM (Digital Marketing)", description: "Recurring monthly revenue." },
+              { niche: "Travel Services", description: "Consistent repeat business." }
+            ].map((niche, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6"
+              >
+                <h3 className="text-lg font-semibold mb-3">{niche.niche}</h3>
+                <p className="text-dark-muted">{niche.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="py-16">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            What Freelancers <span className="bg-gradient-to-r from-neon-blue to-neon-violet bg-clip-text text-transparent">Say</span>
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                quote: "I never imagined network referrals could be so lucrative. It was easy and risk-free thanks to Reflo Hub Ltd. By just submitting leads, I've established a consistent monthly income.",
+                author: "Priya S., Toronto Freelancer",
+                rating: 4
+              },
+              {
+                quote: "The monthly recurring commission from VTM is the best feature of Reflo Hub Ltd. With just one successful referral, I make a consistent monthly income.",
+                author: "Jake M., New York-based Digital Marketer",
+                rating: 4
+              }
+            ].map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6"
+              >
+                <div className="flex mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 text-neon-blue fill-current" />
+                  ))}
+                </div>
+                <p className="text-dark-muted mb-4">{testimonial.quote}</p>
+                <p className="text-sm font-semibold">{testimonial.author}</p>
               </motion.div>
             ))}
           </div>
@@ -514,7 +473,7 @@ const Freelancer = () => {
               Ready to Start <span className="bg-gradient-to-r from-neon-blue to-neon-violet bg-clip-text text-transparent">Earning</span>?
             </h2>
             <p className="text-xl text-dark-muted mb-10">
-              Join thousands of freelancers who are earning commissions by connecting businesses with their ideal clients.
+              Join Reflo Hub Ltd and turn your network into passive income with no selling required.
             </p>
             <motion.div className="flex flex-wrap justify-center gap-4">
               <motion.a
@@ -535,12 +494,12 @@ const Freelancer = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-neon-violet to-neon-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </motion.a>
               <motion.a
-                href="#"
+                href="mailto:support@reflohubltd.com"
                 whileHover={{ y: -3 }}
                 className="group relative inline-flex px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-xl font-semibold text-lg hover:bg-white/10 transition-all duration-300 overflow-hidden"
               >
                 <span className="relative z-10 flex items-center">
-                  Contact Sales
+                  Contact Support
                 </span>
               </motion.a>
             </motion.div>

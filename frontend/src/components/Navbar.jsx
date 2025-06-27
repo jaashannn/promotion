@@ -1,136 +1,114 @@
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { Menu, X, Zap, ChevronDown } from 'lucide-react';
-import logo from '../assets/logo.png'
+import { motion } from 'framer-motion';
+import { Menu, X, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import logo from '../assets/rlogo.png'
 
 const Navbar = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isLegalMenuOpen, setIsLegalMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: 'About', href: '/about' },
-    { label: 'Freelancer', href: '/freelancer-agreement' },
-    { label: 'Business', href: '/business-agreement' },
-    { label: 'Contact Us', href: '/contact' },
-    { label: 'Blog', href: '/blog' },
+    { name: 'Home', path: '/' },
+    { name: 'Freelancer', path: '/freelancer' },
+    { name: 'Business', path: '/business' },
+    { name: 'Contact Us', path: '/contact' },
+    { name: 'About', path: '/about' },
+    { name: 'Get Started', path: '/get-started' },
   ];
 
-  const legalItems = [
-    { label: 'Privacy Policy', href: '/privacy-policy' },
-    { label: 'Terms & Conditions', href: '/terms-and-conditions' },
-  ];
+  const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900/80 backdrop-blur-xl border-b border-white/10">
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="fixed top-0 left-0 w-full bg-dark-bg/80 backdrop-blur-md border-b border-white/10 z-50"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img src={logo} alt="Logo" className="h-10 w-auto object-contain" />
-          </Link>
+         <motion.div
+  whileHover={{ scale: 1.05 }}
+  className="flex-shrink-0"
+>
+  <Link to="/">
+    <img
+      src={logo} // replace with the correct filename and extension
+      alt="Reflo Hub Logo"
+    className="h-20 w-20 object-contain"  // adjust size as needed
+    />
+  </Link>
+</motion.div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.href}
-                className="text-white hover:text-cyan-500 transition-colors duration-200 relative group"
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-4">
+            {navItems.map((item, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ y: -2, color: '#00d4ff' }}
+                whileTap={{ scale: 0.95 }}
               >
-                {item.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-500 group-hover:w-full transition-all duration-300"></span>
-              </Link>
+                <Link
+                  to={item.path}
+                  className={`px-3 py-2 text-sm font-medium text-dark-text hover:text-neon-blue transition-colors duration-300 ${
+                    item.name === 'Get Started'
+                      ? 'bg-gradient-to-r from-neon-blue to-neon-violet text-dark-bg rounded-lg px-4 py-2'
+                      : ''
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              </motion.div>
             ))}
-
-            {/* Legal Dropdown */}
-            <div className="relative group">
-              <button
-                className="flex items-center text-white hover:text-cyan-500 transition-colors duration-200"
-                onClick={() => setIsLegalMenuOpen(!isLegalMenuOpen)}
-              >
-                Legal
-                <ChevronDown className={`w-4 h-4 ml-1 transition-transform ${isLegalMenuOpen ? 'rotate-180' : ''}`} />
-              </button>
-              <div
-                className={`absolute right-0 mt-2 w-48 bg-gray-800 rounded-md shadow-lg overflow-hidden ${isLegalMenuOpen ? 'block' : 'hidden'} group-hover:block`}
-                onMouseLeave={() => setIsLegalMenuOpen(false)}
-              >
-                {legalItems.map((item) => (
-                  <Link
-                    key={item.label}
-                    to={item.href}
-                    className="block px-4 py-2 text-white hover:bg-gray-700 transition-colors duration-200"
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* CTA Button */}
-          <div className="hidden md:flex items-center">
-            <Link
-              to="/get-started"
-              className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-violet-500 text-white rounded-lg hover:shadow-lg transition-all duration-200"
-            >
-              Get Started
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-white hover:text-cyan-500 transition-colors duration-200"
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              onClick={toggleMenu}
+              className="text-dark-text hover:text-neon-blue focus:outline-none"
             >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </motion.button>
           </div>
         </div>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-gray-800/95 backdrop-blur-xl rounded-lg mt-2 p-4 border border-white/10">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.href}
-                className="block py-2 text-white hover:text-cyan-500 transition-colors duration-200"
-                onClick={() => setIsMobileMenuOpen(false)}
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
+          transition={{ duration: 0.3 }}
+          className="md:hidden overflow-hidden"
+        >
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            {navItems.map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: index * 0.1 }}
               >
-                {item.label}
-              </Link>
-            ))}
-
-            {/* Mobile Legal Links */}
-            <div className="pt-2 border-t border-white/10 mt-2">
-              <div className="text-gray-400 text-sm py-2">Legal</div>
-              {legalItems.map((item) => (
                 <Link
-                  key={item.label}
-                  to={item.href}
-                  className="block py-2 pl-4 text-white hover:text-cyan-500 transition-colors duration-200"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  to={item.path}
+                  onClick={toggleMenu}
+                  className={`block px-3 py-2 text-base font-medium text-dark-text hover:text-neon-blue hover:bg-white/5 rounded-lg transition-colors duration-300 ${
+                    item.name === 'Get Started'
+                      ? 'bg-gradient-to-r from-neon-blue to-neon-violet text-dark-bg'
+                      : ''
+                  }`}
                 >
-                  {item.label}
+                  {item.name}
                 </Link>
-              ))}
-            </div>
-
-            <div className="pt-4 border-t border-white/10 mt-4">
-              <Link
-                to="/get-started"
-                className="w-full py-2 bg-gradient-to-r from-cyan-500 to-violet-500 text-white rounded-lg hover:shadow-lg transition-all duration-200"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Get Started
-              </Link>
-            </div>
+              </motion.div>
+            ))}
           </div>
-        )}
+        </motion.div>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
 
