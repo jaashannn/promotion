@@ -32,13 +32,19 @@ const BackToTop = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
-          whileHover={{ 
-            scale: 1.1, 
-            boxShadow: '0 0 30px rgba(0, 212, 255, 0.5)' 
+          whileHover={{
+            scale: 1.1,
+            boxShadow: '0 0 30px rgba(0, 212, 255, 0.5)'
           }}
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 w-12 h-12 bg-gradient-to-r from-neon-blue to-neon-violet text-white rounded-full flex items-center justify-center hover:shadow-lg transition-all duration-200 animate-glow"
+          className="fixed bottom-8 right-8 z-50 w-12 h-12 
+            bg-gradient-to-r from-neon-blue to-neon-violet 
+            text-white dark:text-white 
+            rounded-full flex items-center justify-center 
+            hover:shadow-lg transition-all duration-200 animate-glow
+            border border-white/20 dark:border-white/10
+            dark:bg-gradient-to-r dark:from-neon-blue dark:to-neon-violet"
         >
           <ChevronUp className="w-6 h-6" />
         </motion.button>

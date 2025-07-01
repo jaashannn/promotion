@@ -15,8 +15,6 @@ const GetStarted = () => {
       country: '',
       city: '',
       skills: '',
-      password: '',
-      confirmPassword: '',
       liveImage: null,
       idProofs: [],
     },
@@ -30,8 +28,6 @@ const GetStarted = () => {
       industry: '',
       country: '',
       city: '',
-      password: '',
-      confirmPassword: '',
       liveImage: null,
       idProofs: [],
       businessDocs: [],
@@ -75,7 +71,6 @@ const GetStarted = () => {
   }, []);
 
   useEffect(() => {
-    // Cleanup camera stream on component unmount or when camera is closed
     return () => {
       if (cameraStream) {
         cameraStream.getTracks().forEach((track) => track.stop());
@@ -85,7 +80,6 @@ const GetStarted = () => {
   }, [cameraStream]);
 
   useEffect(() => {
-    // Assign stream to video element when both are available
     if (isCameraOpen && cameraStream && videoRef.current) {
       videoRef.current.srcObject = cameraStream;
       videoRef.current.onloadedmetadata = () => {
@@ -101,7 +95,6 @@ const GetStarted = () => {
             setStreamError('Failed to start video. Please try again or use the upload option.');
           });
       };
-      // Retry playback after a delay to handle timing issues
       const timer = setTimeout(() => {
         if (videoRef.current && !videoRef.current.paused) return;
         videoRef.current.play().catch((err) => {
@@ -126,8 +119,6 @@ const GetStarted = () => {
         country: '',
         city: '',
         skills: '',
-        password: '',
-        confirmPassword: '',
         liveImage: null,
         idProofs: [],
       },
@@ -141,8 +132,6 @@ const GetStarted = () => {
         industry: '',
         country: '',
         city: '',
-        password: '',
-        confirmPassword: '',
         liveImage: null,
         idProofs: [],
         businessDocs: [],
@@ -160,9 +149,6 @@ const GetStarted = () => {
         newErrors.email = 'Valid email is required';
       if (!data.phone) newErrors.phone = 'Phone number is required';
       if (!data.country) newErrors.country = 'Country is required';
-      if (!data.password) newErrors.password = 'Password is required';
-      if (data.password !== data.confirmPassword)
-        newErrors.confirmPassword = 'Passwords must match';
       if (!data.liveImage) newErrors.liveImage = 'Live image (selfie) is required';
       if (data.idProofs.length === 0) newErrors.idProofs = 'At least one ID proof is required';
     } else {
@@ -174,9 +160,6 @@ const GetStarted = () => {
         newErrors.email = 'Valid email is required';
       if (!data.phone) newErrors.phone = 'Phone number is required';
       if (!data.country) newErrors.country = 'Country is required';
-      if (!data.password) newErrors.password = 'Password is required';
-      if (data.password !== data.confirmPassword)
-        newErrors.confirmPassword = 'Passwords must match';
       if (!data.liveImage) newErrors.liveImage = 'Live image (selfie) is required';
       if (data.idProofs.length === 0) newErrors.idProofs = 'At least one ID proof is required';
     }
@@ -227,7 +210,6 @@ const GetStarted = () => {
 
   const openCamera = async () => {
     try {
-      // Check for camera availability
       const devices = await navigator.mediaDevices.enumerateDevices();
       const hasCamera = devices.some((device) => device.kind === 'videoinput');
       if (!hasCamera) {
@@ -236,7 +218,6 @@ const GetStarted = () => {
         return;
       }
 
-      // Request camera with constraints
       const stream = await navigator.mediaDevices.getUserMedia({
         video: { facingMode: 'user', width: { ideal: 1280 }, height: { ideal: 720 } },
       });
@@ -359,20 +340,31 @@ const GetStarted = () => {
       if (key === 'liveImage' && value) {
         formDataObj.append('liveImage', value);
       } else if (key === 'idProofs' && value.length > 0) {
-        value.forEach((file, i) => formDataObj.append(`idProofs[${i}]`, file));
+        value.forEach((file) => formDataObj.append('idProofs', file));
       } else if (key === 'businessDocs' && value.length > 0) {
-        value.forEach((file, i) => formDataObj.append(`businessDocs[${i}]`, file));
-      } else if (key !== 'confirmPassword') {
+        value.forEach((file) => formDataObj.append('businessDocs', file));
+      } else {
         formDataObj.append(key, value);
       }
     });
 
-    console.log(`${type} form submitted:`);
-    for (let [key, value] of formDataObj.entries()) {
-      console.log(`${key}: ${value instanceof File ? value.name : value}`);
+    try {
+      const response = await fetch(`http://localhost:5000/api/auth/register/${type}`, {
+        method: 'POST',
+        body: formDataObj,
+      });
+      const data = await response.json();
+      if (response.ok) {
+        console.log(`${type} data saved successfully:`, data);
+        resetForm();
+        alert(`${type.charAt(0).toUpperCase() + type.slice(1)} data saved successfully!`);
+      } else {
+        setErrors({ submit: data.message || 'Failed to save data. Please try again.' });
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setErrors({ submit: 'Failed to submit form. Please check your network and try again.' });
     }
-
-    resetForm();
   };
 
   const sectionVariants = {
@@ -387,8 +379,8 @@ const GetStarted = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gray-950 text-white overflow-hidden perspective-1000 font-sans">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-950 via-gray-900 to-gray-950">
+    <section className="relative min-h-screen bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-white overflow-hidden perspective-1000 font-sans">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950">
         <div className="absolute inset-0 bg-[linear-gradient(45deg,_rgba(0,212,255,0.2),_transparent,_rgba(138,43,226,0.2))] animate-[gradient-shift_25s_ease_infinite] bg-[length:200%_200%]"></div>
         <div className="absolute inset-0 bg-[linear-gradient(135deg,_rgba(0,212,255,0.1),_transparent,_rgba(138,43,226,0.1))] animate-[gradient-shift_30s_ease_infinite_reverse] bg-[length:200%_200%]"></div>
       </div>
@@ -397,7 +389,7 @@ const GetStarted = () => {
         {[...Array(25)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-3 h-3 bg-cyan-400/70 rounded-full blur-md"
+            className="absolute w-3 h-3 bg-cyan-400/70 dark:bg-cyan-200/70 rounded-full blur-md"
             style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
             animate={{ scale: [1, 2, 1], opacity: [0.5, 1, 0.5], x: Math.random() * 80 - 40, y: Math.random() * 80 - 40 }}
             transition={{ duration: Math.random() * 10 + 10, repeat: true, repeatType: 'reverse', delay: Math.random() * 3 }}
@@ -413,16 +405,16 @@ const GetStarted = () => {
           className="text-center mb-20"
         >
           <motion.div
-            className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-lg border border-cyan-500/40 rounded-full px-6 py-2 mb-6 shadow-[0_0_30px_rgba(0,212,255,0.4)]"
+            className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-cyan-500/40 dark:border-cyan-200/40 rounded-full px-6 py-2 mb-6 shadow-[0_0_30px_rgba(0,212,255,0.4)]"
             whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)' }}
           >
             <Sparkles className="w-5 h-5 text-cyan-400" />
-            <span className="text-sm font-medium text-gray-100">Join Reflo Hub</span>
+            <span className="text-sm font-medium text-gray-900 dark:text-gray-100">Join Reflo Hub</span>
           </motion.div>
-          <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-cyan-300 via-violet-400 to-cyan-300 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_30px_rgba(0,212,255,0.7)] animate-[pulse_3s_ease_infinite]">
+          <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_30px_rgba(0,212,255,0.7)] animate-[pulse_3s_ease_infinite]">
             Get Started Today
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Join Reflo Hub as a freelancer or business and unlock a world of opportunities in lead generation and global collaboration.
           </p>
         </motion.div>
@@ -433,9 +425,9 @@ const GetStarted = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-flex bg-white/5 backdrop-blur-lg border border-cyan-500/40 rounded-full p-1">
+          <div className="inline-flex bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-cyan-500/40 dark:border-cyan-200/40 rounded-full p-1">
             <motion.button
-              className={`px-6 py-2 rounded-full text-lg font-medium ${userType === 'freelancer' ? 'bg-gradient-to-r from-cyan-500 to-violet-500 text-white' : 'text-gray-300'}`}
+              className={`px-6 py-2 rounded-full text-lg font-medium ${userType === 'freelancer' ? 'bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 text-white' : 'text-gray-600 dark:text-gray-300'}`}
               onClick={() => setUserType('freelancer')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -443,7 +435,7 @@ const GetStarted = () => {
               Freelancer
             </motion.button>
             <motion.button
-              className={`px-6 py-2 rounded-full text-lg font-medium ${userType === 'business' ? 'bg-gradient-to-r from-cyan-500 to-violet-500 text-white' : 'text-gray-300'}`}
+              className={`px-6 py-2 rounded-full text-lg font-medium ${userType === 'business' ? 'bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 text-white' : 'text-gray-600 dark:text-gray-300'}`}
               onClick={() => setUserType('business')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -460,300 +452,69 @@ const GetStarted = () => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="max-w-2xl mx-auto bg-gradient-to-b from-white/5 to-white/3 backdrop-blur-lg border border-cyan-500/40 rounded-2xl p-8 shadow-[0_0_50px_rgba(0,212,255,0.3)]"
+            className="max-w-2xl mx-auto bg-gradient-to-b from-gray-100/60 dark:from-white/5 to-gray-200/60 dark:to-white/3 backdrop-blur-lg border border-cyan-500/40 dark:border-cyan-200/40 rounded-2xl p-8 shadow-[0_0_50px_rgba(0,212,255,0.3)]"
           >
             <div className="relative z-10">
               {userType === 'freelancer' ? (
                 <form onSubmit={(e) => handleSubmit(e, 'freelancer')} className="space-y-6">
-                  <h2 className="text-2xl font-bold text-white mb-6">Freelancer Registration</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Freelancer Registration</h2>
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Full Name *</label>
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Full Name *</label>
                     <input
                       type="text"
                       name="fullName"
                       value={formData.freelancer.fullName}
                       onChange={(e) => handleChange(e, 'freelancer')}
-                      className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-200 transition-all duration-300"
                       placeholder="John Doe"
                       required
                     />
                     {errors.fullName && <p className="text-red-400 text-sm mt-1">{errors.fullName}</p>}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Display Name</label>
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Display Name</label>
                     <input
                       type="text"
                       name="displayName"
                       value={formData.freelancer.displayName}
                       onChange={(e) => handleChange(e, 'freelancer')}
-                      className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-200 transition-all duration-300"
                       placeholder="JohnD"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Email *</label>
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Email *</label>
                     <input
                       type="email"
                       name="email"
                       value={formData.freelancer.email}
                       onChange={(e) => handleChange(e, 'freelancer')}
-                      className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-200 transition-all duration-300"
                       placeholder="john@example.com"
                       required
                     />
                     {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Phone *</label>
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Phone *</label>
                     <input
                       type="tel"
                       name="phone"
                       value={formData.freelancer.phone}
                       onChange={(e) => handleChange(e, 'freelancer')}
-                      className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-200 transition-all duration-300"
                       placeholder="+1234567890"
                       required
                     />
                     {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Country *</label>
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Country *</label>
                     <select
                       name="country"
                       value={formData.freelancer.country}
                       onChange={(e) => handleChange(e, 'freelancer')}
-                      className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
-                      required
-                    >
-                      <option value="" disabled>
-                        Select Country
-                      </option>
-                      <option value="India">India</option>
-                      <option value="USA">USA</option>
-                      <option value="Canada">Canada</option>
-                      <option value="UK">UK</option>
-                      <option value="Other">Other</option>
-                    </select>
-                    {errors.country && <p className="text-red-400 text-sm mt-1">{errors.country}</p>}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">City</label>
-                    <input
-                      type="text"
-                      name="city"
-                      value={formData.freelancer.city}
-                      onChange={(e) => handleChange(e, 'freelancer')}
-                      className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
-                      placeholder="Toronto"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Skills (comma-separated)</label>
-                    <input
-                      type="text"
-                      name="skills"
-                      value={formData.freelancer.skills}
-                      onChange={(e) => handleChange(e, 'freelancer')}
-                      className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
-                      placeholder="Sales, Marketing, Networking"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Live Image (Selfie) *</label>
-                    <div className="flex gap-4">
-                      <div className="relative w-full p-4 bg-gray-800/30 border border-dashed border-cyan-300 rounded-lg hover:bg-gray-800/50 transition-all duration-300">
-                        <input
-                          type="file"
-                          name="liveImage"
-                          accept="image/*"
-                          onChange={(e) => handleFileChange(e, 'freelancer', 'liveImage')}
-                          className="absolute inset-0 h-full opacity-0 cursor-pointer"
-                        />
-                        <div className="text-center">
-                          <Upload className="w-6 h-6 text-cyan-300 mx-auto mb-2" />
-                          <p className="text-sm text-gray-500">
-                            {formData.freelancer.liveImage
-                              ? formData.freelancer.liveImage.name
-                              : 'Upload selfie (JPG/PNG, <5MB)'}
-                          </p>
-                        </div>
-                      </div>
-                      <motion.button
-                        type="button"
-                        onClick={openCamera}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="px-4 py-2 bg-gradient-to-r from-cyan-600 to-violet-600 text-white rounded-lg font-semibold flex items-center gap-2"
-                      >
-                        <Camera className="w-5 h-5" />
-                        Take Photo
-                      </motion.button>
-                    </div>
-                    {errors.liveImage && <p className="text-red-400 text-sm mt-1">{errors.liveImage}</p>}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
-                      ID Proofs * (e.g., Passport, ID Card)
-                    </label>
-                    <div className="relative w-full p-4 bg-gray-800/30 border border-dashed border-cyan-300 rounded-lg hover:bg-gray-800/50 transition-all duration-300">
-                      <input
-                        type="file"
-                        name="idProofs"
-                        accept="image/jpeg,image/png,application/pdf"
-                        multiple
-                        onChange={(e) => handleFileChange(e, 'freelancer', 'idProofs')}
-                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-                      />
-                      <div className="text-center">
-                        <Upload className="w-6 h-6 text-cyan-300 mx-auto mb-2" />
-                        <p className="text-sm text-gray-500">
-                          {formData.freelancer.idProofs.length > 0
-                            ? formData.freelancer.idProofs.map((file) => file.name).join(', ')
-                            : `Select ID proofs for ${formData.freelancer.country || 'your country'} (JPG/PNG/PDF, <5MB)`}
-                        </p>
-                      </div>
-                    </div>
-                    {errors.idProofs && <p className="text-red-400 text-sm mt-1">{errors.idProofs}</p>}
-                    {formData.freelancer.country && (
-                      <p className="text-sm text-gray-500 mt-2">
-                        Acceptable IDs: {idProofOptions[formData.freelancer.country].join(', ')}
-                      </p>
-                    )}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Password *</label>
-                    <input
-                      type="password"
-                      name="password"
-                      value={formData.freelancer.password}
-                      onChange={(e) => handleChange(e, 'freelancer')}
-                      className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
-                      placeholder="********"
-                      required
-                    />
-                    {errors.password && <p className="text-red-400 text-sm mt-1">{errors.password}</p>}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Confirm Password *</label>
-                    <input
-                      type="password"
-                      name="confirmPassword"
-                      value={formData.freelancer.confirmPassword}
-                      onChange={(e) => handleChange(e, 'freelancer')}
-                      className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
-                      placeholder="********"
-                      required
-                    />
-                    {errors.confirmPassword && (
-                      <p className="text-red-400 text-sm mt-1">{errors.confirmPassword}</p>
-                    )}
-                  </div>
-                  <motion.button
-                    type="submit"
-                    whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)' }}
-                    whileTap={{ scale: 0.95 }}
-                    className="group w-full px-8 py-4 text-center bg-gradient-to-r from-cyan-600 to-violet-600 text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
-                  >
-                    <span className="flex items-center">
-                      Register as Freelancer
-                      <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-all duration-200" />
-                    </span>
-                  </motion.button>
-                </form>
-              ) : (
-                <form onSubmit={(e) => handleSubmit(e, 'business')} className="space-y-6">
-                  <h2 className="text-2xl font-bold text-white mb-6">Business Registration</h2>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Company Name *</label>
-                    <input
-                      type="text"
-                      name="companyName"
-                      value={formData.business.companyName}
-                      onChange={(e) => handleChange(e, 'business')}
-                      className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
-                      placeholder="Acme Corp"
-                      required
-                    />
-                    {errors.companyName && <p className="text-red-400 text-sm mt-1">{errors.companyName}</p>}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Legal Name *</label>
-                    <input
-                      type="text"
-                      name="legalName"
-                      value={formData.business.legalName}
-                      onChange={(e) => handleChange(e, 'business')}
-                      className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
-                      placeholder="Acme Corporation Ltd"
-                      required
-                    />
-                    {errors.legalName && <p className="text-red-400 text-sm mt-1">{errors.legalName}</p>}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Business Type *</label>
-                    <select
-                      name="businessType"
-                      value={formData.business.businessType}
-                      onChange={(e) => handleChange(e, 'business')}
-                      className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
-                      required
-                    >
-                      <option value="" disabled>
-                        Select Business Type
-                      </option>
-                      <option value="private_ltd">Private Limited</option>
-                      <option value="public_ltd">Public Limited</option>
-                      <option value="llp">LLP</option>
-                      <option value="proprietorship">Proprietorship</option>
-                    </select>
-                    {errors.businessType && <p className="text-red-400 text-sm mt-1">{errors.businessType}</p>}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Contact Name *</label>
-                    <input
-                      type="text"
-                      name="contactName"
-                      value={formData.business.contactName}
-                      onChange={(e) => handleChange(e, 'business')}
-                      className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
-                      placeholder="Jane Smith"
-                      required
-                    />
-                    {errors.contactName && <p className="text-red-400 text-sm mt-1">{errors.contactName}</p>}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Email *</label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.business.email}
-                      onChange={(e) => handleChange(e, 'business')}
-                      className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
-                      placeholder="jane@acme.com"
-                      required
-                    />
-                    {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Phone *</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.business.phone}
-                      onChange={(e) => handleChange(e, 'business')}
-                      className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
-                      placeholder="+1234567890"
-                      required
-                    />
-                    {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Country *</label>
-                    <select
-                      name="country"
-                      value={formData.business.country}
-                      onChange={(e) => handleChange(e, 'business')}
-                      className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-200 transition-all duration-300"
                       required
                     >
                       <option value="" disabled>
@@ -768,33 +529,237 @@ const GetStarted = () => {
                     {errors.country && <p className="text-red-400 text-sm mt-1">{errors.country}</p>}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">City</label>
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">City</label>
+                    <input
+                      type="text"
+                      name="city"
+                      value={formData.freelancer.city}
+                      onChange={(e) => handleChange(e, 'freelancer')}
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-200 transition-all duration-300"
+                      placeholder="Toronto"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Skills (comma-separated)</label>
+                    <input
+                      type="text"
+                      name="skills"
+                      value={formData.freelancer.skills}
+                      onChange={(e) => handleChange(e, 'freelancer')}
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-200 transition-all duration-300"
+                      placeholder="Sales, Marketing, Networking"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Live Image (Selfie) *</label>
+                    <div className="flex gap-4">
+                      <div className="relative w-full p-4 bg-gray-100/60 dark:bg-gray-800/50 border border-dashed border-cyan-300 dark:border-cyan-200 rounded-lg hover:bg-gray-200/60 dark:hover:bg-gray-800/20 transition-all duration-300">
+                        <input
+                          type="file"
+                          name="liveImage"
+                          accept="image/*"
+                          onChange={(e) => handleFileChange(e, 'freelancer', 'liveImage')}
+                          className="absolute inset-0 h-full opacity-0 cursor-pointer"
+                        />
+                        <div className="text-center">
+                          <Upload className="w-6 h-6 text-cyan-400 mx-auto mb-2" />
+                          <p className="text-sm text-gray-500 dark:text-gray-400">
+                            {formData.freelancer.liveImage
+                              ? formData.freelancer.liveImage.name
+                              : 'Upload selfie (JPG/PNG, <5MB)'}
+                          </p>
+                        </div>
+                      </div>
+                      <motion.button
+                        type="button"
+                        onClick={openCamera}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="px-4 py-2 bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 text-white rounded-lg font-semibold flex items-center gap-2"
+                      >
+                        <Camera className="w-5 h-5" />
+                        Take Photo
+                      </motion.button>
+                    </div>
+                    {errors.liveImage && <p className="text-red-400 text-sm mt-1">{errors.liveImage}</p>}
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
+                      ID Proofs * (e.g., Passport, ID Card)
+                    </label>
+                    <div className="relative w-full p-4 bg-gray-100/60 dark:bg-gray-800/50 border border-dashed border-cyan-300 dark:border-cyan-200 rounded-lg hover:bg-gray-200/60 dark:hover:bg-gray-800/20 transition-all duration-300">
+                      <input
+                        type="file"
+                        name="idProofs"
+                        accept="image/jpeg,image/png,application/pdf"
+                        multiple
+                        onChange={(e) => handleFileChange(e, 'freelancer', 'idProofs')}
+                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                      />
+                      <div className="text-center">
+                        <Upload className="w-6 h-6 text-cyan-400 mx-auto mb-2" />
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                          {formData.freelancer.idProofs.length > 0
+                            ? formData.freelancer.idProofs.map((file) => file.name).join(', ')
+                            : `Select ID proofs for ${formData.freelancer.country || 'your country'} (JPG/PNG/PDF, <5MB)`}
+                        </p>
+                      </div>
+                    </div>
+                    {errors.idProofs && <p className="text-red-400 text-sm mt-1">{errors.idProofs}</p>}
+                    {formData.freelancer.country && (
+                      <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                        Acceptable IDs: {idProofOptions[formData.freelancer.country].join(', ')}
+                      </p>
+                    )}
+                  </div>
+                  {errors.submit && <p className="text-red-400 text-sm mt-4">{errors.submit}</p>}
+                  <motion.button
+                    type="submit"
+                    whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)' }}
+                    whileTap={{ scale: 0.95 }}
+                    className="group w-full px-8 py-4 text-center bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
+                  >
+                    <span className="flex items-center">
+                      Register as Freelancer
+                      <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-all duration-200" />
+                    </span>
+                  </motion.button>
+                </form>
+              ) : (
+                <form onSubmit={(e) => handleSubmit(e, 'business')} className="space-y-6">
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Business Registration</h2>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Company Name *</label>
+                    <input
+                      type="text"
+                      name="companyName"
+                      value={formData.business.companyName}
+                      onChange={(e) => handleChange(e, 'business')}
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-200 transition-all duration-300"
+                      placeholder="Acme Corp"
+                      required
+                    />
+                    {errors.companyName && <p className="text-red-400 text-sm mt-1">{errors.companyName}</p>}
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Legal Name *</label>
+                    <input
+                      type="text"
+                      name="legalName"
+                      value={formData.business.legalName}
+                      onChange={(e) => handleChange(e, 'business')}
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-200 transition-all duration-300"
+                      placeholder="Acme Corporation Ltd"
+                      required
+                    />
+                    {errors.legalName && <p className="text-red-400 text-sm mt-1">{errors.legalName}</p>}
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Business Type *</label>
+                    <select
+                      name="businessType"
+                      value={formData.business.businessType}
+                      onChange={(e) => handleChange(e, 'business')}
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-200 transition-all duration-300"
+                      required
+                    >
+                      <option value="" disabled>
+                        Select Business Type
+                      </option>
+                      <option value="private_ltd">Private Limited</option>
+                      <option value="public_ltd">Public Limited</option>
+                      <option value="llp">LLP</option>
+                      <option value="proprietorship">Proprietorship</option>
+                    </select>
+                    {errors.businessType && <p className="text-red-400 text-sm mt-1">{errors.businessType}</p>}
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Contact Name *</label>
+                    <input
+                      type="text"
+                      name="contactName"
+                      value={formData.business.contactName}
+                      onChange={(e) => handleChange(e, 'business')}
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-200 transition-all duration-300"
+                      placeholder="Jane Smith"
+                      required
+                    />
+                    {errors.contactName && <p className="text-red-400 text-sm mt-1">{errors.contactName}</p>}
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Email *</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.business.email}
+                      onChange={(e) => handleChange(e, 'business')}
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-200 transition-all duration-300"
+                      placeholder="jane@acme.com"
+                      required
+                    />
+                    {errors.email && <p className="text-red-400 text-sm mt-1">{errors.email}</p>}
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Phone *</label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.business.phone}
+                      onChange={(e) => handleChange(e, 'business')}
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-200 transition-all duration-300"
+                      placeholder="+1234567890"
+                      required
+                    />
+                    {errors.phone && <p className="text-red-400 text-sm mt-1">{errors.phone}</p>}
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Country *</label>
+                    <select
+                      name="country"
+                      value={formData.business.country}
+                      onChange={(e) => handleChange(e, 'business')}
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-200 transition-all duration-300"
+                      required
+                    >
+                      <option value="" disabled>
+                        Select Country
+                      </option>
+                      <option value="India">India</option>
+                      <option value="USA">United States</option>
+                      <option value="Canada">Canada</option>
+                      <option value="UK">United Kingdom</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    {errors.country && <p className="text-red-400 text-sm mt-1">{errors.country}</p>}
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">City</label>
                     <input
                       type="text"
                       name="city"
                       value={formData.business.city}
                       onChange={(e) => handleChange(e, 'business')}
-                      className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-200 transition-all duration-300"
                       placeholder="Vancouver"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Industry</label>
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">Industry</label>
                     <input
                       type="text"
                       name="industry"
                       value={formData.business.industry}
                       onChange={(e) => handleChange(e, 'business')}
-                      className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-200 transition-all duration-300"
                       placeholder="IT Services"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
                       Live Image (Selfie of Contact) *
                     </label>
                     <div className="flex gap-4">
-                      <div className="relative w-full p-4 bg-gray-800/50 border border-dashed border-cyan-300 rounded-lg hover:bg-gray-800/20 transition-all duration-300">
+                      <div className="relative w-full p-4 bg-gray-100/60 dark:bg-gray-800/50 border border-dashed border-cyan-300 dark:border-cyan-200 rounded-lg hover:bg-gray-200/60 dark:hover:bg-gray-800/20 transition-all duration-300">
                         <input
                           type="file"
                           name="liveImage"
@@ -803,8 +768,8 @@ const GetStarted = () => {
                           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                         />
                         <div className="text-center">
-                          <Upload className="w-6 h-6 text-cyan-300 mx-auto mb-2" />
-                          <p className="text-sm text-gray-500">
+                          <Upload className="w-6 h-6 text-cyan-400 mx-auto mb-2" />
+                          <p className="text-sm text-gray-500 dark:text-gray-400">
                             {formData.business.liveImage
                               ? formData.business.liveImage.name
                               : 'Upload selfie (JPG/PNG, <5MB)'}
@@ -816,7 +781,7 @@ const GetStarted = () => {
                         onClick={openCamera}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="px-4 py-2 bg-gradient-to-r from-cyan-600 to-violet-600 text-white rounded-lg font-semibold flex items-center gap-2"
+                        className="px-4 py-2 bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 text-white rounded-lg font-semibold flex items-center gap-2"
                       >
                         <Camera className="w-5 h-5" />
                         Take Photo
@@ -825,10 +790,10 @@ const GetStarted = () => {
                     {errors.liveImage && <p className="text-red-400 text-sm mt-1">{errors.liveImage}</p>}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
                       ID Proofs * (e.g., Passport, ID Card)
                     </label>
-                    <div className="relative w-full p-4 bg-gray-800/50 border border-dashed border-cyan-300 rounded-lg hover:bg-gray-800/20 transition-all duration-300">
+                    <div className="relative w-full p-4 bg-gray-100/60 dark:bg-gray-800/50 border border-dashed border-cyan-300 dark:border-cyan-200 rounded-lg hover:bg-gray-200/60 dark:hover:bg-gray-800/20 transition-all duration-300">
                       <input
                         type="file"
                         name="idProofs"
@@ -838,8 +803,8 @@ const GetStarted = () => {
                         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                       />
                       <div className="text-center">
-                        <Upload className="w-6 h-6 text-cyan-300 mx-auto mb-2" />
-                        <p className="text-sm text-gray-500">
+                        <Upload className="w-6 h-6 text-cyan-400 mx-auto mb-2" />
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
                           {formData.business.idProofs.length > 0
                             ? formData.business.idProofs.map((file) => file.name).join(', ')
                             : `Select ID proofs for ${formData.business.country || 'your country'} (JPG/PNG/PDF, <5MB)`}
@@ -848,16 +813,16 @@ const GetStarted = () => {
                     </div>
                     {errors.idProofs && <p className="text-red-400 text-sm mt-1">{errors.idProofs}</p>}
                     {formData.business.country && (
-                      <p className="text-sm text-gray-500 mt-2">
+                      <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
                         Acceptable IDs: {idProofOptions[formData.business.country].join(', ')}
                       </p>
                     )}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
                       Business Documents (e.g., Incorporation Certificate)
                     </label>
-                    <div className="relative w-full p-4 bg-gray-800/50 border border-dashed border-cyan-300 rounded-lg hover:bg-gray-800/20 transition-all duration-300">
+                    <div className="relative w-full p-4 bg-gray-100/60 dark:bg-gray-800/50 border border-dashed border-cyan-300 dark:border-cyan-200 rounded-lg hover:bg-gray-200/60 dark:hover:bg-gray-800/20 transition-all duration-300">
                       <input
                         type="file"
                         name="businessDocs"
@@ -867,8 +832,8 @@ const GetStarted = () => {
                         className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                       />
                       <div className="text-center">
-                        <Upload className="w-6 h-6 text-cyan-300 mx-auto mb-2" />
-                        <p className="text-sm text-gray-500">
+                        <Upload className="w-6 h-6 text-cyan-400 mx-auto mb-2" />
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
                           {formData.business.businessDocs.length > 0
                             ? formData.business.businessDocs.map((file) => file.name).join(', ')
                             : `Upload business documents (JPG/PNG/PDF, <5MB)`}
@@ -877,45 +842,17 @@ const GetStarted = () => {
                     </div>
                     {errors.businessDocs && <p className="text-red-400 text-sm mt-1">{errors.businessDocs}</p>}
                     {formData.business.country && (
-                      <p className="text-sm text-gray-500 mt-2">
+                      <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
                         Suggested Documents: {businessDocOptions[formData.business.country].join(', ')}
                       </p>
                     )}
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Password *</label>
-                    <input
-                      type="password"
-                      name="password"
-                      value={formData.business.password}
-                      onChange={(e) => handleChange(e, 'business')}
-                      className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
-                      placeholder="Password"
-                      required
-                    />
-                    {errors.password && <p className="text-red-400 text-sm mt-1">{errors.password}</p>}
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-2">Confirm Password *</label>
-                    <input
-                      type="password"
-                      name="confirmPassword"
-                      value={formData.business.confirmPassword}
-                      onChange={(e) => handleChange(e, 'business')}
-                      className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
-                      placeholder="Confirm Password"
-                      required
-                    />
-                    {errors.confirmPassword && (
-                      <p className="text-red-400 text-sm mt-1">{errors.confirmPassword}</p>
-                    )}
-                  </div>
+                  {errors.submit && <p className="text-red-400 text-sm mt-4">{errors.submit}</p>}
                   <motion.button
                     type="submit"
-                    variants={{ hover: { scale: 1.05, boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)' }, tap: { scale: 0.95 } }}
-                    whileHover="hover"
-                    whileTap="tap"
-                    className="group w-full px-8 py-4 mt-4 text-white bg-gradient-to-r from-cyan-600 to-violet-600 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
+                    whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)' }}
+                    whileTap={{ scale: 0.95 }}
+                    className="group w-full px-8 py-4 mt-4 text-white bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
                   >
                     <span className="flex items-center justify-center gap-2">
                       Register as Business
@@ -936,8 +873,8 @@ const GetStarted = () => {
           exit={{ opacity: 0 }}
           className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
         >
-          <div className="bg-gray-900 rounded-2xl p-6 max-w-lg w-full">
-            <h3 className="text-xl font-bold text-white mb-4">Take Your Selfie</h3>
+          <div className="bg-gray-100 dark:bg-gray-900 rounded-2xl p-6 max-w-lg w-full">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Take Your Selfie</h3>
             {!capturedImage ? (
               <>
                 <div className="relative w-full h-80 bg-black rounded-lg mb-4 overflow-hidden">
@@ -961,7 +898,7 @@ const GetStarted = () => {
                     disabled={streamError}
                     whileHover={{ scale: streamError ? 1 : 1.05 }}
                     whileTap={{ scale: streamError ? 1 : 0.95 }}
-                    className={`px-4 py-2 bg-gradient-to-r from-cyan-600 to-violet-600 text-white rounded-lg font-semibold ${streamError ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`px-4 py-2 bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 text-white rounded-lg font-semibold ${streamError ? 'opacity-50 cursor-not-allowed' : ''}`}
                   >
                     Capture
                   </motion.button>
@@ -970,7 +907,7 @@ const GetStarted = () => {
                     onClick={closeCamera}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-4 py-2 bg-gray-700 text-white rounded-lg font-semibold"
+                    className="px-4 py-2 bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg font-semibold"
                   >
                     Cancel
                   </motion.button>
@@ -999,7 +936,7 @@ const GetStarted = () => {
                     onClick={saveCroppedImage}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-4 py-2 bg-gradient-to-r from-cyan-600 to-violet-600 text-white rounded-lg font-semibold"
+                    className="px-4 py-2 bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 text-white rounded-lg font-semibold"
                   >
                     Save
                   </motion.button>
@@ -1008,7 +945,7 @@ const GetStarted = () => {
                     onClick={() => setCapturedImage(null)}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-4 py-2 bg-gray-700 text-white rounded-lg font-semibold"
+                    className="px-4 py-2 bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg font-semibold"
                   >
                     Retake
                   </motion.button>
@@ -1017,7 +954,7 @@ const GetStarted = () => {
                     onClick={closeCamera}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-4 py-2 bg-gray-700 text-white rounded-lg font-semibold"
+                    className="px-4 py-2 bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg font-semibold"
                   >
                     Cancel
                   </motion.button>

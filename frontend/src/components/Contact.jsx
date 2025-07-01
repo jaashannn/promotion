@@ -15,9 +15,7 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Placeholder for form submission logic
     console.log('Form submitted:', formData);
-    // Reset form
     setFormData({ name: '', email: '', message: '' });
   };
 
@@ -31,9 +29,9 @@ const Contact = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gray-900 text-white overflow-hidden">
+    <section className="relative min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white overflow-hidden">
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-950 to-gray-900">
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 dark:from-gray-900 via-gray-200 dark:via-gray-950 to-gray-100 dark:to-gray-900">
         <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-transparent to-violet-500/10 animate-[gradient-shift_20s_ease_infinite] bg-[length:200%_200%]"></div>
       </div>
 
@@ -53,7 +51,7 @@ const Contact = () => {
             }}
             transition={{
               duration: Math.random() * 10 + 10,
-              repeat: true,
+              repeat: Infinity,
               repeatType: 'loop',
               delay: Math.random() * 5,
             }}
@@ -71,16 +69,16 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <motion.div
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1 mb-6"
+            className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/10 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-full px-4 py-1 mb-6"
             whileHover={{ scale: 1.05 }}
           >
             <Sparkles className="w-5 h-5 text-cyan-400" />
-            <span className="text-sm font-medium text-gray-100">Get in Touch</span>
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-100">Get in Touch</span>
           </motion.div>
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-cyan-200 to-violet-400 bg-clip-text text-transparent mb-4">
+          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent mb-4">
             Contact Reflo Hub Ltd
           </h1>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Have questions or ready to connect? Reach out to us and let’s build something extraordinary together.
           </p>
         </motion.div>
@@ -95,14 +93,14 @@ const Contact = () => {
         >
           {/* Contact Form */}
           <motion.div
-            className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8"
+            className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-8"
             variants={cardVariants}
             whileHover="hover"
           >
             <h2 className="text-2xl font-semibold mb-6">Send Us a Message</h2>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-6">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Name
                 </label>
                 <input
@@ -112,12 +110,12 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
+                  className="w-full p-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
                   placeholder="Your Name"
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Email
                 </label>
                 <input
@@ -127,12 +125,12 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
+                  className="w-full p-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
                   placeholder="Your Email"
                 />
               </div>
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Message
                 </label>
                 <textarea
@@ -141,13 +139,13 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="w-full p-3 bg-gray-800/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
+                  className="w-full p-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
                   placeholder="Your Message"
                   rows="5"
                 ></textarea>
               </div>
               <motion.button
-                type="submit"
+                onClick={handleSubmit}
                 whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)' }}
                 whileTap={{ scale: 0.95 }}
                 className="group w-full px-8 py-3 bg-gradient-to-r from-cyan-500 to-violet-500 text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
@@ -157,12 +155,12 @@ const Contact = () => {
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                 </span>
               </motion.button>
-            </form>
+            </div>
           </motion.div>
 
           {/* Contact Info */}
           <motion.div
-            className="bg-gradient-to-br from-cyan-500/10 to-violet-500/10 border border-white/10 rounded-xl p-8"
+            className="bg-gradient-to-br from-cyan-200/30 dark:from-cyan-500/10 to-violet-200/30 dark:to-violet-500/10 border border-gray-200 dark:border-white/10 rounded-xl p-8"
             variants={cardVariants}
             whileHover="hover"
           >
@@ -174,13 +172,12 @@ const Contact = () => {
                   <h3 className="text-lg font-medium">Email</h3>
                   <a
                     href="mailto:Support@reflohubltd.com"
-                    className="text-gray-300 hover:text-cyan-400 transition-colors duration-200"
+                    className="text-gray-600 dark:text-gray-300 hover:text-cyan-400 transition-colors duration-200"
                   >
                     Support@reflohubltd.com
                   </a>
                 </div>
               </div>
-              
               <div className="flex items-start gap-4">
                 <div className="w-6 h-6 text-cyan-400 mt-1">
                   <Sparkles className="w-6 h-6" />
@@ -192,7 +189,7 @@ const Contact = () => {
                       href="https://instagram.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-300 hover:text-cyan-400 transition-colors duration-200"
+                      className="text-gray-600 dark:text-gray-300 hover:text-cyan-400 transition-colors duration-200"
                     >
                       <Instagram className="w-6 h-6" />
                     </a>
@@ -200,7 +197,7 @@ const Contact = () => {
                       href="https://linkedin.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-300 hover:text-cyan-400 transition-colors duration-200"
+                      className="text-gray-600 dark:text-gray-300 hover:text-cyan-400 transition-colors duration-200"
                     >
                       <Linkedin className="w-6 h-6" />
                     </a>
@@ -208,7 +205,7 @@ const Contact = () => {
                       href="https://facebook.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-300 hover:text-cyan-400 transition-colors duration-200"
+                      className="text-gray-600 dark:text-gray-300 hover:text-cyan-400 transition-colors duration-200"
                     >
                       <Facebook className="w-6 h-6" />
                     </a>

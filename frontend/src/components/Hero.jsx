@@ -3,10 +3,10 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-gray-950 text-gray-900 dark:text-white">
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-dark-bg via-gray-900 to-dark-bg">
-        <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/5 via-transparent to-neon-violet/5 animate-gradient-shift bg-[length:200%_200%]"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950">
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 dark:from-cyan-600/10 via-transparent to-violet-500/10 dark:to-violet-600/10 animate-[gradient-shift_20s_ease_infinite] bg-[length:200%_200%]"></div>
       </div>
 
       {/* Floating Particles */}
@@ -14,7 +14,7 @@ const Hero = () => {
         {[...Array(50)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-neon-blue/30 rounded-full"
+            className="absolute w-1 h-1 bg-cyan-400/30 dark:bg-cyan-200/30 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -41,15 +41,24 @@ const Hero = () => {
           className="mb-8"
         >
           <motion.div
-            className="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1 mb-8"
+            className="inline-flex items-center space-x-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-full px-4 py-1 mb-8"
             whileHover={{ scale: 1.05 }}
           >
-            <Sparkles className="w-4 h-4 text-neon-blue" />
-            <span className="text-sm text-dark-text">Now Available in 6 Countries</span>
+            <Sparkles className="w-4 h-4 text-cyan-400" />
+            <span className="text-sm text-gray-900 dark:text-gray-100">Now Available in 6 Countries</span>
           </motion.div>
 
+          <motion.h1
+            className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent mb-6 drop-shadow-[0_0_30px_rgba(0,212,255,0.7)]"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            Reflo Hub Ltd
+          </motion.h1>
+
           <motion.p
-            className="text-xl md:text-2xl text-dark-muted max-w-3xl mx-auto mb-12"
+            className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-12"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -71,13 +80,13 @@ const Hero = () => {
                   boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)' 
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative px-8 py-4 bg-gradient-to-r from-neon-blue to-neon-violet text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                className="group relative px-8 py-4 bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
               >
                 <span className="relative z-10 flex items-center">
                   Join as Freelancer
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-neon-violet to-neon-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-violet-500 dark:from-violet-600 to-cyan-500 dark:to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </motion.button>
             </a>
 
@@ -89,7 +98,7 @@ const Hero = () => {
                   boxShadow: '0 0 40px rgba(138, 43, 226, 0.3)' 
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="group px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/20 text-dark-text rounded-xl font-semibold text-lg hover:border-neon-violet/50 transition-all duration-300"
+                className="group px-8 py-4 bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/20 text-gray-900 dark:text-white rounded-xl font-semibold text-lg hover:border-violet-500/50 dark:hover:border-violet-400/50 transition-all duration-300"
               >
                 <span className="flex items-center">
                   Join as Business
@@ -118,10 +127,10 @@ const Hero = () => {
               className="text-center"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="text-3xl md:text-4xl font-bold text-dark-text mb-2">
+              <div className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
                 {stat.number}
               </div>
-              <div className="text-dark-muted">{stat.label}</div>
+              <div className="text-gray-600 dark:text-gray-300">{stat.label}</div>
             </motion.div>
           ))}
         </motion.div>

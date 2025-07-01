@@ -1,23 +1,28 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-import Navbar from './components/Navbar';
+import Navbar from './components/ui/Navbar';
 import Hero from './components/Hero';
 import HowItWorks from './components/HowItWorks';
 import Countries from './components/Countries';
 import Testimonials from './components/Testimonials';
-import JoinCTA from './components/JoinCTA';
-import Footer from './components/Footer';
-import BackToTop from './components/BackToTop';
-import Preloader from './components/Preloader';
+import JoinCTA from './components/ui/JoinCTA';
+import Footer from './components/ui/Footer';
+import BackToTop from './components/ui/BackToTop';
+import Preloader from './components/ui/Preloader';
 import About from './components/About';
 import Contact from './components/Contact';
 import Blog from './components/Blog';
 import GetStarted from './components/GetStarted';
-import PrivacyPolicy from './components/PrivacyPolicy';
-import TermsAndConditions from './components/TermsAndConditions';
+import PrivacyPolicy from './components/documents/PrivacyPolicy';
+import TermsAndConditions from './components/documents/TermsAndConditions';
+import BusinessRegistrationConsent from './components/documents/BusinessRegistrationConsent';
+import FreelancerRegistrationConsent from './components/documents/FreelancerRegistrationConsent';
+import DataProcessingAgreement from './components/documents/DataProcessingAgreement';
+import NondiscriminationStatement from './components/documents/NondiscriminationStatement';
 import Freelancer from './components/Freelancer';
 import Business from './components/Business';
+import Copyright from './components/documents/Copyright';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -74,14 +79,136 @@ function App() {
                   </main>
                 }
               />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/get-started" element={<GetStarted />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-              <Route path="/freelancer" element={<Freelancer />} />
-              <Route path="/business" element={<Business />} />
+              <Route
+                path="/about"
+                element={
+                  <main>
+                    <About />
+                    <Footer />
+                    <BackToTop />
+                  </main>
+                }
+              />
+              <Route
+                path="/contact"
+                element={
+                  <main>
+                    <Contact />
+                    <Footer />
+                    <BackToTop />
+                  </main>
+                }
+              />
+              <Route
+                path="/blog"
+                element={
+                  <main>
+                    <Blog />
+                    <Footer />
+                    <BackToTop />
+                  </main>
+                }
+              />
+              <Route
+                path="/get-started"
+                element={
+                  <main>
+                    <GetStarted />
+                    <Footer />
+                    <BackToTop />
+                  </main>
+                }
+              />
+              <Route
+                path="/privacy-policy"
+                element={
+                  <main>
+                    <PrivacyPolicy />
+                    <Footer />
+                    <BackToTop />
+                  </main>
+                }
+              />
+              <Route
+                path="/terms-and-conditions"
+                element={
+                  <main>
+                    <TermsAndConditions />
+                    <Footer />
+                    <BackToTop />
+                  </main>
+                }
+              />
+              <Route
+                path="/business-registration-consent"
+                element={
+                  <main>
+                    <BusinessRegistrationConsent />
+                    <Footer />
+                    <BackToTop />
+                  </main>
+                }
+              />
+              <Route
+                path="/freelancer-registration-consent"
+                element={
+                  <main>
+                    <FreelancerRegistrationConsent />
+                    <Footer />
+                    <BackToTop />
+                  </main>
+                }
+              />
+              <Route
+                path="/data-processing-agreement"
+                element={
+                  <main>
+                    <DataProcessingAgreement />
+                    <Footer />
+                    <BackToTop />
+                  </main>
+                }
+              />
+              <Route
+                path="/nondiscrimination-statement"
+                element={
+                  <main>
+                    <NondiscriminationStatement />
+                    <Footer />
+                    <BackToTop />
+                  </main>
+                }
+              />
+              <Route
+                path="/freelancer"
+                element={
+                  <main>
+                    <Freelancer />
+                    <Footer />
+                    <BackToTop />
+                  </main>
+                }
+              />
+              <Route
+                path="/business"
+                element={
+                  <main>
+                    <Business />
+                    <Footer />
+                    <BackToTop />
+                  </main>
+                }
+              />
+                 <Route
+                path="/copyright"
+                element={
+                  <main>
+                    <Copyright />
+                    <Footer />
+                    <BackToTop />
+                  </main>
+                }
+              />
             </Routes>
           </>
         )}

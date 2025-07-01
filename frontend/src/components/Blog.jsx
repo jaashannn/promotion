@@ -124,10 +124,10 @@ const Blog = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gray-950 text-white overflow-hidden">
+    <section className="relative min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white overflow-hidden">
       {/* Cosmic Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-950 via-gray-900 to-gray-950">
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,_rgba(0,212,255,0.1),_transparent,_rgba(138,43,226,0.1))] animate-[gradient-shift_30s_ease_infinite] bg-[length:200%_200%]"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950">
+        <div className="absolute inset-0 bg-[linear-gradient(45deg,_rgba(0,212,255,0.07),_transparent,_rgba(138,43,226,0.07))] dark:bg-[linear-gradient(45deg,_rgba(0,212,255,0.1),_transparent,_rgba(138,43,226,0.1))] animate-[gradient-shift_30s_ease_infinite] bg-[length:200%_200%]"></div>
       </div>
 
       {/* Glowing Orbs */}
@@ -166,16 +166,16 @@ const Blog = () => {
           className="text-center mb-20"
         >
           <motion.div
-            className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-lg border border-cyan-500/20 rounded-full px-5 py-2 mb-6 shadow-[0_0_20px_rgba(0,212,255,0.2)]"
+            className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-cyan-500/20 rounded-full px-5 py-2 mb-6 shadow-[0_0_20px_rgba(0,212,255,0.2)]"
             whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 212, 255, 0.3)' }}
           >
             <Sparkles className="w-5 h-5 text-cyan-400" />
-            <span className="text-sm font-medium text-gray-100">Reflo Hub Insights</span>
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-100">Reflo Hub Insights</span>
           </motion.div>
-          <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-cyan-300 via-violet-300 to-cyan-300 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]">
+          <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-cyan-600 dark:from-cyan-300 via-violet-600 dark:via-violet-300 to-cyan-600 dark:to-cyan-300 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]">
             Cosmic Chronicles
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Dive into the stories, strategies, and successes powering Reflo Hub’s global ecosystem of freelancers and businesses.
           </p>
         </motion.div>
@@ -191,7 +191,7 @@ const Blog = () => {
             {blogPosts.map((post, index) => (
               <motion.div
                 key={post.id}
-                className="relative bg-gradient-to-b from-white/5 to-white/2 backdrop-blur-lg border border-cyan-500/20 rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(0,212,255,0.1)] min-h-[380px] flex flex-col cursor-pointer"
+                className="relative bg-gradient-to-b from-gray-100/60 dark:from-white/5 to-gray-50/20 dark:to-white/2 backdrop-blur-lg border border-cyan-500/20 rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(0,212,255,0.1)] min-h-[380px] flex flex-col cursor-pointer"
                 variants={cardVariants}
                 initial="initial"
                 animate="animate"
@@ -208,9 +208,9 @@ const Blog = () => {
                 />
                 <div className="p-6 relative z-10 flex flex-col flex-grow">
                   <p className="text-sm text-gray-400 mb-2">{post.date}</p>
-                  <h2 className="text-xl font-bold text-white mb-3 line-clamp-2">{post.title}</h2>
-                  <p className="text-gray-300 text-sm mb-4 flex-grow line-clamp-3">{post.excerpt}</p>
-                  <div className="group inline-flex items-center text-cyan-400 hover:text-cyan-200 transition-colors duration-200">
+                  <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2">{post.title}</h2>
+                  <p className="text-gray-700 dark:text-gray-300 text-sm mb-4 flex-grow line-clamp-3">{post.excerpt}</p>
+                  <div className="group inline-flex items-center text-cyan-600 dark:text-cyan-400 hover:text-cyan-400 dark:hover:text-cyan-200 transition-colors duration-200">
                     Read More
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
@@ -225,7 +225,7 @@ const Blog = () => {
       <AnimatePresence>
         {selectedPost && (
           <motion.div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-lg"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 dark:bg-black/90 backdrop-blur-lg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -267,7 +267,7 @@ const Blog = () => {
 
                 {/* Book Content (Back) */}
                 <motion.div
-                  className={`absolute inset-0 w-full h-full bg-gradient-to-b from-gray-900 to-gray-950 backdrop-blur-xl border border-cyan-500/20 rounded-xl overflow-hidden p-8 shadow-2xl ${flipped ? 'z-20' : 'z-10'}`}
+                  className={`absolute inset-0 w-full h-full bg-gradient-to-b from-gray-100 dark:from-gray-900 to-gray-50 dark:to-gray-950 backdrop-blur-xl border border-cyan-500/20 rounded-xl overflow-hidden p-8 shadow-2xl ${flipped ? 'z-20' : 'z-10'}`}
                   style={{ 
                     backfaceVisibility: 'hidden',
                     transform: 'rotateY(180deg)'
@@ -278,13 +278,13 @@ const Blog = () => {
                 >
                   <div className="absolute top-4 right-4 flex gap-2">
                     <button
-                      className="text-gray-300 hover:text-cyan-400 transition-colors"
+                      className="text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
                       onClick={() => setFlipped(false)}
                     >
                       <ChevronLeft className="w-6 h-6" />
                     </button>
                     <button
-                      className="text-gray-300 hover:text-cyan-400 transition-colors"
+                      className="text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
                       onClick={closeModal}
                     >
                       <X className="w-6 h-6" />
@@ -293,28 +293,28 @@ const Blog = () => {
                   
                   <div className="h-full overflow-y-auto pr-4 custom-scrollbar">
                     <div className="max-w-2xl mx-auto">
-                      <div className="flex items-center gap-2 text-cyan-400 mb-4">
+                      <div className="flex items-center gap-2 text-cyan-600 dark:text-cyan-400 mb-4">
                         <BookOpen className="w-5 h-5" />
                         <span className="font-medium">Blog Post</span>
                       </div>
-                      <h2 className="text-3xl font-bold text-white mb-2">{selectedPost.title}</h2>
-                      <p className="text-gray-400 mb-8">{selectedPost.date}</p>
+                      <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{selectedPost.title}</h2>
+                      <p className="text-gray-600 dark:text-gray-400 mb-8">{selectedPost.date}</p>
                       
                       <div 
                         className="prose prose-invert prose-lg"
                         dangerouslySetInnerHTML={{ __html: selectedPost.content }}
                       />
                       
-                      <div className="mt-12 pt-8 border-t border-gray-800 flex justify-between">
+                      <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800 flex justify-between">
                         <button
-                          className="flex items-center text-cyan-400 hover:text-cyan-300 transition-colors"
+                          className="flex items-center text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 transition-colors"
                           onClick={() => setFlipped(false)}
                         >
                           <ChevronLeft className="w-5 h-5 mr-2" />
                           Back to Cover
                         </button>
                         <button
-                          className="flex items-center text-cyan-400 hover:text-cyan-300 transition-colors"
+                          className="flex items-center text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 transition-colors"
                           onClick={closeModal}
                         >
                           Close Article
@@ -331,18 +331,18 @@ const Blog = () => {
       </AnimatePresence>
 
       {/* Footer */}
-      <div className="relative z-10 py-12 text-center border-t border-gray-800 mt-20">
+      <div className="relative z-10 py-12 text-center border-t border-gray-200 dark:border-gray-800 mt-20">
         <div className="max-w-4xl mx-auto px-6">
           <div className="flex justify-center mb-6">
-            <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-lg border border-cyan-500/20 rounded-full px-5 py-2">
+            <div className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-cyan-500/20 rounded-full px-5 py-2">
               <Sparkles className="w-5 h-5 text-cyan-400" />
-              <span className="text-sm font-medium text-gray-100">Reflo Hub</span>
+              <span className="text-sm font-medium text-gray-700 dark:text-gray-100">Reflo Hub</span>
             </div>
           </div>
-          <p className="text-gray-400">
+          <p className="text-gray-600 dark:text-gray-400">
             Connecting businesses with the world's top freelance talent through transparent, commission-free lead generation.
           </p>
-          <p className="text-gray-500 mt-4 text-sm">
+          <p className="text-gray-500 dark:text-gray-500 mt-4 text-sm">
             © 2025 Reflo Hub. All rights reserved. Cosmic Chronicles Blog.
           </p>
         </div>

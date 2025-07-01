@@ -4,6 +4,7 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -14,8 +15,8 @@ export default {
           muted: '#888888',
         },
         neon: {
-          blue: '#00D4FF',
-          violet: '#8A2BE2',
+          blue: '#0d3b60',
+          violet: '#d09d1b',
         },
         gray: {
           850: '#1F1F1F',

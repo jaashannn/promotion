@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowRight, Sparkles, Check, Coins, Shield, Globe, Star } from 'lucide-react';
+import { ArrowRight, Sparkles, Check, Shield, Globe, Star, BarChart, Coins, UserCheck, MessageSquare, CreditCard, TrendingUp } from 'lucide-react';
 import { useRef } from 'react';
 
 const Freelancer = () => {
@@ -13,17 +13,17 @@ const Freelancer = () => {
   const opacityBg = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <div ref={ref} className="relative min-h-screen overflow-hidden">
-      {/* Enhanced Animated Background */}
+    <div ref={ref} className="relative min-h-screen overflow-hidden bg-white dark:bg-gray-950 text-gray-900 dark:text-white">
+      {/* Animated Background */}
       <motion.div 
-        className="absolute inset-0 bg-gradient-to-br from-dark-bg via-gray-900 to-dark-bg"
+        className="absolute inset-0 bg-gradient-to-br from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950"
         style={{ y: yBg, opacity: opacityBg }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-neon-blue/5 via-transparent to-neon-violet/5 animate-gradient-shift bg-[length:400%_400%]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-transparent to-violet-500/10 animate-[gradient-shift_20s_ease_infinite] bg-[length:200%_200%]"></div>
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
       </motion.div>
 
-      {/* Enhanced Floating Particles */}
+      {/* Floating Particles */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(60)].map((_, i) => {
           const size = Math.random() * 4 + 1;
@@ -42,15 +42,15 @@ const Freelancer = () => {
                 width: `${size}px`,
                 height: `${size}px`,
                 background: i % 3 === 0 ? 'rgba(0, 212, 255, 0.3)' : 
-                           i % 2 === 0 ? 'rgba(170, 0, 255, 0.3)' : 
+                           i % 2 === 0 ? 'rgba(138, 43, 226, 0.3)' : 
                            'rgba(255, 255, 255, 0.1)',
                 boxShadow: `0 0 ${size * 2}px ${size}px ${i % 3 === 0 ? 'rgba(0, 212, 255, 0.1)' : 
-                           i % 2 === 0 ? 'rgba(170, 0, 255, 0.1)' : 
+                           i % 2 === 0 ? 'rgba(138, 43, 226, 0.1)' : 
                            'rgba(255, 255, 255, 0.05)'}`
               }}
               animate={{
                 y: [0, -100, 0],
-                x: [0, (Math.random() - 0.5) * 50, 0],
+                x: [(Math.random() - 0.5) * 50, 0, (Math.random() - 0.5) * 50],
                 opacity: [0, 0.8, 0],
               }}
               transition={{
@@ -65,7 +65,7 @@ const Freelancer = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-dark-text py-24">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         {/* Hero Section */}
         <section className="pt-32 pb-20">
           <motion.div
@@ -75,30 +75,30 @@ const Freelancer = () => {
             className="mb-12 text-center"
           >
             <motion.div
-              className="inline-flex items-center space-x-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1.5 mb-8"
+              className="inline-flex items-center space-x-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-full px-4 py-1.5 mb-8"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Sparkles className="w-4 h-4 text-neon-blue" />
-              <span className="text-sm text-dark-text">Last Updated: June 26, 2025</span>
+              <Sparkles className="w-4 h-4 text-cyan-400" />
+              <span className="text-sm text-gray-700 dark:text-gray-100">Last Updated: July 01, 2025</span>
             </motion.div>
 
             <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold text-dark-text mb-6"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Reflo Hub Ltd <span className="bg-gradient-to-r from-neon-blue to-neon-violet bg-clip-text text-transparent">Freelancer</span>
+              🚀 <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Earn Passive Income</span> with Reflo Hub Ltd
             </motion.h1>
 
             <motion.p
-              className="text-lg md:text-xl text-dark-muted max-w-3xl mx-auto mb-10"
+              className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-10"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              A platform for independent contractors to earn passive income by referring leads from your network. Connect with businesses worldwide, no selling required.
+              Simply refer leads from your network to earn money! No selling, no cold calling, no closing deals. Get paid directly by businesses for successful referrals.
             </motion.p>
 
             <motion.div
@@ -109,30 +109,30 @@ const Freelancer = () => {
             >
               <motion.div 
                 whileHover={{ y: -5 }}
-                className="flex items-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2"
+                className="flex items-center bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-full px-4 py-2"
               >
-                <Coins className="w-4 h-4 text-neon-blue mr-2" />
-                <span className="text-sm">Recurring Commissions</span>
+                <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                <span className="text-sm">No Selling Required</span>
               </motion.div>
               <motion.div 
                 whileHover={{ y: -5 }}
-                className="flex items-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2"
+                className="flex items-center bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-full px-4 py-2"
               >
-                <Globe className="w-4 h-4 text-neon-blue mr-2" />
+                <Globe className="w-4 h-4 text-cyan-400 mr-2" />
                 <span className="text-sm">Global Opportunities</span>
               </motion.div>
               <motion.div 
                 whileHover={{ y: -5 }}
-                className="flex items-center bg-white/5 backdrop-blur-sm border border-white/10 rounded-full px-4 py-2"
+                className="flex items-center bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-full px-4 py-2"
               >
-                <Shield className="w-4 h-4 text-neon-blue mr-2" />
-                <span className="text-sm">Secure & Transparent</span>
+                <TrendingUp className="w-4 h-4 text-cyan-400 mr-2" />
+                <span className="text-sm">Recurring Commissions</span>
               </motion.div>
             </motion.div>
           </motion.div>
         </section>
 
-        {/* How It Works Section */}
+        {/* Why Join Reflo Hub Ltd */}
         <section className="py-16">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-center mb-16"
@@ -141,15 +141,73 @@ const Freelancer = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            How It <span className="bg-gradient-to-r from-neon-blue to-neon-violet bg-clip-text text-transparent">Works</span>
+            🌟 Why Freelancers Choose <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Reflo Hub Ltd</span>
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              { 
+                title: "✅ Simple, Stress-Free Income", 
+                description: "No cold calling, no selling, no closing. Businesses take care of the rest; you just supply the leads." 
+              },
+              { 
+                title: "🌎 Local Simplicity, Global Opportunity", 
+                description: "Refer leads from your city or somewhere else in the world to earn money. There are no geographical restrictions on your profits." 
+              },
+              { 
+                title: "💸 Recurring Monthly Commissions", 
+                description: "Through exclusive alliances with our esteemed partners, Overseas Travels Ltd. and VTM (Virtual Tech Masters), you can earn monthly recurring commissions." 
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+                className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-6"
+              >
+                <h3 className="text-xl font-semibold mb-4">{item.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* How It Works */}
+        <section className="py-16">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            💡 How <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">It Works</span> in 4 Simple Steps
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {[
-              { title: "Sign Up", description: "Fast registration with live photo verification for secure profiles." },
-              { title: "Submit Leads", description: "Choose from 50+ business sectors and submit leads using monthly coins." },
-              { title: "Track Leads", description: "Monitor lead status and communicate directly with businesses via chat." },
-              { title: "Get Paid", description: "Receive direct payments from businesses for successful conversions." }
+              { 
+                icon: UserCheck, 
+                title: "1. Sign Up & Verify", 
+                description: "Fast registration with live photo verification for secure profiles." 
+              },
+              { 
+                icon: Coins, 
+                title: "2. Submit Leads", 
+                description: "Select from 50+ business sectors and submit confirmed leads using your monthly coins." 
+              },
+              { 
+                icon: MessageSquare, 
+                title: "3. Track & Communicate", 
+                description: "Monitor lead status and discuss commissions directly with businesses." 
+              },
+              { 
+                icon: CreditCard, 
+                title: "4. Get Paid Directly", 
+                description: "Receive payments via PayPal, Wise, or bank transfer for successful conversions." 
+              }
             ].map((step, index) => (
               <motion.div
                 key={index}
@@ -157,153 +215,14 @@ const Freelancer = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6 text-center"
+                className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-6 text-center"
               >
-                <div className="text-2xl font-semibold mb-4">{step.title}</div>
-                <p className="text-dark-muted">{step.description}</p>
+                <step.icon className="w-10 h-10 text-cyan-400 mx-auto mb-4" />
+                <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300">{step.description}</p>
               </motion.div>
             ))}
           </div>
-        </section>
-
-        {/* Pricing Section */}
-        <section className="py-16">
-          <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            Simple, <span className="bg-gradient-to-r from-neon-blue to-neon-violet bg-clip-text text-transparent">Transparent</span> Pricing
-          </motion.h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 flex flex-col"
-            >
-              <div className="mb-6">
-                <h3 className="text-xl font-semibold mb-2">Freelancer Subscription</h3>
-                <p className="text-dark-muted text-sm mb-4">Perfect for independent contractors</p>
-                <div className="flex items-end mb-4">
-                  <span className="text-4xl font-bold">$9.99</span>
-                  <span className="text-dark-muted ml-1">/month (USD)</span>
-                </div>
-                <p className="text-sm text-neon-blue mb-4">33% off (was $14.99) + extra 30% off with Student ID</p>
-                <div className="h-px bg-white/10 my-4"></div>
-              </div>
-              <ul className="space-y-3 flex-1">
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-neon-blue mr-2" />
-                  <span>5 Lead Submission Coins Monthly</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-neon-blue mr-2" />
-                  <span>Freelancer Dashboard Access</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-neon-blue mr-2" />
-                  <span>Access to Premium Enterprises</span>
-                </li>
-              </ul>
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="mt-8 inline-block w-full text-center bg-gradient-to-r from-neon-blue to-neon-violet text-dark-bg font-medium rounded-lg py-3 px-6 transition-all duration-300 hover:shadow-lg hover:shadow-neon-blue/20"
-              >
-                Get Started
-              </motion.a>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8 flex flex-col"
-            >
-              <div className="mb-6">
-                <h3 className="text-xl font-semibold mb-2">Verified Business Badge</h3>
-                <p className="text-dark-muted text-sm mb-4">Enhance your profile credibility</p>
-                <div className="flex items-end mb-4">
-                  <span className="text-4xl font-bold">$25.00</span>
-                  <span className="text-dark-muted ml-1">/month (USD)</span>
-                </div>
-                <div className="h-px bg-white/10 my-4"></div>
-              </div>
-              <ul className="space-y-3 flex-1">
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-neon-blue mr-2" />
-                  <span>Verified Badge Display</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-neon-blue mr-2" />
-                  <span>Increased Trust from Businesses</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-neon-blue mr-2" />
-                  <span>Stand Out on Leaderboard</span>
-                </li>
-              </ul>
-              <motion.a
-                href="#"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="mt-8 inline-block w-full text-center bg-white/10 hover:bg-white/20 border border-white/10 rounded-lg py-3 px-6 transition-colors duration-300"
-              >
-                Add Badge
-              </motion.a>
-            </motion.div>
-          </div>
-
-          {/* Coin Packages */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="mt-16 max-w-4xl mx-auto"
-          >
-            <h3 className="text-2xl font-semibold text-center mb-8">Need More Coins?</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[
-                { coins: 10, price: "$5.00", perCoin: "$0.50", popular: false },
-                { coins: 20, price: "$10.00", perCoin: "$0.50", popular: true },
-              ].map((pkg, index) => (
-                <motion.div
-                  key={index}
-                  whileHover={{ y: -5 }}
-                  className={`bg-white/5 backdrop-blur-sm border rounded-xl p-6 text-center relative ${pkg.popular ? 'border-neon-blue/50' : 'border-white/10'}`}
-                >
-                  {pkg.popular && (
-                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-neon-blue text-dark-bg text-xs font-bold px-3 py-1 rounded-full">
-                      BEST VALUE
-                    </div>
-                  )}
-                  <div className="flex justify-center items-center mb-4">
-                    <Coins className="w-6 h-6 text-neon-blue mr-2" />
-                    <span className="text-2xl font-bold">{pkg.coins}</span>
-                  </div>
-                  <div className="text-2xl font-bold mb-1">{pkg.price}</div>
-                  <div className="text-sm text-dark-muted mb-4">{pkg.perCoin} per coin</div>
-                  <motion.button
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
-                    className={`w-full py-2 rounded-lg ${pkg.popular ? 'bg-neon-blue text-dark-bg' : 'bg-white/10 hover:bg-white/20'}`}
-                  >
-                    Purchase
-                  </motion.button>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
         </section>
 
         {/* Special Earning Opportunities */}
@@ -315,7 +234,7 @@ const Freelancer = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            Special Earning <span className="bg-gradient-to-r from-neon-blue to-neon-violet bg-clip-text text-transparent">Opportunities</span>
+            💼 Special <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Earning Opportunities</span>
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -324,27 +243,56 @@ const Freelancer = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6"
+              className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-cyan-500/50 dark:border-cyan-200/50 rounded-xl p-8"
             >
-              <h3 className="text-xl font-semibold mb-4">Virtual Tech Masters (VTM)</h3>
-              <p className="text-dark-muted mb-4">Earn a 10% monthly recurring commission for clients signing up for web development, app development, or digital marketing packages.</p>
-              <p className="text-dark-muted">Ideal for freelancers with connections to startups, small businesses, or entrepreneurs.</p>
+              <div className="flex items-center mb-4">
+                <div className="bg-cyan-100 dark:bg-cyan-900/50 p-2 rounded-lg mr-4">
+                  <TrendingUp className="w-6 h-6 text-cyan-600 dark:text-cyan-300" />
+                </div>
+                <h3 className="text-xl font-semibold">🚀 Virtual Tech Masters (VTM)</h3>
+              </div>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">Web development and digital marketing services</p>
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="w-4 h-4 text-cyan-400 mt-1 mr-2 flex-shrink-0" />
+                  <span>10% recurring monthly commission for ongoing service packages</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="w-4 h-4 text-cyan-400 mt-1 mr-2 flex-shrink-0" />
+                  <span>Ideal for freelancers with startup, small business, or entrepreneur connections</span>
+                </li>
+              </ul>
             </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6"
+              className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-violet-500/50 dark:border-violet-200/50 rounded-xl p-8"
             >
-              <h3 className="text-xl font-semibold mb-4">Overseas Travels Ltd.</h3>
-              <p className="text-dark-muted mb-4">Earn ongoing commissions for referrals using travel services like airfare, lodging, cruises, and more.</p>
-              <p className="text-dark-muted">Perfect for freelancers with corporate clients, families, or frequent travelers.</p>
+              <div className="flex items-center mb-4">
+                <div className="bg-violet-100 dark:bg-violet-900/50 p-2 rounded-lg mr-4">
+                  <Globe className="w-6 h-6 text-violet-600 dark:text-violet-300" />
+                </div>
+                <h3 className="text-xl font-semibold">🌍 Overseas Travels Ltd.</h3>
+              </div>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">Comprehensive travel services</p>
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="w-4 h-4 text-cyan-400 mt-1 mr-2 flex-shrink-0" />
+                  <span>Ongoing commissions for every travel service booked</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="w-4 h-4 text-cyan-400 mt-1 mr-2 flex-shrink-0" />
+                  <span>Perfect for freelancers with corporate clients, families, or frequent travelers in their network</span>
+                </li>
+              </ul>
             </motion.div>
           </div>
         </section>
 
-        {/* Freelancer Dashboard Features */}
+        {/* Dashboard Features */}
         <section className="py-16">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-center mb-16"
@@ -353,34 +301,37 @@ const Freelancer = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            Freelancer <span className="bg-gradient-to-r from-neon-blue to-neon-violet bg-clip-text text-transparent">Dashboard</span>
+            📋 Freelancer <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Dashboard Features</span>
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
-              { feature: "Coin Balance", description: "View your available coins for submitting leads." },
-              { feature: "Lead Submission", description: "Easy-to-use form for entering client details." },
-              { feature: "Lead Tracker", description: "Real-time updates on submitted leads." },
-              { feature: "Earnings Overview", description: "Track earnings history and pending payments." },
-              { feature: "Chat Interface", description: "Communicate directly with businesses." },
-              { feature: "Support & Resources", description: "Access FAQs, guide videos, and support tickets." }
-            ].map((item, index) => (
+              { icon: Coins, title: "Coin Balance", description: "View available coins for submitting leads" },
+              { icon: MessageSquare, title: "Lead Submission", description: "Easy-to-use form for entering client details" },
+              { icon: BarChart, title: "Lead Tracker", description: "Real-time updates on your submitted leads" },
+              { icon: TrendingUp, title: "Earnings Overview", description: "Track earnings history and pending payments" },
+              { icon: UserCheck, title: "Chat Interface", description: "Communicate directly with businesses" },
+              { icon: Star, title: "Leaderboard & Ratings", description: "Showcase reliability to attract more business" }
+            ].map((feature, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6"
+                className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-6"
               >
-                <h3 className="text-lg font-semibold mb-3">{item.feature}</h3>
-                <p className="text-dark-muted">{item.description}</p>
+                <div className="flex items-center mb-4">
+                  <feature.icon className="w-6 h-6 text-cyan-400 mr-3" />
+                  <h3 className="text-lg font-semibold">{feature.title}</h3>
+                </div>
+                <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
               </motion.div>
             ))}
           </div>
         </section>
 
-        {/* Top Niches Section */}
+        {/* Pricing */}
         <section className="py-16">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-center mb-16"
@@ -389,16 +340,108 @@ const Freelancer = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            Top Niches for <span className="bg-gradient-to-r from-neon-blue to-neon-violet bg-clip-text text-transparent">Higher Income</span>
+            📦 <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Pricing</span> and Subscription
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-cyan-500/50 dark:border-cyan-200/50 rounded-xl p-8 text-center"
+            >
+              <h3 className="text-2xl font-bold mb-2">🌟 Freelancer Subscription</h3>
+              <div className="flex justify-center items-end mb-4">
+                <span className="text-4xl font-bold">$9.99</span>
+                <span className="text-lg text-gray-600 dark:text-gray-300 ml-1">/month</span>
+              </div>
+              <p className="text-sm text-cyan-400 mb-6">33% OFF (was $14.99)</p>
+              
+              <ul className="space-y-3 mb-8 text-left">
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <span>Full dashboard access</span>
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <span>5 submission coins each month</span>
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <span>Access to premium businesses</span>
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <span>Special partner opportunities</span>
+                </li>
+              </ul>
+              
+              <motion.a
+                href="/signup"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-block w-full bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 text-white font-medium rounded-lg py-3 px-6 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 dark:hover:shadow-cyan-200/20"
+              >
+                Get Started
+              </motion.a>
+              
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
+                Additional 30% discount for students with valid ID
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-8 text-center"
+            >
+              <h3 className="text-2xl font-bold mb-6">💰 Buy Extra Coins</h3>
+              
+              <div className="space-y-4 mb-8">
+                <div className="bg-gray-200/50 dark:bg-white/10 rounded-lg p-4">
+                  <div className="text-xl font-bold">$5</div>
+                  <div className="text-gray-600 dark:text-gray-300">for 10 coins</div>
+                </div>
+                <div className="bg-gray-200/50 dark:bg-white/10 rounded-lg p-4">
+                  <div className="text-xl font-bold">$10</div>
+                  <div className="text-gray-600 dark:text-gray-300">for 20 coins</div>
+                </div>
+              </div>
+              
+              <motion.a
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-block w-full bg-gray-200/60 dark:bg-white/10 hover:bg-gray-300/60 dark:hover:bg-white/20 border border-gray-300 dark:border-white/10 rounded-lg py-3 px-6 transition-colors duration-300"
+              >
+                Purchase Coins
+              </motion.a>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Top Niches */}
+        <section className="py-16">
+          <motion.h2 
+            className="text-3xl md:text-4xl font-bold text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            🏅 Top <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Niches</span> for Higher Income
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
-              { niche: "Real Estate", description: "Higher commissions from high-value sales." },
-              { niche: "Immigration & Legal", description: "High demand in international communities." },
-              { niche: "Education & Tuition", description: "Ongoing demand from parents and students." },
-              { niche: "VTM (Digital Marketing)", description: "Recurring monthly revenue." },
-              { niche: "Travel Services", description: "Consistent repeat business." }
+              { title: "Real Estate", description: "Higher commissions with high-value sales" },
+              { title: "Immigration Services", description: "High demand in international communities" },
+              { title: "Education & Tuition", description: "Ongoing needs from students and parents" },
+              { title: "Digital Marketing", description: "Recurring monthly revenue opportunities" },
+              { title: "Travel Services", description: "Consistent repeat business potential" },
+              { title: "Legal Services", description: "High-value professional referrals" }
             ].map((niche, index) => (
               <motion.div
                 key={index}
@@ -406,16 +449,16 @@ const Freelancer = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6"
+                className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-6"
               >
-                <h3 className="text-lg font-semibold mb-3">{niche.niche}</h3>
-                <p className="text-dark-muted">{niche.description}</p>
+                <h3 className="text-xl font-semibold mb-3">{niche.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300">{niche.description}</p>
               </motion.div>
             ))}
           </div>
         </section>
 
-        {/* Testimonials Section */}
+        {/* Testimonials */}
         <section className="py-16">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-center mb-16"
@@ -424,39 +467,45 @@ const Freelancer = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            What Freelancers <span className="bg-gradient-to-r from-neon-blue to-neon-violet bg-clip-text text-transparent">Say</span>
+            💬 Freelancer <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Testimonials</span>
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {[
-              {
-                quote: "I never imagined network referrals could be so lucrative. It was easy and risk-free thanks to Reflo Hub Ltd. By just submitting leads, I've established a consistent monthly income.",
-                author: "Priya S., Toronto Freelancer",
-                rating: 4
-              },
-              {
-                quote: "The monthly recurring commission from VTM is the best feature of Reflo Hub Ltd. With just one successful referral, I make a consistent monthly income.",
-                author: "Jake M., New York-based Digital Marketer",
-                rating: 4
-              }
-            ].map((testimonial, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6"
-              >
-                <div className="flex mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-neon-blue fill-current" />
-                  ))}
-                </div>
-                <p className="text-dark-muted mb-4">{testimonial.quote}</p>
-                <p className="text-sm font-semibold">{testimonial.author}</p>
-              </motion.div>
-            ))}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-8"
+            >
+              <div className="flex items-center mb-4">
+                {[...Array(4)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                ))}
+              </div>
+              <blockquote className="text-lg italic mb-6">
+                "I never imagined that network referrals could be that lucrative. It was easy and risk-free thanks to Reflo Hub Ltd. By just submitting leads, I've established a consistent monthly income."
+              </blockquote>
+              <div className="font-semibold">— Priya S., Toronto freelancer</div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-8"
+            >
+              <div className="flex items-center mb-4">
+                {[...Array(4)].map((_, i) => (
+                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                ))}
+              </div>
+              <blockquote className="text-lg italic mb-6">
+                "The monthly recurring commission from VTM is the best feature of Reflo Hub Ltd. With just one successful referral, I make a consistent monthly income."
+              </blockquote>
+              <div className="font-semibold">— Jake M., New York-based digital marketer</div>
+            </motion.div>
           </div>
         </section>
 
@@ -470,36 +519,36 @@ const Freelancer = () => {
             className="max-w-3xl mx-auto"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Start <span className="bg-gradient-to-r from-neon-blue to-neon-violet bg-clip-text text-transparent">Earning</span>?
+              📈 Ready to <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Start Earning</span> Today?
             </h2>
-            <p className="text-xl text-dark-muted mb-10">
-              Join Reflo Hub Ltd and turn your network into passive income with no selling required.
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-10">
+              Create an account, get verified, and turn your network into steady passive income. No hidden fees, no selling required.
             </p>
             <motion.div className="flex flex-wrap justify-center gap-4">
               <motion.a
-                href="/get-started"
-                target=""
+                href="/signup"
+                target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ 
                   scale: 1.05, 
                   boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)' 
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative inline-flex px-8 py-4 bg-gradient-to-r from-neon-blue to-neon-violet text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                className="group relative inline-flex px-8 py-4 bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
               >
                 <span className="relative z-10 flex items-center">
-                  Join Reflo Hub Ltd Now
+                  👉 Sign Up as a Freelancer
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-neon-violet to-neon-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-violet-500 dark:from-violet-600 to-cyan-500 dark:to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </motion.a>
               <motion.a
                 href="mailto:support@reflohubltd.com"
                 whileHover={{ y: -3 }}
-                className="group relative inline-flex px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 text-white rounded-xl font-semibold text-lg hover:bg-white/10 transition-all duration-300 overflow-hidden"
+                className="group relative inline-flex px-8 py-4 bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white rounded-xl font-semibold text-lg hover:bg-gray-200/60 dark:hover:bg-white/10 transition-all duration-300 overflow-hidden"
               >
                 <span className="relative z-10 flex items-center">
-                  Contact Support
+                  Need Help Getting Started?
                 </span>
               </motion.a>
             </motion.div>
