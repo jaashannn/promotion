@@ -76,7 +76,7 @@ const Contact = () => {
             <span className="text-sm font-medium text-gray-700 dark:text-gray-100">Get in Touch</span>
           </motion.div>
           <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent mb-4">
-            Contact Reflo Hub Ltd
+            Contact Reflo Hub
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Have questions or ready to connect? Reach out to us and let’s build something extraordinary together.
@@ -171,10 +171,10 @@ const Contact = () => {
                 <div>
                   <h3 className="text-lg font-medium">Email</h3>
                   <a
-                    href="mailto:Support@reflohubltd.com"
+                    href="mailto:Support@reflohub.com"
                     className="text-gray-600 dark:text-gray-300 hover:text-cyan-400 transition-colors duration-200"
                   >
-                    Support@reflohubltd.com
+                    Support@reflohub.com
                   </a>
                 </div>
               </div>

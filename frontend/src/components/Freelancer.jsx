@@ -89,7 +89,7 @@ const Freelancer = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              🚀 <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Earn Passive Income</span> with Reflo Hub Ltd
+              🚀 <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Earn Passive Income</span> with Reflo Hub
             </motion.h1>
 
             <motion.p
@@ -98,7 +98,7 @@ const Freelancer = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Simply refer leads from your network to earn money! No selling, no cold calling, no closing deals. Get paid directly by businesses for successful referrals.
+             Simply refer leads from your network to earn money! No selling, no cold calling, no closing deals. Choose from 50+ categories like real estate, education, finance, healthcare, and more. Get paid directly by businesses for successful referrals.
             </motion.p>
 
             <motion.div
@@ -132,7 +132,7 @@ const Freelancer = () => {
           </motion.div>
         </section>
 
-        {/* Why Join Reflo Hub Ltd */}
+        {/* Why Join Reflo Hub */}
         <section className="py-16">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-center mb-16"
@@ -141,14 +141,14 @@ const Freelancer = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            🌟 Why Freelancers Choose <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Reflo Hub Ltd</span>
+            🌟 Why Freelancers Choose <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Reflo Hub</span>
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               { 
                 title: "✅ Simple, Stress-Free Income", 
-                description: "No cold calling, no selling, no closing. Businesses take care of the rest; you just supply the leads." 
+                description: "No cold calling, no selling, no closing. Choose from 50+ income categories—businesses take care of the rest; you just supply the leads."
               },
               { 
                 title: "🌎 Local Simplicity, Global Opportunity", 
@@ -156,7 +156,7 @@ const Freelancer = () => {
               },
               { 
                 title: "💸 Recurring Monthly Commissions", 
-                description: "Through exclusive alliances with our esteemed partners, Overseas Travels Ltd. and VTM (Virtual Tech Masters), you can earn monthly recurring commissions." 
+                description: "Through exclusive alliances with our esteemed partners, Fly Fares. VTM (Virtual Tech Masters) and Tech Diamonds, you can earn monthly recurring commissions." 
               }
             ].map((item, index) => (
               <motion.div
@@ -237,7 +237,7 @@ const Freelancer = () => {
             💼 Special <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Earning Opportunities</span>
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -264,6 +264,32 @@ const Freelancer = () => {
               </ul>
             </motion.div>
 
+              <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-violet-500/50 dark:border-violet-200/50 rounded-xl p-8"
+            >
+              <div className="flex items-center mb-4">
+                <div className="bg-violet-100 dark:bg-violet-900/50 p-2 rounded-lg mr-4">
+                  <Globe className="w-6 h-6 text-violet-600 dark:text-violet-300" />
+                </div>
+                <h3 className="text-xl font-semibold">Tech Diamonds.</h3>
+              </div>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">Web development and digital marketing services in India</p>
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <Check className="w-4 h-4 text-cyan-400 mt-1 mr-2 flex-shrink-0" />
+                  <span>10% recurring monthly commission for ongoing service packages</span>
+                </li>
+                <li className="flex items-start">
+                  <Check className="w-4 h-4 text-cyan-400 mt-1 mr-2 flex-shrink-0" />
+                  <span>Ideal for freelancers with startup, small business, or entrepreneur connections in India.</span>
+                </li>
+              </ul>
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -275,7 +301,7 @@ const Freelancer = () => {
                 <div className="bg-violet-100 dark:bg-violet-900/50 p-2 rounded-lg mr-4">
                   <Globe className="w-6 h-6 text-violet-600 dark:text-violet-300" />
                 </div>
-                <h3 className="text-xl font-semibold">🌍 Overseas Travels Ltd.</h3>
+                <h3 className="text-xl font-semibold">🌍 Fly Fares.</h3>
               </div>
               <p className="text-gray-600 dark:text-gray-300 mb-4">Comprehensive travel services</p>
               <ul className="space-y-3">
@@ -431,17 +457,18 @@ const Freelancer = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            🏅 Top <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Niches</span> for Higher Income
+            🏅 50+ Top <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Niches</span> for Higher Income
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {[
               { title: "Real Estate", description: "Higher commissions with high-value sales" },
               { title: "Immigration Services", description: "High demand in international communities" },
-              { title: "Education & Tuition", description: "Ongoing needs from students and parents" },
+              { title: "Mortgage-Loan", description: "Get easy and fast mortgage or loan approvals with flexible terms to meet your financial needs." },
               { title: "Digital Marketing", description: "Recurring monthly revenue opportunities" },
               { title: "Travel Services", description: "Consistent repeat business potential" },
-              { title: "Legal Services", description: "High-value professional referrals" }
+              { title: "Legal Services", description: "High-value professional referrals" },
+              {title: "Many more" , description: "Explore 50+ categories for diverse income streams"}
             ].map((niche, index) => (
               <motion.div
                 key={index}
@@ -484,7 +511,7 @@ const Freelancer = () => {
                 ))}
               </div>
               <blockquote className="text-lg italic mb-6">
-                "I never imagined that network referrals could be that lucrative. It was easy and risk-free thanks to Reflo Hub Ltd. By just submitting leads, I've established a consistent monthly income."
+                "I never imagined that network referrals could be that lucrative. It was easy and risk-free thanks to Reflo Hub. By just submitting leads, I've established a consistent monthly income."
               </blockquote>
               <div className="font-semibold">— Priya S., Toronto freelancer</div>
             </motion.div>
@@ -502,7 +529,7 @@ const Freelancer = () => {
                 ))}
               </div>
               <blockquote className="text-lg italic mb-6">
-                "The monthly recurring commission from VTM is the best feature of Reflo Hub Ltd. With just one successful referral, I make a consistent monthly income."
+                "The monthly recurring commission from VTM is the best feature of Reflo Hub. With just one successful referral, I make a consistent monthly income."
               </blockquote>
               <div className="font-semibold">— Jake M., New York-based digital marketer</div>
             </motion.div>

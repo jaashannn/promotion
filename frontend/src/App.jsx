@@ -23,6 +23,7 @@ import NondiscriminationStatement from './components/documents/Nondiscrimination
 import Freelancer from './components/Freelancer';
 import Business from './components/Business';
 import Copyright from './components/documents/Copyright';
+import FAQ from './components/FAQ';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -204,6 +205,16 @@ function App() {
                 element={
                   <main>
                     <Copyright />
+                    <Footer />
+                    <BackToTop />
+                  </main>
+                }
+              />
+                   <Route
+                path="/faq"
+                element={
+                  <main>
+                    <FAQ />
                     <Footer />
                     <BackToTop />
                   </main>

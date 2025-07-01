@@ -20,7 +20,8 @@ const About = () => {
 
   const partners = [
     { name: 'Virtual Tech Masters (VTM)', desc: 'Your partner for software solutions, web development, and digital marketing, offering freelancers monthly recurring commissions.' },
-    { name: 'Overseas Travels Ltd.', desc: 'International travel specialists helping freelancers earn on hotels, flights, vacation packages, and visas.' },
+    { name: 'Fly Fares.', desc: 'International travel specialists helping freelancers earn on hotels, flights, vacation packages, and visas.' },
+      { name: 'Tech Diamonds', desc: 'Your Trusted Indian Partner for Software Solutions, Web Development & Digital Marketing.' },
   ];
 
   const keyFeatures = [
@@ -86,7 +87,7 @@ const About = () => {
             <span className="text-sm font-medium text-gray-700 dark:text-gray-100">Connecting the World</span>
           </motion.div>
           <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent mb-4">
-            About Reflo Hub Ltd
+            About Reflo Hub
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Connecting Freelancers and Operators Worldwide—Fair and Transparently
@@ -98,10 +99,10 @@ const About = () => {
           <h2 className="text-3xl font-bold text-center mb-8">🚀 Our Story</h2>
           <div className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-8">
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
-              Reflo Hub Ltd was founded on a single, potent principle: referrals have to be straightforward, universal, and equitable. We were founded in Canada with the goal of transforming the lead generation sector by providing a transparent, commission-free SaaS platform that equitably enables enterprises and independent contractors.
+              Reflo Hub was founded on a single, potent principle: referrals have to be straightforward, universal, and equitable. We were founded in UAE with the goal of transforming the lead generation sector by providing a transparent, commission-free SaaS platform that equitably enables enterprises and independent contractors.
             </p>
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
-              We created Reflo Hub Ltd as a software solution since we were fed up with commission-heavy models and limited global reach. This technology enables businesses to expand without risk and freelancers to make money without selling.
+              We created Reflo Hub as a software solution since we were fed up with commission-heavy models and limited global reach. This technology enables businesses to expand without risk and freelancers to make money without selling.
             </p>
             <p className="text-lg text-gray-700 dark:text-gray-300">
               Today, we are pleased to assist customers across a variety of industries, offering businesses a consistent flow of validated, high-quality leads and assisting freelancers in making money off of their networks.
@@ -133,7 +134,7 @@ const About = () => {
                 <Sparkles className="w-6 h-6 text-violet-400" /> Our Vision
               </h3>
               <p className="text-gray-700 dark:text-gray-300">
-                Become the world's leading SaaS referral ecosystem—where everyone benefits, everyone earns, and everyone trusts. Our goal is to make Reflo Hub Ltd the go-to worldwide platform for freelancing referrals, establishing new benchmarks for openness, safety, and cooperation.
+                Become the world's leading SaaS referral ecosystem—where everyone benefits, everyone earns, and everyone trusts. Our goal is to make Reflo Hub the go-to worldwide platform for freelancing referrals, establishing new benchmarks for openness, safety, and cooperation.
               </p>
             </motion.div>
           </div>
@@ -141,7 +142,7 @@ const About = () => {
 
         {/* Why Choose Us */}
         <motion.section className="mb-20" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <h2 className="text-3xl font-bold text-center mb-8">🔑 Why Choose Reflo Hub Ltd?</h2>
+          <h2 className="text-3xl font-bold text-center mb-8">🔑 Why Choose Reflo Hub ?</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((item, index) => (
               <motion.div
@@ -160,14 +161,14 @@ const About = () => {
 
         {/* How It Works */}
         <motion.section className="mb-20" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <h2 className="text-3xl font-bold text-center mb-8">💡 How Does Reflo Hub Ltd. Work?</h2>
+          <h2 className="text-3xl font-bold text-center mb-8">💡 How Does Reflo Hub. Work?</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-8">
               <h3 className="text-2xl font-semibold mb-4">For Freelancers</h3>
               <ul className="text-gray-700 dark:text-gray-300 space-y-2">
                 <li>• Select your niche and submit leads via your dashboard.</li>
                 <li>• Get paid directly from businesses without platform deductions.</li>
-                <li>• Earn monthly recurring commissions from premium partners like VTM & Overseas Travels Ltd.</li>
+                <li>• Earn monthly recurring commissions from premium partners like VTM & Fly Fares & Tech Diamonds.</li>
               </ul>
             </div>
             <div className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-8">
@@ -235,27 +236,14 @@ const About = () => {
           </div>
         </motion.section>
 
-        {/* Team */}
-        <motion.section className="mb-20" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <h2 className="text-3xl font-bold text-center mb-8">🌟 Meet the Team</h2>
-          <div className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-8">
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
-              Passionate specialists in digital technology, SaaS software, international company growth, and customer experience make up our diversified workforce. Every team member shares our goal of building a reliable, international referral community.
-            </p>
-            <ul className="text-gray-700 dark:text-gray-300 space-y-2">
-              <li>• <span className="font-semibold">Tech & Innovation Team:</span> Dedicated to secure and seamless applications.</li>
-              <li>• <span className="font-semibold">Business Development & Partnership Team:</span> Ensuring quality partnerships and worldwide reach.</li>
-              <li>• <span className="font-semibold">Support & Success Team:</span> Committed to user success.</li>
-            </ul>
-          </div>
-        </motion.section>
+ 
 
         {/* Global Presence */}
         <motion.section className="mb-20" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <h2 className="text-3xl font-bold text-center mb-8">📍 Serving the World from Canada</h2>
+          <h2 className="text-3xl font-bold text-center mb-8">📍 Serving the World from Dubai</h2>
           <div className="bg-gradient-to-r from-cyan-200/30 dark:from-cyan-500/10 to-violet-200/30 dark:to-violet-500/10 border border-gray-200 dark:border-white/10 rounded-xl p-8 text-center">
             <p className="text-lg text-gray-700 dark:text-gray-300">
-              Reflo Hub Ltd operates under open, business-friendly policies and is truly Canadian. Our SaaS architecture permits hassle-free operation in more than 100 countries by guaranteeing compliance worldwide.
+              Reflo Hub operates under open, business-friendly policies and is truly Canadian. Our SaaS architecture permits hassle-free operation in more than 100 countries by guaranteeing compliance worldwide.
             </p>
           </div>
         </motion.section>

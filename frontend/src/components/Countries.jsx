@@ -30,7 +30,7 @@ const Countries = () => {
             </h2>
           </div>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Available in 6 countries and expanding rapidly. Join thousands of freelancers and businesses worldwide.
+            Available in 20+ countries and expanding rapidly. Join thousands of freelancers and businesses worldwide.
           </p>
         </motion.div>
 

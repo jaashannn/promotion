@@ -10,16 +10,16 @@ const FAQ = () => {
       title: 'General Enquiries',
       questions: [
         {
-          q: 'What is Reflo Hub Ltd exactly?',
-          a: 'Reflo Hub Ltd is a cutting-edge, SaaS-based referral network that links companies and independent contractors. After a successful conversion, businesses pay freelancers directly. Freelancers provide leads from their network. Reflo Hub Ltd does not handle payments directly; instead, it offers tools, tracking, and management.',
+          q: 'What is Reflo Hub  exactly?',
+          a: 'Reflo Hub  is a cutting-edge, SaaS-based referral network that links companies and independent contractors. After a successful conversion, businesses pay freelancers directly. Freelancers provide leads from their network. Reflo Hub  does not handle payments directly; instead, it offers tools, tracking, and management.',
         },
         {
-          q: 'How does Reflo Hub Ltd benefit businesses and freelancers?',
+          q: 'How does Reflo Hub  benefit businesses and freelancers?',
           a: '<ul><li><strong>Companies:</strong> Get high-quality leads without paying for marketing upfront. Only 3–4 companies per category and city ensure high-quality lead distribution.</li><li><strong>Freelancers:</strong> Earn money by recommending contacts without selling. Work locally, earn globally.</li></ul>',
         },
         {
-          q: 'How many cities or nations is Reflo Hub Ltd present in?',
-          a: 'Reflo Hub Ltd is a worldwide business. Freelancers can submit leads to companies in other cities or nations from any location to increase their earning potential.',
+          q: 'How many cities or nations is Reflo Hub present in?',
+          a: 'Reflo Hub is a worldwide business. Freelancers can submit leads to companies in other cities or nations from any location to increase their earning potential.',
         },
       ],
     },
@@ -40,16 +40,16 @@ const FAQ = () => {
       title: 'For Freelancers',
       questions: [
         {
-          q: 'How much does Reflo Hub Ltd charge freelancers?',
+          q: 'How much does Reflo Hub charge freelancers?',
           a: 'The basic monthly subscription fee for freelancers is $14.99, which includes dashboard access and five coins for each lead submitted.',
         },
         {
-          q: 'Describe the Reflo Hub Ltd Coins.',
+          q: 'Describe the Reflo Hub Coins.',
           a: 'Freelancers use coins, which are credits, to submit leads. Five coins are given each month, and you can buy more at any time: <ul><li>10 coins: $5</li><li>14 coins: $7</li><li>20 coins: $10</li></ul>',
         },
         {
           q: 'How does a freelancer get paid?',
-          a: 'After a lead successfully converts, businesses pay freelancers directly through platforms like PayPal, e-transfer, Wise, etc. Payments are not handled by Reflo Hub Ltd.',
+          a: 'After a lead successfully converts, businesses pay freelancers directly through platforms like PayPal, e-transfer, Wise, etc. Payments are not handled by Reflo Hub.',
         },
       ],
     },
@@ -66,11 +66,11 @@ const FAQ = () => {
         },
         {
           q: 'How are freelancers paid by companies?',
-          a: 'When a lead is converted, businesses pay freelancers directly. Reflo Hub Ltd offers downloadable agreement forms and internal messages for open communication.',
+          a: 'When a lead is converted, businesses pay freelancers directly. Reflo Hub offers downloadable agreement forms and internal messages for open communication.',
         },
         {
           q: 'How many businesses are permitted per category and city?',
-          a: 'Reflo Hub Ltd restricts registrations to 3–4 companies per category in each city to preserve high-quality leads, ensuring targeted and worthwhile referrals.',
+          a: 'Reflo Hub restricts registrations to 3–4 companies per category in each city to preserve high-quality leads, ensuring targeted and worthwhile referrals.',
         },
       ],
     },
@@ -79,10 +79,10 @@ const FAQ = () => {
       questions: [
         {
           q: 'What if there is a dispute over commissions?',
-          a: 'Payments are handled directly by companies and freelancers. Reflo Hub Ltd uses internal conversation logs and timestamps to arbitrate and settle conflicts amicably if they occur.',
+          a: 'Payments are handled directly by companies and freelancers. Reflo Hub uses internal conversation logs and timestamps to arbitrate and settle conflicts amicably if they occur.',
         },
         {
-          q: 'In what ways does Reflo Hub Ltd guard against fraud or evasion?',
+          q: 'In what ways does Reflo Hub guard against fraud or evasion?',
           a: '<ul><li>Real-time photo verification during registration</li><li>Time-stamped tracking of leads</li><li>Reputation review and rating systems</li><li>Optional Non-Circumvention Agreements</li><li>Penalties for fraud include warnings, fines, and potential lifetime bans</li></ul>',
         },
       ],
@@ -91,7 +91,7 @@ const FAQ = () => {
       title: 'Platform Features and Usage',
       questions: [
         {
-          q: 'What features make the monthly costs for Reflo Hub Ltd justified?',
+          q: 'What features make the monthly costs for Reflo Hub justified?',
           a: '<ul><li>Smart matching between businesses and freelancers</li><li>Comprehensive analytics-based lead dashboards</li><li>Internal chat and agreement templates</li><li>Industry- and city-specific lead management</li><li>Leaderboard and review system to foster trust</li></ul>',
         },
         {
@@ -104,12 +104,12 @@ const FAQ = () => {
       title: 'Technical and Legal Details',
       questions: [
         {
-          q: 'Does Reflo Hub Ltd personally manage any payments or commissions?',
-          a: 'No, Reflo Hub Ltd only functions as a SaaS supplier. Payments between freelancers and businesses are handled directly.',
+          q: 'Does Reflo Hub personally manage any payments or commissions?',
+          a: 'No, Reflo Hub only functions as a SaaS supplier. Payments between freelancers and businesses are handled directly.',
         },
         {
-          q: 'Does Reflo Hub Ltd comply with international law?',
-          a: 'Yes, Reflo Hub Ltd remains fully compliant under Canadian law as a SaaS platform with no direct financial involvement, avoiding complex foreign tax obligations.',
+          q: 'Does Reflo Hub comply with international law?',
+          a: 'Yes, Reflo Hub remains fully compliant under UAE law as a SaaS platform with no direct financial involvement, avoiding complex foreign tax obligations.',
         },
       ],
     },
@@ -213,7 +213,7 @@ const FAQ = () => {
             Frequently Asked Questions
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Discover how Reflo Hub Ltd’s exclusive referral SaaS platform connects freelancers and businesses globally with zero-commission leads.
+            Discover how Reflo Hub exclusive referral SaaS platform connects freelancers and businesses globally with zero-commission leads.
           </p>
         </motion.div>
 
@@ -273,13 +273,13 @@ const FAQ = () => {
           animate="visible"
           className="max-w-4xl mx-auto mt-16 bg-gradient-to-b from-gray-100/60 dark:from-white/5 to-gray-100/30 dark:to-white/3 backdrop-blur-lg border border-gray-200 dark:border-cyan-500/40 rounded-2xl p-8 shadow-[0_0_50px_rgba(0,212,255,0.3)]"
         >
-          <h2 className="text-3xl font-bold text-cyan-600 dark:text-cyan-300 mb-6">Why Reflo Hub Ltd is Different</h2>
+          <h2 className="text-3xl font-bold text-cyan-600 dark:text-cyan-300 mb-6">Why Reflo Hub is Different</h2>
           <table className="w-full text-left text-gray-600 dark:text-gray-300">
             <thead>
               <tr className="border-b border-gray-200 dark:border-cyan-500/20">
                 <th className="py-3">Feature</th>
                 <th className="py-3">Traditional Platforms</th>
-                <th className="py-3">Reflo Hub Ltd</th>
+                <th className="py-3">Reflo Hub</th>
               </tr>
             </thead>
             <tbody>
@@ -304,8 +304,8 @@ const FAQ = () => {
           <h2 className="text-3xl font-bold text-cyan-600 dark:text-cyan-300 mb-4">Need More Help?</h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
             Visit our Help Centre, use the Support Ticket system on your dashboard, or email us at{' '}
-            <a href="mailto:support@reflohubltd.com" className="text-cyan-400 hover:underline">
-              support@reflohubltd.com
+            <a href="mailto:support@reflohub.com" className="text-cyan-400 hover:underline">
+              support@reflohub.com
             </a>.
           </p>
           <motion.a

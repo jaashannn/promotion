@@ -89,7 +89,7 @@ const Business = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              🚀 Business <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Reflo Hub Ltd</span>: Quality Leads, Made Easy
+              🚀 Business <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Reflo Hub</span>: Quality Leads, Made Easy
             </motion.h1>
 
             <motion.p
@@ -98,7 +98,7 @@ const Business = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Utilise Reflo Hub Ltd to expand your business more quickly. Access high-quality referral leads from independent contractors around the globe. Only three to four companies per category per city, limited space. Sign up right now!
+              Utilise Reflo Hub to expand your business more quickly. Access high-quality referral leads from independent contractors around the globe. Only three to four companies per category per city, limited space. Sign up right now!
             </motion.p>
 
             <motion.div
@@ -112,7 +112,7 @@ const Business = () => {
                 className="flex items-center bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-full px-4 py-2"
               >
                 <Check className="w-4 h-4 text-cyan-400 mr-2" />
-                <span className="text-sm">No Commission</span>
+                <span className="text-sm">No Portal Commission</span>
               </motion.div>
               <motion.div 
                 whileHover={{ y: -5 }}
@@ -132,7 +132,7 @@ const Business = () => {
           </motion.div>
         </section>
 
-        {/* Why Join Reflo Hub Ltd */}
+        {/* Why Join Reflo Hub */}
         <section className="py-16">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-center mb-16"
@@ -141,7 +141,7 @@ const Business = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            🌟 Why Join <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Reflo Hub Ltd</span>?
+            🌟 Why Join <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Reflo Hub</span>?
           </motion.h2>
 
           <motion.p
@@ -151,7 +151,7 @@ const Business = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            Are you fed up with squandering your marketing funds on leads that never become customers? Make direct contact with qualified leads from verified freelancers who actively seek out clients for your services by using Reflo Hub Ltd. No commission. Monthly fees that are predictable. Highest return on investment.
+            Are you fed up with squandering your marketing funds on leads that never become customers? Make direct contact with qualified leads from verified freelancers who actively seek out clients for your services by using Reflo Hub. No commission. Monthly fees that are predictable. Highest return on investment.
           </motion.p>
         </section>
 
@@ -174,7 +174,7 @@ const Business = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            Reflo Hub Ltd only permits three to four companies per category in each city in order to guarantee top lead quality.
+            Reflo Hub only permits three to four companies per category in each city in order to guarantee top lead quality.
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
@@ -265,13 +265,13 @@ const Business = () => {
             viewport={{ once: true }}
           >
             Your category not listed?{' '}
-            <a href="mailto:support@reflohubltd.com" className="text-cyan-400 hover:underline">
+            <a href="mailto:support@reflohub.com" className="text-cyan-400 hover:underline">
               Reach out to us!
             </a>
           </motion.p>
         </section>
 
-        {/* How Reflo Hub Ltd Benefits Your Company */}
+        {/* How Reflo Hub Benefits Your Company */}
         <section className="py-16">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-center mb-16"
@@ -280,7 +280,7 @@ const Business = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            📊 How Reflo Hub Ltd <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Benefits Your Company</span>
+            📊 How Reflo Hub <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Benefits Your Company</span>
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
@@ -560,6 +560,47 @@ const Business = () => {
           </motion.div>
         </section>
 
+              <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -10 }}
+              className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-8 flex flex-col"
+            >
+              <div className="mb-6">
+                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Verified Business Badge</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">Enhance your profile credibility</p>
+                <div className="flex items-end mb-4">
+                  <span className="text-4xl font-bold">$25.00</span>
+                  <span className="text-gray-600 dark:text-gray-300 ml-1">/month (USD)</span>
+                </div>
+                <div className="h-px bg-gray-200 dark:bg чуть/10 my-4"></div>
+              </div>
+              <ul className="space-y-3 flex-1">
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <span>Verified Badge Display</span>
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <span>Increased Trust from Businesses</span>
+                </li>
+                <li className="flex items-center">
+                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <span>Stand Out on Leaderboard</span>
+                </li>
+              </ul>
+              <motion.a
+                href="/get-started"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="mt-8 inline-block w-full text-center bg-gray-100/60 dark:bg-white/10 hover:bg-gray-200/60 dark:hover:bg-white/20 border border-gray-200 dark:border-white/10 rounded-lg py-3 px-6 transition-colors duration-300"
+              >
+                Add Badge
+              </motion.a>
+            </motion.div>
+
         {/* Trust and Security */}
         <section className="py-16">
           <motion.h2 
@@ -577,7 +618,7 @@ const Business = () => {
               { icon: Check, title: "Live Photo Verification", description: "Avoid spam and fraudulent accounts." },
               { icon: Star, title: "Clear Ratings & Reviews", description: "Check the caliber of the freelancer." },
               { icon: Shield, title: "Non-Circumvention Agreements", description: "Safeguard your rights." },
-              { icon: Globe, title: "Dispute Resolution", description: "Reflo Hub Ltd. provides open mediation for commission disputes." }
+              { icon: Globe, title: "Dispute Resolution", description: "Reflo Hub. provides open mediation for commission disputes." }
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -619,7 +660,7 @@ const Business = () => {
         </section>
 
         {/* SEO Optimization and Promise of Visibility */}
-        <section className="py-16">
+        {/* <section className="py-16">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -637,7 +678,7 @@ const Business = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            Reflo Hub Ltd. aggressively advertises your company on its platform, guaranteeing that it will rank highly in search results for the location and category of your choice.
+            Reflo Hub. aggressively advertises your company on its platform, guaranteeing that it will rank highly in search results for the location and category of your choice.
           </motion.p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -669,9 +710,9 @@ const Business = () => {
           >
             For instance, “Toronto has qualified immigration leads.”
           </motion.p>
-        </section>
+        </section> */}
 
-        {/* Why Reflo Hub Ltd is the Best Choice */}
+        {/* Why Reflo Hub is the Best Choice */}
         <section className="py-16">
           <motion.h2 
             className="text-3xl md:text-4xl font-bold text-center mb-16"
@@ -680,12 +721,12 @@ const Business = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            🥇 Why Reflo Hub Ltd is the <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Best Choice</span>
+            🥇 Why Reflo Hub is the <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Best Choice</span>
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
-              { title: "No Commission", description: "Clear subscription-only business model with no commission ever." },
+              { title: "No Portal Commission", description: "Clear subscription-only business model with no commission ever." },
               { title: "Direct Payments to Freelancers", description: "Complete transparency, no intermediary costs." },
               { title: "Exclusive Listings", description: "Only three to four companies per city or category." },
               { title: "Ensured High-Quality Leads", description: "Motivated, pre-screened recommendations." },
@@ -706,92 +747,8 @@ const Business = () => {
           </div>
         </section>
 
-         <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-              className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-8 flex flex-col"
-            >
-              <div className="mb-6">
-                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Verified Business Badge</h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">Enhance your profile credibility</p>
-                <div className="flex items-end mb-4">
-                  <span className="text-4xl font-bold">$25.00</span>
-                  <span className="text-gray-600 dark:text-gray-300 ml-1">/month (USD)</span>
-                </div>
-                <div className="h-px bg-gray-200 dark:bg чуть/10 my-4"></div>
-              </div>
-              <ul className="space-y-3 flex-1">
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
-                  <span>Verified Badge Display</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
-                  <span>Increased Trust from Businesses</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
-                  <span>Stand Out on Leaderboard</span>
-                </li>
-              </ul>
-              <motion.a
-                href="/get-started"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="mt-8 inline-block w-full text-center bg-gray-100/60 dark:bg-white/10 hover:bg-gray-200/60 dark:hover:bg-white/20 border border-gray-200 dark:border-white/10 rounded-lg py-3 px-6 transition-colors duration-300"
-              >
-                Add Badge
-              </motion.a>
-            </motion.div>
+   
 
-        {/* FAQs */}
-        <section className="py-16">
-          <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-           <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Frequently Asked Questions</span>
-          </motion.h2>
-
-          <div className="space-y-6 max-w-4xl mx-auto">
-            {[
-              {
-                question: "How many companies are permitted in each category?",
-                answer: "To optimise lead quality and conversions, there should only be three to four per category per city."
-              },
-              {
-                question: "How does the lead submission procedure work?",
-                answer: "Using the Reflo Hub Ltd dashboard, freelancers upload the complete contact details of potential clients. You make contact and convert on your own."
-              },
-              {
-                question: "How do freelancers get paid?",
-                answer: "You use your privately agreed-upon commission to pay freelancers directly. Commissions are not handled by Reflo Hub Ltd."
-              },
-              {
-                question: "What if a dispute arises?",
-                answer: "Reflo Hub Ltd. ensures equitable mediation by offering a conflict resolution channel when necessary."
-              }
-            ].map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-6"
-              >
-                <h3 className="text-lg font-semibold mb-3">{faq.question}</h3>
-                <p className="text-gray-600 dark:text-gray-300">{faq.answer}</p>
-              </motion.div>
-            ))}
-          </div>
-        </section>
 
         {/* Final CTA */}
         <section className="py-24 text-center">
@@ -806,7 +763,7 @@ const Business = () => {
               📞 Are you ready to get <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">High-Quality Referral Leads</span>?
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-10">
-              Move quickly! Strict restrictions are placed on each category to ensure superior quality. Get your spot now and begin expanding with Reflo Hub Ltd's high-quality referrals.
+              Move quickly! Strict restrictions are placed on each category to ensure superior quality. Get your spot now and begin expanding with Reflo Hub high-quality referrals.
             </p>
             <motion.div className="flex flex-wrap justify-center gap-4">
               <motion.a
@@ -821,13 +778,13 @@ const Business = () => {
                 className="group relative inline-flex px-8 py-4 bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
               >
                 <span className="relative z-10 flex items-center">
-                  👉 Join Reflo Hub Ltd Now
+                  👉 Join Reflo Hub Now
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-violet-500 dark:from-violet-600 to-cyan-500 dark:to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </motion.a>
               <motion.a
-                href="mailto:support@reflohubltd.com"
+                href="mailto:support@reflohub.com"
                 whileHover={{ y: -3 }}
                 className="group relative inline-flex px-8 py-4 bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 text-gray-900 dark:text-white rounded-xl font-semibold text-lg hover:bg-gray-200/60 dark:hover:bg-white/10 transition-all duration-300 overflow-hidden"
               >

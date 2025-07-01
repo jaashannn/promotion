@@ -6,12 +6,12 @@ const HowItWorks = () => {
     {
       icon: Search,
       title: 'Find Opportunities',
-      description: 'Browse available lead opportunities in your target markets.',
+      description: 'Browse available lead opportunities in 50+ categories in your network.',
     },
     {
       icon: Target,
       title: 'Submit Quality Leads',
-      description: 'Share high-quality leads with detailed contact information.',
+      description: 'Share high-quality leads with listed business on portal.',
     },
     {
       icon: DollarSign,
@@ -24,7 +24,7 @@ const HowItWorks = () => {
     {
       icon: Users,
       title: 'Choose Your Plan',
-      description: 'Select a plan that fits your lead generation needs.',
+      description: 'Select a plan that fits your lead generation needs and business growth goals.',
     },
     {
       icon: Handshake,

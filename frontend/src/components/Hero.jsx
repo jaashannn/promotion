@@ -45,7 +45,7 @@ const Hero = () => {
             whileHover={{ scale: 1.05 }}
           >
             <Sparkles className="w-4 h-4 text-cyan-400" />
-            <span className="text-sm text-gray-900 dark:text-gray-100">Now Available in 6 Countries</span>
+            <span className="text-sm text-gray-900 dark:text-gray-100">Now Available in 20+ Countries</span>
           </motion.div>
 
           <motion.h1
@@ -54,7 +54,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Reflo Hub Ltd
+            Reflo Hub
           </motion.h1>
 
           <motion.p
@@ -119,7 +119,7 @@ const Hero = () => {
           {[
             { number: '10K+', label: 'Active Freelancers' },
             { number: '500+', label: 'Partner Businesses' },
-            { number: '6', label: 'Countries Served' },
+            { number: '20+', label: 'Countries Served' },
             { number: '95%', label: 'Success Rate' },
           ].map((stat, index) => (
             <motion.div
