@@ -48,16 +48,20 @@ const Navbar = () => {
                 whileHover={{ y: -2, color: '#00d4ff' }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link
-                  to={item.path}
-                  className={`px-3 py-2 text-sm font-medium text-gray-900 dark:text-white hover:text-cyan-400 transition-colors duration-300 ${
-                    item.name === 'Get Started'
-                      ? 'bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 text-white rounded-lg px-4 py-2'
-                      : ''
-                  }`}
-                >
-                  {item.name}
-                </Link>
+<Link
+  to={item.path}
+  className={`px-3 py-2 text-sm font-medium text-gray-900 dark:text-white hover:text-orange-400 transition-colors duration-300 ${
+    item.name === 'Get Started'
+      ? 'bg-gradient-to-r from-orange-300 to-sky-500 text-white rounded-lg px-4 py-2 shadow-md'
+      : ''
+  }`}
+>
+  {item.name}
+</Link>
+
+
+
+
               </motion.div>
             ))}
           </div>

@@ -19,7 +19,7 @@ const Business = () => {
         className="absolute inset-0 bg-gradient-to-br from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950"
         style={{ y: yBg, opacity: opacityBg }}
       >
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-transparent to-violet-500/10 animate-[gradient-shift_20s_ease_infinite] bg-[length:200%_200%]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-sky-500/10 dark:from-orange-400/10 dark:to-sky-500/10 animate-[gradient-shift_20s_ease_infinite] bg-[length:200%_200%]"></div>
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
       </motion.div>
 
@@ -41,11 +41,11 @@ const Business = () => {
                 top: `${y}%`,
                 width: `${size}px`,
                 height: `${size}px`,
-                background: i % 3 === 0 ? 'rgba(0, 212, 255, 0.3)' : 
-                           i % 2 === 0 ? 'rgba(138, 43, 226, 0.3)' : 
+                background: i % 3 === 0 ? 'rgba(255, 165, 0, 0.3)' : 
+                           i % 2 === 0 ? 'rgba(14, 165, 233, 0.3)' : 
                            'rgba(255, 255, 255, 0.1)',
-                boxShadow: `0 0 ${size * 2}px ${size}px ${i % 3 === 0 ? 'rgba(0, 212, 255, 0.1)' : 
-                           i % 2 === 0 ? 'rgba(138, 43, 226, 0.1)' : 
+                boxShadow: `0 0 ${size * 2}px ${size}px ${i % 3 === 0 ? 'rgba(255, 165, 0, 0.1)' : 
+                           i % 2 === 0 ? 'rgba(14, 165, 233, 0.1)' : 
                            'rgba(255, 255, 255, 0.05)'}`
               }}
               animate={{
@@ -79,7 +79,7 @@ const Business = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Sparkles className="w-4 h-4 text-cyan-400" />
+              <Sparkles className="w-4 h-4 text-orange-400" />
               <span className="text-sm text-gray-700 dark:text-gray-100">Last Updated: July 01, 2025</span>
             </motion.div>
 
@@ -89,7 +89,7 @@ const Business = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              🚀 Business <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Reflo Hub</span>: Quality Leads, Made Easy
+              🚀 Business <span className="bg-gradient-to-r from-orange-400 to-sky-500 bg-clip-text text-transparent">Reflo Hub</span>: Quality Leads, Made Easy
             </motion.h1>
 
             <motion.p
@@ -111,21 +111,21 @@ const Business = () => {
                 whileHover={{ y: -5 }}
                 className="flex items-center bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-full px-4 py-2"
               >
-                <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                <Check className="w-4 h-4 text-orange-400 mr-2" />
                 <span className="text-sm">No Portal Commission</span>
               </motion.div>
               <motion.div 
                 whileHover={{ y: -5 }}
                 className="flex items-center bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-full px-4 py-2"
               >
-                <Globe className="w-4 h-4 text-cyan-400 mr-2" />
+                <Globe className="w-4 h-4 text-orange-400 mr-2" />
                 <span className="text-sm">Global Leads</span>
               </motion.div>
               <motion.div 
                 whileHover={{ y: -5 }}
                 className="flex items-center bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-full px-4 py-2"
               >
-                <BarChart className="w-4 h-4 text-cyan-400 mr-2" />
+                <BarChart className="w-4 h-4 text-orange-400 mr-2" />
                 <span className="text-sm">High ROI</span>
               </motion.div>
             </motion.div>
@@ -141,7 +141,7 @@ const Business = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            🌟 Why Join <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Reflo Hub</span>?
+            🌟 Why Join <span className="bg-gradient-to-r from-orange-400 to-sky-500 bg-clip-text text-transparent">Reflo Hub</span>?
           </motion.h2>
 
           <motion.p
@@ -164,7 +164,7 @@ const Business = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            📌 Limited Availability: <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Exclusive Business Listings</span>!
+            📌 Limited Availability: <span className="bg-gradient-to-r from-orange-400 to-sky-500 bg-clip-text text-transparent">Exclusive Business Listings</span>!
           </motion.h2>
 
           <motion.p
@@ -192,7 +192,7 @@ const Business = () => {
                 viewport={{ once: true }}
                 className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-6 text-center"
               >
-                <item.icon className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
+                <item.icon className="w-8 h-8 text-orange-400 mx-auto mb-4" />
                 <div className="text-2xl font-semibold mb-4">{item.title}</div>
                 <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
               </motion.div>
@@ -210,7 +210,7 @@ const Business = () => {
               href="/get-started"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="inline-block bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 text-white font-medium rounded-lg py-3 px-6 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 dark:hover:shadow-cyan-200/20"
+              className="inline-block bg-gradient-to-r from-orange-400 to-sky-500 text-white font-medium rounded-lg py-3 px-6 transition-all duration-300 hover:shadow-lg hover:shadow-orange-400/20 dark:hover:shadow-orange-300/20"
             >
               ✅ Register Now
             </motion.a>
@@ -226,7 +226,7 @@ const Business = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            💼 Industries We <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Serve</span>
+            💼 Industries We <span className="bg-gradient-to-r from-orange-400 to-sky-500 bg-clip-text text-transparent">Serve</span>
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -265,7 +265,7 @@ const Business = () => {
             viewport={{ once: true }}
           >
             Your category not listed?{' '}
-            <a href="mailto:support@reflohub.com" className="text-cyan-400 hover:underline">
+            <a href="mailto:support@reflohub.com" className="text-orange-400 dark:text-orange-300 hover:underline">
               Reach out to us!
             </a>
           </motion.p>
@@ -280,7 +280,7 @@ const Business = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            📊 How Reflo Hub <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Benefits Your Company</span>
+            📊 How Reflo Hub <span className="bg-gradient-to-r from-orange-400 to-sky-500 bg-clip-text text-transparent">Benefits Your Company</span>
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
@@ -314,7 +314,7 @@ const Business = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            🎖 Pricing Plans Designed for <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Maximum ROI</span>
+            🎖 Pricing Plans Designed for <span className="bg-gradient-to-r from-orange-400 to-sky-500 bg-clip-text text-transparent">Maximum ROI</span>
           </motion.h2>
 
           <motion.p
@@ -335,9 +335,9 @@ const Business = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
               whileHover={{ y: -10 }}
-              className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-cyan-500/50 dark:border-cyan-200/50 rounded-xl p-8 flex flex-col relative"
+              className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-orange-400/50 dark:border-orange-300/50 rounded-xl p-8 flex flex-col relative"
             >
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-cyan-500 dark:bg-cyan-200 text-white dark:text-gray-900 text-xs font-bold px-3 py-1 rounded-full">
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-orange-400 dark:bg-orange-300 text-white dark:text-gray-900 text-xs font-bold px-3 py-1 rounded-full">
                 USA, CAN, AUS, UK
               </div>
               <div className="mb-6">
@@ -347,25 +347,25 @@ const Business = () => {
                   <span className="text-4xl font-bold">$99</span>
                   <span className="text-gray-600 dark:text-gray-300 ml-1">/month (USD)</span>
                 </div>
-                <p className="text-sm text-cyan-400 mb-2">50% off (was $149)</p>
+                <p className="text-sm text-orange-400 dark:text-orange-300 mb-2">50% off (was $149)</p>
                 <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">One-time setup: $349 (was $699)</p>
                 <div className="h-px bg-gray-200 dark:bg-white/10 my-4"></div>
               </div>
               <ul className="space-y-3 flex-1">
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <Check className="w-4 h-4 text-orange-400 mr-2" />
                   <span>Unlimited Leads</span>
                 </li>
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <Check className="w-4 h-4 text-orange-400 mr-2" />
                   <span>10 Free Monthly Ads</span>
                 </li>
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <Check className="w-4 h-4 text-orange-400 mr-2" />
                   <span>Priority Listing & Support</span>
                 </li>
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <Check className="w-4 h-4 text-orange-400 mr-2" />
                   <span>Advanced Analytics</span>
                 </li>
               </ul>
@@ -373,7 +373,7 @@ const Business = () => {
                 href="/get-started"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="mt-8 inline-block w-full text-center bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 text-white font-medium rounded-lg py-3 px-6 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 dark:hover:shadow-cyan-200/20"
+                className="mt-8 inline-block w-full text-center bg-gradient-to-r from-orange-400 to-sky-500 text-white font-medium rounded-lg py-3 px-6 transition-all duration-300 hover:shadow-lg hover:shadow-orange-400/20 dark:hover:shadow-orange-300/20"
               >
                 ✅ Sign Up Now
               </motion.a>
@@ -387,7 +387,7 @@ const Business = () => {
               whileHover={{ y: -10 }}
               className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-8 flex flex-col relative"
             >
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-cyan-500 dark:bg-cyan-200 text-white dark:text-gray-900 text-xs font-bold px-3 py-1 rounded-full">
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-orange-400 dark:bg-orange-300 text-white dark:text-gray-900 text-xs font-bold px-3 py-1 rounded-full">
                 USA, CAN, AUS, UK
               </div>
               <div className="mb-6">
@@ -397,21 +397,21 @@ const Business = () => {
                   <span className="text-4xl font-bold">$79</span>
                   <span className="text-gray-600 dark:text-gray-300 ml-1">/month (USD)</span>
                 </div>
-                <p className="text-sm text-cyan-400 mb-2">50% off (was $129)</p>
+                <p className="text-sm text-orange-400 dark:text-orange-300 mb-2">50% off (was $129)</p>
                 <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">One-time setup: $249 (was $599)</p>
                 <div className="h-px bg-gray-200 dark:bg-white/10 my-4"></div>
               </div>
               <ul className="space-y-3 flex-1">
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <Check className="w-4 h-4 text-orange-400 mr-2" />
                   <span>15 Leads/Month</span>
                 </li>
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <Check className="w-4 h-4 text-orange-400 mr-2" />
                   <span>5 Free Monthly Ads</span>
                 </li>
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <Check className="w-4 h-4 text-orange-400 mr-2" />
                   <span>Dashboard Analytics</span>
                 </li>
               </ul>
@@ -432,9 +432,9 @@ const Business = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
               whileHover={{ y: -10 }}
-              className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-cyan-500/50 dark:border-cyan-200/50 rounded-xl p-8 flex flex-col relative"
+              className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-orange-400/50 dark:border-orange-300/50 rounded-xl p-8 flex flex-col relative"
             >
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-cyan-500 dark:bg-cyan-200 text-white dark:text-gray-900 text-xs font-bold px-3 py-1 rounded-full">
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-orange-400 dark:bg-orange-300 text-white dark:text-gray-900 text-xs font-bold px-3 py-1 rounded-full">
                 India
               </div>
               <div className="mb-6">
@@ -444,25 +444,25 @@ const Business = () => {
                   <span className="text-4xl font-bold">$39</span>
                   <span className="text-gray-600 dark:text-gray-300 ml-1">/month (USD)</span>
                 </div>
-                <p className="text-sm text-cyan-400 mb-2">50% off (was $79)</p>
+                <p className="text-sm text-orange-400 dark:text-orange-300 mb-2">50% off (was $79)</p>
                 <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">One-time setup: $129 (was $269)</p>
                 <div className="h-px bg-gray-200 dark:bg-white/10 my-4"></div>
               </div>
               <ul className="space-y-3 flex-1">
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <Check className="w-4 h-4 text-orange-400 mr-2" />
                   <span>Unlimited Leads</span>
                 </li>
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <Check className="w-4 h-4 text-orange-400 mr-2" />
                   <span>10 Free Monthly Ads</span>
                 </li>
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <Check className="w-4 h-4 text-orange-400 mr-2" />
                   <span>Priority Listing & Support</span>
                 </li>
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <Check className="w-4 h-4 text-orange-400 mr-2" />
                   <span>Advanced Analytics</span>
                 </li>
               </ul>
@@ -470,7 +470,7 @@ const Business = () => {
                 href="/get-started"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="mt-8 inline-block w-full text-center bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 text-white font-medium rounded-lg py-3 px-6 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20 dark:hover:shadow-cyan-200/20"
+                className="mt-8 inline-block w-full text-center bg-gradient-to-r from-orange-400 to-sky-500 text-white font-medium rounded-lg py-3 px-6 transition-all duration-300 hover:shadow-lg hover:shadow-orange-400/20 dark:hover:shadow-orange-300/20"
               >
                 ✅ Sign Up Now
               </motion.a>
@@ -484,7 +484,7 @@ const Business = () => {
               whileHover={{ y: -10 }}
               className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-8 flex flex-col relative"
             >
-              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-cyan-500 dark:bg-cyan-200 text-white dark:text-gray-900 text-xs font-bold px-3 py-1 rounded-full">
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-orange-400 dark:bg-orange-300 text-white dark:text-gray-900 text-xs font-bold px-3 py-1 rounded-full">
                 India
               </div>
               <div className="mb-6">
@@ -494,21 +494,21 @@ const Business = () => {
                   <span className="text-4xl font-bold">$25</span>
                   <span className="text-gray-600 dark:text-gray-300 ml-1">/month (USD)</span>
                 </div>
-                <p className="text-sm text-cyan-400 mb-2">50% off (was $50)</p>
+                <p className="text-sm text-orange-400 dark:text-orange-300 mb-2">50% off (was $50)</p>
                 <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">One-time setup: $99 (was $199)</p>
                 <div className="h-px bg-gray-200 dark:bg-white/10 my-4"></div>
               </div>
               <ul className="space-y-3 flex-1">
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <Check className="w-4 h-4 text-orange-400 mr-2" />
                   <span>15 Leads/Month</span>
                 </li>
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <Check className="w-4 h-4 text-orange-400 mr-2" />
                   <span>5 Free Monthly Ads</span>
                 </li>
                 <li className="flex items-center">
-                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
+                  <Check className="w-4 h-4 text-orange-400 mr-2" />
                   <span>Dashboard Analytics</span>
                 </li>
               </ul>
@@ -553,53 +553,55 @@ const Business = () => {
                   >
                     Purchase
                   </motion.button>
-                </motion.div>
-              ))}
+                </motion.div>))}
             </div>
             <p className="text-center text-gray-600 dark:text-gray-300 mt-4">Basic Plan: 5 free ads/month | Premium Plan: 10 free ads/month</p>
           </motion.div>
         </section>
 
-              <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-              className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-8 flex flex-col"
-            >
-              <div className="mb-6">
-                <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Verified Business Badge</h3>
-                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">Enhance your profile credibility</p>
-                <div className="flex items-end mb-4">
-                  <span className="text-4xl font-bold">$25.00</span>
-                  <span className="text-gray-600 dark:text-gray-300 ml-1">/month (USD)</span>
-                </div>
-                <div className="h-px bg-gray-200 dark:bg чуть/10 my-4"></div>
+        {/* Verified Business Badge */}
+        <section className="py-16">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -10 }}
+            className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-8 flex flex-col max-w-4xl mx-auto"
+          >
+            <div className="mb-6">
+              <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">Verified Business Badge</h3>
+              <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">Enhance your profile credibility</p>
+              <div className="flex items-end mb-4">
+                <span className="text-4xl font-bold">$25.00</span>
+                <span className="text-gray-600 dark:text-gray-300 ml-1">/month (USD)</span>
               </div>
-              <ul className="space-y-3 flex-1">
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
-                  <span>Verified Badge Display</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
-                  <span>Increased Trust from Businesses</span>
-                </li>
-                <li className="flex items-center">
-                  <Check className="w-4 h-4 text-cyan-400 mr-2" />
-                  <span>Stand Out on Leaderboard</span>
-                </li>
-              </ul>
-              <motion.a
-                href="/get-started"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="mt-8 inline-block w-full text-center bg-gray-100/60 dark:bg-white/10 hover:bg-gray-200/60 dark:hover:bg-white/20 border border-gray-200 dark:border-white/10 rounded-lg py-3 px-6 transition-colors duration-300"
-              >
-                Add Badge
-              </motion.a>
-            </motion.div>
+              <div className="h-px bg-gray-200 dark:bg-white/10 my-4"></div>
+            </div>
+            <ul className="space-y-3 flex-1">
+              <li className="flex items-center">
+                <Check className="w-4 h-4 text-orange-400 mr-2" />
+                <span>Verified Badge Display</span>
+              </li>
+              <li className="flex items-center">
+                <Check className="w-4 h-4 text-orange-400 mr-2" />
+                <span>Increased Trust from Businesses</span>
+              </li>
+              <li className="flex items-center">
+                <Check className="w-4 h-4 text-orange-400 mr-2" />
+                <span>Stand Out on Leaderboard</span>
+              </li>
+            </ul>
+            <motion.a
+              href="/get-started"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="mt-8 inline-block w-full text-center bg-gray-100/60 dark:bg-white/10 hover:bg-gray-200/60 dark:hover:bg-white/20 border border-gray-200 dark:border-white/10 rounded-lg py-3 px-6 transition-colors duration-300"
+            >
+              Add Badge
+            </motion.a>
+          </motion.div>
+        </section>
 
         {/* Trust and Security */}
         <section className="py-16">
@@ -610,7 +612,7 @@ const Business = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            🔍 Built-in <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Trust & Security</span>
+            🔍 Built-in <span className="bg-gradient-to-r from-orange-400 to-sky-500 bg-clip-text text-transparent">Trust & Security</span>
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
@@ -618,7 +620,7 @@ const Business = () => {
               { icon: Check, title: "Live Photo Verification", description: "Avoid spam and fraudulent accounts." },
               { icon: Star, title: "Clear Ratings & Reviews", description: "Check the caliber of the freelancer." },
               { icon: Shield, title: "Non-Circumvention Agreements", description: "Safeguard your rights." },
-              { icon: Globe, title: "Dispute Resolution", description: "Reflo Hub. provides open mediation for commission disputes." }
+              { icon: Globe, title: "Dispute Resolution", description: "Reflo Hub provides open mediation for commission disputes." }
             ].map((item, index) => (
               <motion.div
                 key={index}
@@ -628,7 +630,7 @@ const Business = () => {
                 viewport={{ once: true }}
                 className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-6 text-center"
               >
-                <item.icon className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
+                <item.icon className="w-8 h-8 text-orange-400 mx-auto mb-4" />
                 <div className="text-2xl font-semibold mb-4">{item.title}</div>
                 <p className="text-gray-600 dark:text-gray-300">{item.description}</p>
               </motion.div>
@@ -645,7 +647,7 @@ const Business = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            🌎 Worldwide Reach, <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Local Impact</span>
+            🌎 Worldwide Reach, <span className="bg-gradient-to-r from-orange-400 to-sky-500 bg-clip-text text-transparent">Local Impact</span>
           </motion.h2>
 
           <motion.p
@@ -659,59 +661,6 @@ const Business = () => {
           </motion.p>
         </section>
 
-        {/* SEO Optimization and Promise of Visibility */}
-        {/* <section className="py-16">
-          <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-center mb-16"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            📈 SEO Optimization and <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Promise of Visibility</span>
-          </motion.h2>
-
-          <motion.p
-            className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-10 text-center"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            Reflo Hub. aggressively advertises your company on its platform, guaranteeing that it will rank highly in search results for the location and category of your choice.
-          </motion.p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-            {[
-              "Qualified category leads in city",
-              "Business referrals for industry companies",
-              "Lead generation [city] service category",
-              "Confirmed recommendations for your sector"
-            ].map((keyword, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-6 text-center"
-              >
-                <p className="text-gray-900 dark:text-gray-300">{keyword}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.p
-            className="text-center text-gray-600 dark:text-gray-300 mt-8"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            For instance, “Toronto has qualified immigration leads.”
-          </motion.p>
-        </section> */}
-
         {/* Why Reflo Hub is the Best Choice */}
         <section className="py-16">
           <motion.h2 
@@ -721,7 +670,7 @@ const Business = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            🥇 Why Reflo Hub is the <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">Best Choice</span>
+            🥇 Why Reflo Hub is the <span className="bg-gradient-to-r from-orange-400 to-sky-500 bg-clip-text text-transparent">Best Choice</span>
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -747,9 +696,6 @@ const Business = () => {
           </div>
         </section>
 
-   
-
-
         {/* Final CTA */}
         <section className="py-24 text-center">
           <motion.div
@@ -760,7 +706,7 @@ const Business = () => {
             className="max-w-3xl mx-auto"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              📞 Are you ready to get <span className="bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent">High-Quality Referral Leads</span>?
+              📞 Are you ready to get <span className="bg-gradient-to-r from-orange-400 to-sky-500 bg-clip-text text-transparent">High-Quality Referral Leads</span>?
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-10">
               Move quickly! Strict restrictions are placed on each category to ensure superior quality. Get your spot now and begin expanding with Reflo Hub high-quality referrals.
@@ -772,16 +718,16 @@ const Business = () => {
                 rel="noopener noreferrer"
                 whileHover={{ 
                   scale: 1.05, 
-                  boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)' 
+                  boxShadow: '0 0 40px rgba(255, 165, 0, 0.4)' 
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative inline-flex px-8 py-4 bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                className="group relative inline-flex px-8 py-4 bg-gradient-to-r from-orange-400 to-sky-500 text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
               >
                 <span className="relative z-10 flex items-center">
                   👉 Join Reflo Hub Now
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-violet-500 dark:from-violet-600 to-cyan-500 dark:to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-sky-500 to-orange-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </motion.a>
               <motion.a
                 href="mailto:support@reflohub.com"

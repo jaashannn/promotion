@@ -34,11 +34,9 @@ const Footer = () => {
 
   return (
     <footer className="bg-gray-100 dark:bg-gray-950 border-t border-gray-200 dark:border-white/10 relative overflow-hidden">
-      {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-t from-gray-200/50 dark:from-gray-900/50 to-transparent"></div>
-      
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Newsletter Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -57,15 +55,15 @@ const Footer = () => {
                 whileFocus={{ scale: 1.02 }}
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-3 bg-white/50 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors duration-200"
+                className="flex-1 px-4 py-3 bg-white/50 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:border-sky-500 transition-colors duration-200"
               />
               <motion.button
-                whileHover={{ 
-                  scale: 1.05, 
-                  boxShadow: '0 0 30px rgba(0, 212, 255, 0.5)' 
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: '0 0 30px rgba(255, 165, 0, 0.5)'
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center"
+                className="px-6 py-3 bg-gradient-to-r from-orange-400 to-sky-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center"
               >
                 Subscribe
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -74,9 +72,7 @@ const Footer = () => {
           </div>
         </motion.div>
 
-        {/* Main Footer Content */}
         <div className="py-12 grid md:grid-cols-4 gap-8">
-          {/* Company Info */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -84,7 +80,7 @@ const Footer = () => {
             className="md:col-span-1"
           >
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-8 h-8 bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-r from-orange-400 to-sky-500 rounded-lg flex items-center justify-center">
                 <Zap className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold text-gray-900 dark:text-white">RefloHub</span>
@@ -96,11 +92,11 @@ const Footer = () => {
               {socialLinks.map((social, index) => (
                 <motion.div
                   key={index}
-                  whileHover={{ 
-                    scale: 1.1, 
-                    color: '#00D4FF' 
+                  whileHover={{
+                    scale: 1.1,
+                    color: '#38BDF8'
                   }}
-                  className="w-10 h-10 bg-white/50 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-lg flex items-center justify-center text-gray-600 dark:text-gray-300 hover:border-cyan-400 transition-all duration-200"
+                  className="w-10 h-10 bg-white/50 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-lg flex items-center justify-center text-gray-600 dark:text-gray-300 hover:border-sky-500 transition-all duration-200"
                 >
                   <social.icon className="w-5 h-5" />
                 </motion.div>
@@ -108,7 +104,6 @@ const Footer = () => {
             </div>
           </motion.div>
 
-          {/* Company Links */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -120,8 +115,8 @@ const Footer = () => {
                 <li key={index}>
                   <motion.a
                     href={`/${link.label.toLowerCase().replace(/\s+/g, '-')}`}
-                    whileHover={{ x: 5, color: '#00D4FF' }}
-                    className="text-gray-600 dark:text-gray-300 hover:text-cyan-400 transition-colors duration-200"
+                    whileHover={{ x: 5, color: '#38BDF8' }}
+                    className="text-gray-600 dark:text-gray-300 hover:text-sky-500 transition-colors duration-200"
                   >
                     {link.label}
                   </motion.a>
@@ -130,7 +125,6 @@ const Footer = () => {
             </ul>
           </motion.div>
 
-          {/* Product Links */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -142,8 +136,8 @@ const Footer = () => {
                 <li key={index}>
                   <motion.a
                     href={`/${link.label.toLowerCase().replace(/\s+/g, '-')}`}
-                    whileHover={{ x: 5, color: '#00D4FF' }}
-                    className="text-gray-600 dark:text-gray-300 hover:text-cyan-400 transition-colors duration-200"
+                    whileHover={{ x: 5, color: '#38BDF8' }}
+                    className="text-gray-600 dark:text-gray-300 hover:text-sky-500 transition-colors duration-200"
                   >
                     {link.label}
                   </motion.a>
@@ -152,7 +146,6 @@ const Footer = () => {
             </ul>
           </motion.div>
 
-          {/* Legal Links */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -164,8 +157,8 @@ const Footer = () => {
                 <li key={index}>
                   <motion.a
                     href={`/${link.label.toLowerCase().replace(/\s+/g, '-')}`}
-                    whileHover={{ x: 5, color: '#00D4FF' }}
-                    className="text-gray-600 dark:text-gray-300 hover:text-cyan-400 transition-colors duration-200"
+                    whileHover={{ x: 5, color: '#38BDF8' }}
+                    className="text-gray-600 dark:text-gray-300 hover:text-sky-500 transition-colors duration-200"
                   >
                     {link.label}
                   </motion.a>
@@ -175,7 +168,6 @@ const Footer = () => {
           </motion.div>
         </div>
 
-        {/* Blog Button */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -184,26 +176,25 @@ const Footer = () => {
         >
           <motion.a
             href="/blog"
-            whileHover={{ 
-              scale: 1.05, 
-              boxShadow: '0 0 30px rgba(0, 212, 255, 0.5)' 
+            whileHover={{
+              scale: 1.05,
+              boxShadow: '0 0 30px rgba(255, 165, 0, 0.5)'
             }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-3 bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center mx-auto"
+            className="px-6 py-3 bg-gradient-to-r from-orange-400 to-sky-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center mx-auto"
           >
             Visit Our Blog
             <ArrowRight className="w-4 h-4 ml-2" />
           </motion.a>
         </motion.div>
 
-        {/* Bottom Bar */}
         <div className="py-8 border-t border-gray-200 dark:border-white/10 flex flex-col md:flex-row justify-between items-center">
           <motion.a
             href="/copyright"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="text-gray-600 dark:text-gray-300 text-center md:text-left mb-4 md:mb-0 hover:text-cyan-400 transition-colors duration-200"
+            className="text-gray-600 dark:text-gray-300 text-center md:text-left mb-4 md:mb-0 hover:text-sky-500 transition-colors duration-200"
           >
             Copyright © 2025 RefloHub. All rights reserved.
           </motion.a>

@@ -7,11 +7,7 @@ const BackToTop = () => {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
+      setIsVisible(window.pageYOffset > 300);
     };
 
     window.addEventListener('scroll', toggleVisibility);
@@ -39,12 +35,11 @@ const BackToTop = () => {
           whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
           className="fixed bottom-8 right-8 z-50 w-12 h-12 
-            bg-gradient-to-r from-neon-blue to-neon-violet 
+            bg-gradient-to-r from-sky-500 to-orange-400 
             text-white dark:text-white 
             rounded-full flex items-center justify-center 
             hover:shadow-lg transition-all duration-200 animate-glow
-            border border-white/20 dark:border-white/10
-            dark:bg-gradient-to-r dark:from-neon-blue dark:to-neon-violet"
+            border border-white/20 dark:border-white/10"
         >
           <ChevronUp className="w-6 h-6" />
         </motion.button>

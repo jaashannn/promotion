@@ -25,7 +25,7 @@ const Blog = () => {
     hover: { 
       scale: 1.03, 
       rotateY: 5, 
-      boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)',
+      boxShadow: '0 0 40px rgba(255, 165, 0, 0.4)',
       transition: { duration: 0.3 }
     },
   };
@@ -125,17 +125,17 @@ const Blog = () => {
 
   return (
     <section className="relative min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white overflow-hidden">
-      {/* Cosmic Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950">
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,_rgba(0,212,255,0.07),_transparent,_rgba(138,43,226,0.07))] dark:bg-[linear-gradient(45deg,_rgba(0,212,255,0.1),_transparent,_rgba(138,43,226,0.1))] animate-[gradient-shift_30s_ease_infinite] bg-[length:200%_200%]"></div>
+      {/* Animated Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950">
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-sky-500/10 dark:from-orange-400/10 dark:to-sky-500/10 animate-[gradient-shift_20s_ease_infinite] bg-[length:200%_200%]"></div>
       </div>
 
-      {/* Glowing Orbs */}
+      {/* Floating Particles */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-cyan-400/50 rounded-full blur-sm"
+            className="absolute w-2 h-2 bg-orange-400/30 dark:bg-orange-300/30 rounded-full blur-sm"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -166,13 +166,13 @@ const Blog = () => {
           className="text-center mb-20"
         >
           <motion.div
-            className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-cyan-500/20 rounded-full px-5 py-2 mb-6 shadow-[0_0_20px_rgba(0,212,255,0.2)]"
-            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(0, 212, 255, 0.3)' }}
+            className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-gray-200 dark:border-white/10 rounded-full px-5 py-2 mb-6 shadow-[0_0_20px_rgba(255,165,0,0.2)]"
+            whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(255, 165, 0, 0.3)' }}
           >
-            <Sparkles className="w-5 h-5 text-cyan-400" />
+            <Sparkles className="w-5 h-5 text-orange-400" />
             <span className="text-sm font-medium text-gray-700 dark:text-gray-100">Reflo Hub Insights</span>
           </motion.div>
-          <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-cyan-600 dark:from-cyan-300 via-violet-600 dark:via-violet-300 to-cyan-600 dark:to-cyan-300 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_20px_rgba(0,212,255,0.5)]">
+          <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-orange-400 to-sky-500 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_20px_rgba(255,165,0,0.3)]">
             Cosmic Chronicles
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -191,7 +191,7 @@ const Blog = () => {
             {blogPosts.map((post, index) => (
               <motion.div
                 key={post.id}
-                className="relative bg-gradient-to-b from-gray-100/60 dark:from-white/5 to-gray-50/20 dark:to-white/2 backdrop-blur-lg border border-cyan-500/20 rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(0,212,255,0.1)] min-h-[380px] flex flex-col cursor-pointer"
+                className="relative bg-gradient-to-b from-gray-100/60 dark:from-white/5 to-gray-50/20 dark:to-white/2 backdrop-blur-lg border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(255,165,0,0.1)] min-h-[380px] flex flex-col cursor-pointer"
                 variants={cardVariants}
                 initial="initial"
                 animate="animate"
@@ -208,9 +208,9 @@ const Blog = () => {
                 />
                 <div className="p-6 relative z-10 flex flex-col flex-grow">
                   <p className="text-sm text-gray-400 mb-2">{post.date}</p>
-                  <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2">{post.title}</h2>
-                  <p className="text-gray-700 dark:text-gray-300 text-sm mb-4 flex-grow line-clamp-3">{post.excerpt}</p>
-                  <div className="group inline-flex items-center text-cyan-600 dark:text-cyan-400 hover:text-cyan-400 dark:hover:text-cyan-200 transition-colors duration-200">
+                  <h2 className="text-xl font-bold text-black-900 dark:text-white mb-3 line-clamp-2">{post.title}</h2>
+                  <p className="text-black-900 dark:text-gray-300 text-sm mb-4 flex-grow line-clamp-3">{post.excerpt}</p>
+                  <div className="group inline-flex items-center text-orange-400 dark:text-orange-300 hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-200">
                     Read More
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
@@ -257,8 +257,8 @@ const Blog = () => {
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col items-center justify-end p-8">
                     <div className="flex items-center gap-2 mb-4">
-                      <BookOpen className="text-cyan-400" />
-                      <span className="text-cyan-400 font-medium">Click to open</span>
+                      <BookOpen className="text-orange-400" />
+                      <span className="text-orange-400 font-medium">Click to open</span>
                     </div>
                     <h2 className="text-3xl font-bold text-white text-center">{selectedPost.title}</h2>
                     <p className="text-gray-300 text-center mt-2">{selectedPost.date}</p>
@@ -267,7 +267,7 @@ const Blog = () => {
 
                 {/* Book Content (Back) */}
                 <motion.div
-                  className={`absolute inset-0 w-full h-full bg-gradient-to-b from-gray-100 dark:from-gray-900 to-gray-50 dark:to-gray-950 backdrop-blur-xl border border-cyan-500/20 rounded-xl overflow-hidden p-8 shadow-2xl ${flipped ? 'z-20' : 'z-10'}`}
+                  className={`absolute inset-0 w-full h-full bg-gradient-to-b from-gray-100 dark:from-gray-950 to-gray-50 dark:to-gray-950 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-xl overflow-hidden p-8 shadow-2xl ${flipped ? 'z-20' : 'z-10'}`}
                   style={{ 
                     backfaceVisibility: 'hidden',
                     transform: 'rotateY(180deg)'
@@ -278,13 +278,13 @@ const Blog = () => {
                 >
                   <div className="absolute top-4 right-4 flex gap-2">
                     <button
-                      className="text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+                      className="text-gray-700 dark:text-gray-300 hover:text-orange-400 dark:hover:text-orange-300 transition-colors"
                       onClick={() => setFlipped(false)}
                     >
                       <ChevronLeft className="w-6 h-6" />
                     </button>
                     <button
-                      className="text-gray-700 dark:text-gray-300 hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
+                      className="text-gray-700 dark:text-gray-300 hover:text-orange-400 dark:hover:text-orange-300 transition-colors"
                       onClick={closeModal}
                     >
                       <X className="w-6 h-6" />
@@ -293,12 +293,12 @@ const Blog = () => {
                   
                   <div className="h-full overflow-y-auto pr-4 custom-scrollbar">
                     <div className="max-w-2xl mx-auto">
-                      <div className="flex items-center gap-2 text-cyan-600 dark:text-cyan-400 mb-4">
+                      <div className="flex items-center gap-2 text-orange-400 dark:text-orange-300 mb-4">
                         <BookOpen className="w-5 h-5" />
                         <span className="font-medium">Blog Post</span>
                       </div>
                       <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{selectedPost.title}</h2>
-                      <p className="text-gray-600 dark:text-gray-400 mb-8">{selectedPost.date}</p>
+                      <p className="text-gray-600 dark:text-gray-300 mb-8">{selectedPost.date}</p>
                       
                       <div 
                         className="prose prose-invert prose-lg"
@@ -307,14 +307,14 @@ const Blog = () => {
                       
                       <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800 flex justify-between">
                         <button
-                          className="flex items-center text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 transition-colors"
+                          className="flex items-center text-orange-400 dark:text-orange-300 hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
                           onClick={() => setFlipped(false)}
                         >
                           <ChevronLeft className="w-5 h-5 mr-2" />
                           Back to Cover
                         </button>
                         <button
-                          className="flex items-center text-cyan-600 dark:text-cyan-400 hover:text-cyan-500 dark:hover:text-cyan-300 transition-colors"
+                          className="flex items-center text-orange-400 dark:text-orange-300 hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
                           onClick={closeModal}
                         >
                           Close Article
@@ -333,13 +333,11 @@ const Blog = () => {
       {/* Footer */}
       <div className="relative z-10 py-12 text-center border-t border-gray-200 dark:border-gray-800 mt-20">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="flex justify-center mb-6">
-            <div className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-cyan-500/20 rounded-full px-5 py-2">
-              <Sparkles className="w-5 h-5 text-cyan-400" />
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-100">Reflo Hub</span>
-            </div>
+          <div className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-gray-200 dark:border-white/10 rounded-full px-5 py-2 mb-6">
+            <Sparkles className="w-5 h-5 text-orange-400" />
+            <span className="text-sm font-medium text-gray-700 dark:text-gray-100">Reflo Hub</span>
           </div>
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-gray-600 dark:text-gray-300">
             Connecting businesses with the world's top freelance talent through transparent, commission-free lead generation.
           </p>
           <p className="text-gray-500 dark:text-gray-500 mt-4 text-sm">
@@ -359,11 +357,13 @@ const Blog = () => {
         .prose-invert p {
           margin-bottom: 1rem;
           line-height: 1.7;
+          color: #d1d5db;
         }
         .prose-invert ul {
           list-style-type: disc;
           padding-left: 1.5rem;
           margin-bottom: 1.5rem;
+          color: #d1d5db;
         }
         .prose-invert li {
           margin-bottom: 0.5rem;
@@ -376,11 +376,11 @@ const Blog = () => {
           border-radius: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: rgba(6, 182, 212, 0.5);
+          background: rgba(255, 165, 0, 0.5);
           border-radius: 10px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: rgba(6, 182, 212, 0.8);
+          background: rgba(255, 165, 0, 0.8);
         }
       `}</style>
     </section>

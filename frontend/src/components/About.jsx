@@ -8,7 +8,7 @@ const About = () => {
   };
 
   const cardVariants = {
-    hover: { scale: 1.05, boxShadow: '0 0 30px rgba(0, 212, 255, 0.3)' },
+    hover: { scale: 1.05, boxShadow: '0 0 30px rgba(255, 165, 0, 0.3)' },
   };
 
   const features = [
@@ -21,7 +21,7 @@ const About = () => {
   const partners = [
     { name: 'Virtual Tech Masters (VTM)', desc: 'Your partner for software solutions, web development, and digital marketing, offering freelancers monthly recurring commissions.' },
     { name: 'Fly Fares.', desc: 'International travel specialists helping freelancers earn on hotels, flights, vacation packages, and visas.' },
-      { name: 'Tech Diamonds', desc: 'Your Trusted Indian Partner for Software Solutions, Web Development & Digital Marketing.' },
+    { name: 'Tech Diamonds', desc: 'Your Trusted Indian Partner for Software Solutions, Web Development & Digital Marketing.' },
   ];
 
   const keyFeatures = [
@@ -40,10 +40,10 @@ const About = () => {
   ];
 
   return (
-    <section className="relative min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white overflow-hidden">
+    <section className="relative min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white overflow-hidden">
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 dark:from-gray-900 via-gray-200 dark:via-gray-950 to-gray-100 dark:to-gray-900">
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-transparent to-violet-500/10 animate-[gradient-shift_20s_ease_infinite] bg-[length:200%_200%]"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950">
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-sky-500/10 dark:from-orange-400/10 dark:to-sky-500/10 animate-[gradient-shift_20s_ease_infinite] bg-[length:200%_200%]"></div>
       </div>
 
       {/* Floating Particles */}
@@ -51,7 +51,7 @@ const About = () => {
         {[...Array(50)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-cyan-500/30 rounded-full"
+            className="absolute w-1 h-1 bg-orange-400/30 dark:bg-orange-300/30 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -80,16 +80,16 @@ const About = () => {
           className="text-center mb-16"
         >
           <motion.div
-            className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/10 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-full px-4 py-1 mb-6"
+            className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-full px-4 py-1 mb-6"
             whileHover={{ scale: 1.05 }}
           >
-            <Sparkles className="w-5 h-5 text-cyan-400" />
+            <Sparkles className="w-5 h-5 text-orange-400" />
             <span className="text-sm font-medium text-gray-700 dark:text-gray-100">Connecting the World</span>
           </motion.div>
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent mb-4">
+          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-orange-400 to-sky-500 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_30px_rgba(255,165,0,0.3)]">
             About Reflo Hub
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Connecting Freelancers and Operators Worldwide—Fair and Transparently
           </p>
         </motion.div>
@@ -114,24 +114,24 @@ const About = () => {
         <motion.section className="mb-20" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
           <div className="grid md:grid-cols-2 gap-8">
             <motion.div
-              className="bg-gradient-to-br from-cyan-200/30 dark:from-cyan-500/10 to-violet-200/30 dark:to-violet-500/10 border border-gray-200 dark:border-white/10 rounded-xl p-8"
+              className="bg-gradient-to-br from-orange-200/30 dark:from-orange-400/10 to-sky-200/30 dark:to-sky-500/10 border border-gray-200 dark:border-white/10 rounded-xl p-8"
               variants={cardVariants}
               whileHover="hover"
             >
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <Globe className="w-6 h-6 text-cyan-400" /> Our Mission
+                <Globe className="w-6 h-6 text-orange-400" /> Our Mission
               </h3>
               <p className="text-gray-700 dark:text-gray-300">
                 To provide the most transparent, globally scalable referral lead exchange platform that creates genuine value for freelancers and businesses—without commission or geographic limits. We assist companies in expanding their clientele and independent contractors in converting relationships into steady sources of revenue.
               </p>
             </motion.div>
             <motion.div
-              className="bg-gradient-to-br from-violet-200/30 dark:from-violet-500/10 to-cyan-200/30 dark:to-cyan-500/10 border border-gray-200 dark:border-white/10 rounded-xl p-8"
+              className="bg-gradient-to-br from-sky-200/30 dark:from-sky-500/10 to-orange-200/30 dark:to-orange-400/10 border border-gray-200 dark:border-white/10 rounded-xl p-8"
               variants={cardVariants}
               whileHover="hover"
             >
               <h3 className="text-2xl font-semibold mb-4 flex items-center gap-2">
-                <Sparkles className="w-6 h-6 text-violet-400" /> Our Vision
+                <Sparkles className="w-6 h-6 text-sky-400" /> Our Vision
               </h3>
               <p className="text-gray-700 dark:text-gray-300">
                 Become the world's leading SaaS referral ecosystem—where everyone benefits, everyone earns, and everyone trusts. Our goal is to make Reflo Hub the go-to worldwide platform for freelancing referrals, establishing new benchmarks for openness, safety, and cooperation.
@@ -142,7 +142,7 @@ const About = () => {
 
         {/* Why Choose Us */}
         <motion.section className="mb-20" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <h2 className="text-3xl font-bold text-center mb-8">🔑 Why Choose Reflo Hub ?</h2>
+          <h2 className="text-3xl font-bold text-center mb-8">🔑 Why Choose Reflo Hub?</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((item, index) => (
               <motion.div
@@ -151,9 +151,9 @@ const About = () => {
                 variants={cardVariants}
                 whileHover="hover"
               >
-                <item.icon className="w-8 h-8 text-cyan-400 mx-auto mb-4" />
+                <item.icon className="w-8 h-8 text-orange-400 mx-auto mb-4" />
                 <h4 className="text-xl font-semibold mb-2">{item.title}</h4>
-                <p className="text-gray-600 dark:text-gray-400">{item.desc}</p>
+                <p className="text-gray-600 dark:text-gray-300">{item.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -161,7 +161,7 @@ const About = () => {
 
         {/* How It Works */}
         <motion.section className="mb-20" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <h2 className="text-3xl font-bold text-center mb-8">💡 How Does Reflo Hub. Work?</h2>
+          <h2 className="text-3xl font-bold text-center mb-8">💡 How Does Reflo Hub Work?</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-8">
               <h3 className="text-2xl font-semibold mb-4">For Freelancers</h3>
@@ -172,7 +172,7 @@ const About = () => {
               </ul>
             </div>
             <div className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-xl p-8">
-              <h3 className="text-2xl font-semibold mb-4">For Businesses</h3>
+              <h3 className=" administration-2xl font-semibold mb-4">For Businesses</h3>
               <ul className="text-gray-700 dark:text-gray-300 space-y-2">
                 <li>• Receive leads from vetted freelancers worldwide.</li>
                 <li>• Pay freelancers directly after successful conversions.</li>
@@ -189,12 +189,12 @@ const About = () => {
             {partners.map((partner, index) => (
               <motion.div
                 key={index}
-                className="bg-gradient-to-r from-cyan-200/30 dark:from-cyan-500/10 to-violet-200/30 dark:to-violet-500/10 border border-gray-200 dark:border-white/10 rounded-xl p-6"
+                className="bg-gradient-to-r from-orange-200/30 dark:from-orange-400/10 to-sky-200/30 dark:to-sky-500/10 border border-gray-200 dark:border-white/10 rounded-xl p-6"
                 variants={cardVariants}
                 whileHover="hover"
               >
                 <h4 className="text-xl font-semibold mb-2">{partner.name}</h4>
-                <p className="text-gray-600 dark:text-gray-400">{partner.desc}</p>
+                <p className="text-gray-600 dark:text-gray-300">{partner.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -212,7 +212,7 @@ const About = () => {
                 whileHover="hover"
               >
                 <h4 className="text-xl font-semibold mb-2">{feature.title}</h4>
-                <p className="text-gray-600 dark:text-gray-400">{feature.desc}</p>
+                <p className="text-gray-600 dark:text-gray-300">{feature.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -225,23 +225,22 @@ const About = () => {
             {values.map((value, index) => (
               <motion.div
                 key={index}
-                className="bg-gradient-to-br from-cyan-200/30 dark:from-cyan-500/10 to-violet-200/30 dark:to-violet-500/10 border border-gray-200 dark:border-white/10 rounded-xl p-6 text-center"
+                className="bg-gradient-to-br from-orange-200/30 dark:from-orange-400/10 to-sky-200/30 dark:to-sky-500/10 border border-gray-200 dark:border-white/10 rounded-xl p-6 text-center"
                 variants={cardVariants}
                 whileHover="hover"
               >
                 <h4 className="text-xl font-semibold mb-2">{value.title}</h4>
-                <p className="text-gray-600 dark:text-gray-400">{value.desc}</p>
-              </motion.div>
+                <p className="text-gray-600 dark:text-gray-300">{value.desc}</p>
+
+</motion.div>
             ))}
           </div>
         </motion.section>
 
- 
-
         {/* Global Presence */}
         <motion.section className="mb-20" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
           <h2 className="text-3xl font-bold text-center mb-8">📍 Serving the World from Dubai</h2>
-          <div className="bg-gradient-to-r from-cyan-200/30 dark:from-cyan-500/10 to-violet-200/30 dark:to-violet-500/10 border border-gray-200 dark:border-white/10 rounded-xl p-8 text-center">
+          <div className="bg-gradient-to-r from-orange-200/30 dark:from-orange-400/10 to-sky-200/30 dark:to-sky-500/10 border border-gray-200 dark:border-white/10 rounded-xl p-8 text-center">
             <p className="text-lg text-gray-700 dark:text-gray-300">
               Reflo Hub operates under open, business-friendly policies and is truly Canadian. Our SaaS architecture permits hassle-free operation in more than 100 countries by guaranteeing compliance worldwide.
             </p>
@@ -256,7 +255,7 @@ const About = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl font-bold text-center mb-8">📈 Our Dedication to Development</h2>
-          <div className="bg-gradient-to-r from-cyan-200/30 dark:from-cyan-500/10 to-violet-200/30 dark:to-violet-500/10 border border-gray-200 dark:border-white/10 rounded-xl p-8 text-center">
+          <div className="bg-gradient-to-r from-orange-200/30 dark:from-orange-400/10 to-sky-200/30 dark:to-sky-500/10 border border-gray-200 dark:border-white/10 rounded-xl p-8 text-center">
             <p className="text-lg text-gray-700 dark:text-gray-300">
               We're dedicated to continuously developing and expanding, informed by input from companies and independent contractors. Upcoming features include AI matching, CRM connectivity, improved analytics, and sophisticated ad targeting.
             </p>

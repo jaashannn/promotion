@@ -25,14 +25,14 @@ const Contact = () => {
   };
 
   const cardVariants = {
-    hover: { scale: 1.05, boxShadow: '0 0 30px rgba(0, 212, 255, 0.3)' },
+    hover: { scale: 1.05, boxShadow: '0 0 30px rgba(255, 165, 0, 0.4)' },
   };
 
   return (
-    <section className="relative min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-white overflow-hidden">
+    <section className="relative min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white overflow-hidden">
       {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 dark:from-gray-900 via-gray-200 dark:via-gray-950 to-gray-100 dark:to-gray-900">
-        <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-transparent to-violet-500/10 animate-[gradient-shift_20s_ease_infinite] bg-[length:200%_200%]"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950">
+        <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-sky-500/10 dark:from-orange-400/10 dark:to-sky-500/10 animate-[gradient-shift_20s_ease_infinite] bg-[length:200%_200%]"></div>
       </div>
 
       {/* Floating Particles */}
@@ -40,7 +40,7 @@ const Contact = () => {
         {[...Array(50)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-cyan-500/30 rounded-full"
+            className="absolute w-1 h-1 bg-orange-400/30 dark:bg-orange-300/30 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -69,16 +69,16 @@ const Contact = () => {
           className="text-center mb-16"
         >
           <motion.div
-            className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/10 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-full px-4 py-1 mb-6"
+            className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-sm border border-gray-200 dark:border-white/10 rounded-full px-4 py-1 mb-6"
             whileHover={{ scale: 1.05 }}
           >
-            <Sparkles className="w-5 h-5 text-cyan-400" />
+            <Sparkles className="w-5 h-5 text-orange-400" />
             <span className="text-sm font-medium text-gray-700 dark:text-gray-100">Get in Touch</span>
           </motion.div>
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent mb-4">
+          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-orange-400 to-sky-500 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_20px_rgba(255,165,0,0.3)]">
             Contact Reflo Hub
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Have questions or ready to connect? Reach out to us and let’s build something extraordinary together.
           </p>
         </motion.div>
@@ -110,7 +110,7 @@ const Contact = () => {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full p-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
+                  className="w-full p-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300"
                   placeholder="Your Name"
                 />
               </div>
@@ -125,7 +125,7 @@ const Contact = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full p-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
+                  className="w-full p-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300"
                   placeholder="Your Email"
                 />
               </div>
@@ -139,16 +139,16 @@ const Contact = () => {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  className="w-full p-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition-all duration-300"
+                  className="w-full p-3 bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-all duration-300"
                   placeholder="Your Message"
                   rows="5"
                 ></textarea>
               </div>
               <motion.button
                 onClick={handleSubmit}
-                whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)' }}
+                whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(255, 165, 0, 0.4)' }}
                 whileTap={{ scale: 0.95 }}
-                className="group w-full px-8 py-3 bg-gradient-to-r from-cyan-500 to-violet-500 text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
+                className="group w-full px-8 py-3 bg-gradient-to-r from-orange-400 to-sky-500 text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
               >
                 <span className="flex items-center justify-center">
                   Send Message
@@ -160,26 +160,26 @@ const Contact = () => {
 
           {/* Contact Info */}
           <motion.div
-            className="bg-gradient-to-br from-cyan-200/30 dark:from-cyan-500/10 to-violet-200/30 dark:to-violet-500/10 border border-gray-200 dark:border-white/10 rounded-xl p-8"
+            className="bg-gradient-to-br from-orange-200/30 dark:from-orange-400/10 to-sky-200/30 dark:to-sky-500/10 border border-gray-200 dark:border-white/10 rounded-xl p-8"
             variants={cardVariants}
             whileHover="hover"
           >
             <h2 className="text-2xl font-semibold mb-6">Connect with Us</h2>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <Mail className="w-6 h-6 text-cyan-400 mt-1" />
+                <Mail className="w-6 h-6 text-orange-400 mt-1" />
                 <div>
                   <h3 className="text-lg font-medium">Email</h3>
                   <a
                     href="mailto:Support@reflohub.com"
-                    className="text-gray-600 dark:text-gray-300 hover:text-cyan-400 transition-colors duration-200"
+                    className="text-gray-600 dark:text-gray-300 hover:text-orange-400 dark:hover:text-orange-300 transition-colors duration-200"
                   >
                     Support@reflohub.com
                   </a>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-6 h-6 text-cyan-400 mt-1">
+                <div className="w-6 h-6 text-orange-400 mt-1">
                   <Sparkles className="w-6 h-6" />
                 </div>
                 <div>
@@ -189,7 +189,7 @@ const Contact = () => {
                       href="https://instagram.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-600 dark:text-gray-300 hover:text-cyan-400 transition-colors duration-200"
+                      className="text-gray-600 dark:text-gray-300 hover:text-orange-400 dark:hover:text-orange-300 transition-colors duration-200"
                     >
                       <Instagram className="w-6 h-6" />
                     </a>
@@ -197,7 +197,7 @@ const Contact = () => {
                       href="https://linkedin.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-600 dark:text-gray-300 hover:text-cyan-400 transition-colors duration-200"
+                      className="text-gray-600 dark:text-gray-300 hover:text-orange-400 dark:hover:text-orange-300 transition-colors duration-200"
                     >
                       <Linkedin className="w-6 h-6" />
                     </a>
@@ -205,7 +205,7 @@ const Contact = () => {
                       href="https://facebook.com"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-gray-600 dark:text-gray-300 hover:text-cyan-400 transition-colors duration-200"
+                      className="text-gray-600 dark:text-gray-300 hover:text-orange-400 dark:hover:text-orange-300 transition-colors duration-200"
                     >
                       <Facebook className="w-6 h-6" />
                     </a>

@@ -24,6 +24,8 @@ import Freelancer from './components/Freelancer';
 import Business from './components/Business';
 import Copyright from './components/documents/Copyright';
 import FAQ from './components/FAQ';
+import WhyRefloHub from './components/WhyRefloHub';
+import NotFound from './components/./ui/NotFound';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -71,6 +73,7 @@ function App() {
                 element={
                   <main>
                     <Hero />
+                    <WhyRefloHub />
                     <HowItWorks />
                     <Countries />
                     <Testimonials />
@@ -200,7 +203,7 @@ function App() {
                   </main>
                 }
               />
-                 <Route
+              <Route
                 path="/copyright"
                 element={
                   <main>
@@ -210,11 +213,21 @@ function App() {
                   </main>
                 }
               />
-                   <Route
+              <Route
                 path="/faq"
                 element={
                   <main>
                     <FAQ />
+                    <Footer />
+                    <BackToTop />
+                  </main>
+                }
+              />
+              <Route
+                path="*"
+                element={
+                  <main>
+                    <NotFound />
                     <Footer />
                     <BackToTop />
                   </main>

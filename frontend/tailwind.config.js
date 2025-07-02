@@ -22,6 +22,10 @@ export default {
           850: '#1F1F1F',
           900: '#111111',
           950: '#0A0A0A',
+        },
+        brand: {
+          orange: '#fb923c',   // Tailwind orange-400
+          sky: '#0ea5e9',       // Tailwind sky-500
         }
       },
       fontFamily: {
