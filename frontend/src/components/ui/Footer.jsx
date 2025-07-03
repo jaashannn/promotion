@@ -63,7 +63,7 @@ const Footer = () => {
                   boxShadow: '0 0 30px rgba(255, 165, 0, 0.5)'
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-3 bg-gradient-to-r from-orange-400 to-sky-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center"
+                className="px-6 py-3 bg-gradient-to-r from-sky-500 to-orange-400 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center"
               >
                 Subscribe
                 <ArrowRight className="w-4 h-4 ml-2" />
@@ -80,7 +80,7 @@ const Footer = () => {
             className="md:col-span-1"
           >
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-8 h-8 bg-gradient-to-r from-orange-400 to-sky-500 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-r from-sky-500 to-orange-400 rounded-lg flex items-center justify-center">
                 <Zap className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold text-gray-900 dark:text-white">RefloHub</span>
@@ -181,7 +181,7 @@ const Footer = () => {
               boxShadow: '0 0 30px rgba(255, 165, 0, 0.5)'
             }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-3 bg-gradient-to-r from-orange-400 to-sky-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center mx-auto"
+            className="px-6 py-3 bg-gradient-to-r from-sky-500 to-orange-400 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-200 flex items-center justify-center mx-auto"
           >
             Visit Our Blog
             <ArrowRight className="w-4 h-4 ml-2" />

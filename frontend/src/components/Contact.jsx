@@ -32,7 +32,7 @@ const Contact = () => {
     <section className="relative min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950">
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-sky-500/10 dark:from-orange-400/10 dark:to-sky-500/10 animate-[gradient-shift_20s_ease_infinite] bg-[length:200%_200%]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 to-orange-300/10 dark:from-sky-500/10 dark:to-orange-300/10 animate-[gradient-shift_20s_ease_infinite] bg-[length:200%_200%]"></div>
       </div>
 
       {/* Floating Particles */}
@@ -40,7 +40,7 @@ const Contact = () => {
         {[...Array(50)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-orange-400/30 dark:bg-orange-300/30 rounded-full"
+            className="absolute w-1 h-1 bg-orange-300/30 dark:bg-orange-300/30 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -75,7 +75,7 @@ const Contact = () => {
             <Sparkles className="w-5 h-5 text-orange-400" />
             <span className="text-sm font-medium text-gray-700 dark:text-gray-100">Get in Touch</span>
           </motion.div>
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-orange-400 to-sky-500 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_20px_rgba(255,165,0,0.3)]">
+          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-sky-500 to-orange-300 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_20px_rgba(255,165,0,0.3)]">
             Contact Reflo Hub
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -148,7 +148,7 @@ const Contact = () => {
                 onClick={handleSubmit}
                 whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(255, 165, 0, 0.4)' }}
                 whileTap={{ scale: 0.95 }}
-                className="group w-full px-8 py-3 bg-gradient-to-r from-orange-400 to-sky-500 text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
+                className="group w-full px-8 py-3 bg-gradient-to-r from-sky-500 to-orange-300 text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
               >
                 <span className="flex items-center justify-center">
                   Send Message
@@ -160,7 +160,7 @@ const Contact = () => {
 
           {/* Contact Info */}
           <motion.div
-            className="bg-gradient-to-br from-orange-200/30 dark:from-orange-400/10 to-sky-200/30 dark:to-sky-500/10 border border-gray-200 dark:border-white/10 rounded-xl p-8"
+            className="bg-gradient-to-br from-sky-500/10 dark:from-sky-500/10 to-orange-300/10 dark:to-orange-300/10 border border-gray-200 dark:border-white/10 rounded-xl p-8"
             variants={cardVariants}
             whileHover="hover"
           >

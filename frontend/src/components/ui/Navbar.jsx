@@ -52,12 +52,13 @@ const Navbar = () => {
   to={item.path}
   className={`px-3 py-2 text-sm font-medium text-gray-900 dark:text-white hover:text-orange-400 transition-colors duration-300 ${
     item.name === 'Get Started'
-      ? 'bg-gradient-to-r from-orange-300 to-sky-500 text-white rounded-lg px-4 py-2 shadow-md'
+      ? 'bg-gradient-to-r from-sky-500 to-orange-300 text-white rounded-lg px-4 py-2 shadow-md'
       : ''
   }`}
 >
   {item.name}
 </Link>
+
 
 
 

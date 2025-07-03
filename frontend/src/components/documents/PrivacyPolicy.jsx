@@ -20,7 +20,7 @@ const PrivacyPolicy = () => {
           <li>A live snapshot captured straight through our platform for KYC verification</li>
         </ul>
         <h4 class="font-semibold mt-4">Details of the Account and Payment:</h4>
-        <p>In order to sign up for Reflo Hub Ltd services, we gather billing data:</p>
+        <p>In order to sign up for Reflo Hub services, we gather billing data:</p>
         <ul class="list-disc pl-5 space-y-2">
           <li>Credit/debit card information (securely handled by Stripe and other third-party payment gateways)</li>
           <li>Contact information and billing address</li>
@@ -39,7 +39,7 @@ const PrivacyPolicy = () => {
     {
       title: 'How We Use Your Information',
       content: `
-        <p>We use your personal information to deliver and enhance Reflo Hub Ltd. services. In particular, we utilize data to:</p>
+        <p>We use your personal information to deliver and enhance Reflo Hub. services. In particular, we utilize data to:</p>
         <ul class="list-disc pl-5 space-y-2">
           <li>Create and manage your user account.</li>
           <li>Use a live photo to confirm your identity (fraud prevention).</li>
@@ -60,7 +60,7 @@ const PrivacyPolicy = () => {
           <li>Third-party service providers include cloud hosting companies, analytics services like Google Analytics, payment processors like Stripe and PayPal, and communication tools like SendGrid and MailChimp.</li>
           <li><strong>Legal Compliance:</strong> We provide information to adhere to legal procedures or enforce platform regulations as mandated by law or requested by authorities.</li>
         </ul>
-        <p><strong>Important:</strong> Reflo Hub Ltd. does not manage or mediate financial transactions between businesses and freelancers; as a result, our systems do not keep or process any financial information related to these transactions.</p>
+        <p><strong>Important:</strong> Reflo Hub. does not manage or mediate financial transactions between businesses and freelancers; as a result, our systems do not keep or process any financial information related to these transactions.</p>
       `,
     },
     {
@@ -73,13 +73,13 @@ const PrivacyPolicy = () => {
           <li>Frequent software updates and security audits.</li>
           <li>Tight restrictions on access to private information.</li>
         </ul>
-        <p>Despite our strong security measures, no data transmission method is completely safe. Any security issues should be reported right away to <a href="mailto:support@reflohubltd.com" class="text-cyan-400 hover:underline">support@reflohubltd.com</a>.</p>
+        <p>Despite our strong security measures, no data transmission method is completely safe. Any security issues should be reported right away to <a href="mailto:support@reflohub.com" class="text-orange-400 dark:text-orange-300 hover:underline">support@reflohub.com</a>.</p>
       `,
     },
     {
       title: 'International Transfers of Data',
       content: `
-        <p>Your data may be processed and kept in the US, Canada, and other countries as part of Reflo Hub Ltd.'s global operations. We guarantee adherence to relevant international data transfer regulations and safeguards (such as GDPR-compliant processors).</p>
+        <p>Your data may be processed and kept in the US, Canada, and other countries as part of Reflo Hub.'s global operations. We guarantee adherence to relevant international data transfer regulations and safeguards (such as GDPR-compliant processors).</p>
       `,
     },
     {
@@ -92,13 +92,13 @@ const PrivacyPolicy = () => {
           <li><strong>Right to deletion:</strong> Ask that your account and all related data be deleted.</li>
           <li><strong>Consent can be withdrawn</strong> at any time by closing your account or unsubscribing from marketing.</li>
         </ul>
-        <p>Contact us to exercise these rights at <a href="mailto:privacy@reflohubltd.com" class="text-cyan-400 hover:underline">privacy@reflohubltd.com</a>.</p>
+        <p>Contact us to exercise these rights at <a href="mailto:privacy@reflohub.com" class="text-orange-400 dark:text-orange-300 hover:underline">privacy@reflohub.com</a>.</p>
       `,
     },
     {
       title: 'Compliance with Global Privacy Regulations',
       content: `
-        <p>Reflo Hub Ltd. conforms with the following frameworks and legislation pertaining to data protection:</p>
+        <p>Reflo Hub. conforms with the following frameworks and legislation pertaining to data protection:</p>
         <ul class="list-disc pl-5 space-y-2">
           <li><strong>GDPR (Europe):</strong> We handle data in a transparent and legal manner; residents of Europe can ask questions about compliance by contacting our EU representative ([Insert EU Contact Details]).</li>
           <li><strong>CCPA (California, USA):</strong> California residents may request access, deletion, and opt-out of data sales (we do not sell your data).</li>
@@ -111,24 +111,24 @@ const PrivacyPolicy = () => {
       content: `
         <p>Cookies are used for:</p>
         <ul class="list-disc pl-5 space-y-2">
-          <li>Customising your experience with Reflo Hub Ltd.</li>
+          <li>Customising your experience with Reflo Hub.</li>
           <li>Examining platform trends and performance.</li>
           <li>Improving user verification and security.</li>
           <li>Overseeing advertising or promotion efforts.</li>
         </ul>
-        <p>Your Reflo Hub Ltd experience may be limited if you choose to disable cookies in your browser's settings.</p>
+        <p>Your Reflo Hub experience may be limited if you choose to disable cookies in your browser's settings.</p>
       `,
     },
     {
       title: 'Third-Party Links',
       content: `
-        <p>Reflo Hub Ltd. might have links to other websites (payment gateways, listed businesses, etc.). The content or privacy policies of third-party websites are not our responsibility.</p>
+        <p>Reflo Hub. might have links to other websites (payment gateways, listed businesses, etc.). The content or privacy policies of third-party websites are not our responsibility.</p>
       `,
     },
     {
       title: "Children's Privacy",
       content: `
-        <p>Reflo Hub Ltd. services are not meant for anyone under the age of 18. We don't intentionally gather or use information from children. We promptly remove any personal information we find belonging to a minor.</p>
+        <p>Reflo Hub. services are not meant for anyone under the age of 18. We don't intentionally gather or use information from children. We promptly remove any personal information we find belonging to a minor.</p>
       `,
     },
     {
@@ -141,8 +141,8 @@ const PrivacyPolicy = () => {
       title: 'Contact Us',
       content: `
         <p>Questions or concerns? We’re here to help.</p>
-        <p><strong>Reflo Hub Ltd Privacy Team</strong></p>
-        <p><strong>Email:</strong> <a href="mailto:privacy@reflohubltd.com" class="text-cyan-400 hover:underline">privacy@reflohubltd.com</a></p>
+        <p><strong>Reflo Hub Privacy Team</strong></p>
+        <p><strong>Email:</strong> <a href="mailto:privacy@reflohub.com" class="text-orange-400 dark:text-orange-300 hover:underline">privacy@reflohub.com</a></p>
         <p><strong>Address:</strong> [Your business address], Canada</p>
         <p><strong>Phone:</strong> [Your contact number]</p>
       `,
@@ -164,60 +164,60 @@ const PrivacyPolicy = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-white overflow-hidden perspective-2000 font-sans">
+    <section className="relative min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white overflow-hidden perspective-1000 font-sans">
       {/* Cosmic Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950">
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,_rgba(0,212,255,0.2),_transparent,_rgba(138,43,226,0.2))] animate-[gradient-shift_25s_ease_infinite] bg-[length:200%_200%]"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,_rgba(0,212,255,0.1),_transparent,_rgba(138,43,226,0.1))] animate-[gradient-shift_30s_ease_infinite_reverse] bg-[length:200%_200%]"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950">
+        <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 to-orange-300/10 dark:from-sky-500/10 dark:to-orange-300/10 animate-[gradient-shift_25s_ease_infinite] bg-[length:200%_200%]"></div>
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
       </div>
 
-      {/* Glowing Particles */}
+      {/* Glowing Orbs */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(25)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-3 h-3 bg-cyan-400/70 dark:bg-cyan-200/70 rounded-full blur-md"
+            className="absolute w-3 h-3 bg-orange-300/70 rounded-full blur-md"
             style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
             animate={{ scale: [1, 2, 1], opacity: [0.5, 1, 0.5], x: Math.random() * 80 - 40, y: Math.random() * 80 - 40 }}
-            transition={{ duration: 10 * Math.random() + 10, repeat: Infinity, repeatType: 'reverse', delay: Math.random() * 3 }}
+            transition={{ duration: Math.random() * 10 + 10, repeat: Infinity, repeatType: 'reverse', delay: Math.random() * 3 }}
           />
         ))}
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:pb-24">
-        {/* Header Section */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 lg:py-24">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30, rotateX: -15 }}
           animate={{ opacity: 1, y: 0, rotateX: 0 }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
-          className="text-center mb-12"
+          className="text-center mb-20"
         >
           <motion.div
-            className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-gray-200 dark:border-cyan-200/40 rounded-full px-6 py-2 mb-6 shadow-[0_0_30px_rgba(0,212,255,0.4)]"
-            whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)' }}
+            className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-gray-200 dark:border-orange-300/40 rounded-full px-6 py-2 mb-6 shadow-[0_0_30px_rgba(255,165,0,0.4)]"
+            whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(255, 165, 0, 0.5)' }}
           >
-            <Sparkles className="w-5 h-5 text-cyan-400" />
+            <Sparkles className="w-5 h-5 text-orange-400" />
             <span className="text-sm font-medium text-gray-900 dark:text-gray-100">Privacy Policy</span>
           </motion.div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_30px_rgba(0,212,255,0.7)] animate-[pulse_3s_ease_infinite]">
+          <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-sky-500 to-orange-300 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_30px_rgba(255,165,0,0.7)] animate-[pulse_3s_ease_infinite]">
             Privacy Policy
           </h1>
-          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Reflo Hub Ltd is committed to protecting your privacy. Learn how we collect, use, and safeguard your personal data.
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            Reflo Hub is committed to protecting your privacy. Learn how we collect, use, and safeguard your personal data.
           </p>
         </motion.div>
 
         {/* Policy Sections */}
         <motion.div variants={sectionVariants} initial="hidden" animate="visible" className="max-w-4xl mx-auto">
-          <p className="text-gray-500 dark:text-gray-400 mb-6">Last Updated: [Insert Date]</p>
+          <p className="text-gray-500 dark:text-gray-400 mb-6">Last Updated: 2025-07-01</p>
           {policySections.map((section, index) => (
             <div
               key={index}
-              className="mb-4 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-gray-200 dark:border-cyan-200/40 rounded-lg overflow-hidden"
+              className="mb-4 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-gray-200 dark:border-orange-300/40 rounded-lg overflow-hidden"
             >
               <motion.button
-                className="w-full px-6 py-4 text-left flex justify-between items-center text-lg font-semibold text-gray-900 dark:text-white hover:bg-cyan-500/10 dark:hover:bg-cyan-200/10 transition-all duration-300"
+                className="w-full px-6 py-4 text-left flex justify-between items-center text-lg font-semibold text-gray-900 dark:text-white hover:bg-orange-300/10 transition-all duration-300"
                 onClick={() => toggleSection(index)}
                 whileHover={{ scale: 1.01 }}
               >
@@ -249,22 +249,35 @@ const PrivacyPolicy = () => {
           animate="visible"
           className="text-center mt-16"
         >
-          <h2 className="text-3xl font-bold text-cyan-600 dark:text-cyan-200 mb-4">Have Questions?</h2>
+          <h2 className="text-3xl font-bold text-orange-400 dark:text-orange-300 mb-4">Have Questions?</h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
             Contact our privacy team for any inquiries about our data protection practices.
           </p>
           <motion.a
-            href="mailto:privacy@reflohubltd.com"
-            variants={{ hover: { scale: 1.05, boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)' }, tap: { scale: 0.95 } }}
+            href="mailto:privacy@reflohub.com"
+            variants={{ hover: { scale: 1.05, boxShadow: '0 0 40px rgba(255, 165, 0, 0.5)' }, tap: { scale: 0.95 } }}
             whileHover="hover"
             whileTap="tap"
-            className="group inline-flex px-8 py-4 text-white bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
+            className="group inline-flex px-8 py-4 text-white bg-gradient-to-r from-sky-500 to-orange-300 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
           >
             <span className="flex items-center gap-2">
               Contact Privacy Team
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
             </span>
           </motion.a>
+        </motion.div>
+
+        {/* SEO Metadata */}
+        <motion.div className="hidden">
+          <meta name="title" content="Reflo Hub – Privacy Policy" />
+          <meta
+            name="description"
+            content="Review the Privacy Policy for Reflo Hub, outlining how we collect, use, and safeguard your personal data in compliance with GDPR, CCPA, PIPEDA, and other applicable laws."
+          />
+          <meta
+            name="keywords"
+            content="Reflo Hub privacy policy, GDPR compliance, CCPA compliance, PIPEDA compliance, data protection, SaaS platform privacy, personal data security"
+          />
         </motion.div>
       </div>
     </section>

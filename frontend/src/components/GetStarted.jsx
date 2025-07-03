@@ -291,7 +291,7 @@ const GetStarted = () => {
           const file = new File([blob], `liveImage-${Date.now()}.jpg`, { type: 'image/jpeg' });
           setFormData((prev) => ({
             ...prev,
-            [type]: { ...prev[type], liveImage: file },
+            [userType]: { ...prev[userType], liveImage: file },
           }));
           setErrors((prev) => ({ ...prev, liveImage: '' }));
           setStreamError(null);
@@ -379,20 +379,22 @@ const GetStarted = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-white overflow-hidden perspective-1000 font-sans">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950">
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,_rgba(255,165,0,0.2),_transparent,_rgba(14,165,233,0.2))] animate-[gradient-shift_25s_ease_infinite] bg-[length:200%_200%]"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,_rgba(255,165,0,0.1),_transparent,_rgba(14,165,233,0.1))] animate-[gradient-shift_30s_ease_infinite_reverse] bg-[length:200%_200%]"></div>
+    <section className="relative min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white overflow-hidden perspective-1000 font-sans">
+      {/* Cosmic Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950">
+        <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 to-orange-300/10 dark:from-sky-500/10 dark:to-orange-300/10 animate-[gradient-shift_25s_ease_infinite] bg-[length:200%_200%]"></div>
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
       </div>
 
+      {/* Glowing Orbs */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(25)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-3 h-3 bg-orange-400/70 dark:bg-orange-300/70 rounded-full blur-md"
+            className="absolute w-3 h-3 bg-orange-300/70 rounded-full blur-md"
             style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
             animate={{ scale: [1, 2, 1], opacity: [0.5, 1, 0.5], x: Math.random() * 80 - 40, y: Math.random() * 80 - 40 }}
-            transition={{ duration: Math.random() * 10 + 10, repeat: true, repeatType: 'reverse', delay: Math.random() * 3 }}
+            transition={{ duration: Math.random() * 10 + 10, repeat: Infinity, repeatType: 'reverse', delay: Math.random() * 3 }}
           />
         ))}
       </div>
@@ -405,13 +407,13 @@ const GetStarted = () => {
           className="text-center mb-20"
         >
           <motion.div
-            className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-orange-400/40 dark:border-orange-300/40 rounded-full px-6 py-2 mb-6 shadow-[0_0_30px_rgba(255,165,0,0.4)]"
+            className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-orange-300/40 rounded-full px-6 py-2 mb-6 shadow-[0_0_30px_rgba(255,165,0,0.4)]"
             whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(255,165,0,0.5)' }}
           >
             <Sparkles className="w-5 h-5 text-orange-400" />
             <span className="text-sm font-medium text-gray-900 dark:text-gray-100">Join Reflo Hub</span>
           </motion.div>
-          <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-orange-400 to-sky-500 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_30px_rgba(255,165,0,0.7)] animate-[pulse_3s_ease_infinite]">
+          <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-sky-500 to-orange-300 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_30px_rgba(255,165,0,0.7)] animate-[pulse_3s_ease_infinite]">
             Get Started Today
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -425,9 +427,9 @@ const GetStarted = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-flex bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-orange-400/40 dark:border-orange-300/40 rounded-full p-1">
+          <div className="inline-flex bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-orange-300/40 rounded-full p-1">
             <motion.button
-              className={`px-6 py-2 rounded-full text-lg font-medium ${userType === 'freelancer' ? 'bg-gradient-to-r from-orange-400 to-sky-500 text-white' : 'text-gray-600 dark:text-gray-300'}`}
+              className={`px-6 py-2 rounded-full text-lg font-medium ${userType === 'freelancer' ? 'bg-gradient-to-r from-sky-500 to-orange-300 text-white' : 'text-gray-600 dark:text-gray-300'}`}
               onClick={() => setUserType('freelancer')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -435,7 +437,7 @@ const GetStarted = () => {
               Freelancer
             </motion.button>
             <motion.button
-              className={`px-6 py-2 rounded-full text-lg font-medium ${userType === 'business' ? 'bg-gradient-to-r from-orange-400 to-sky-500 text-white' : 'text-gray-600 dark:text-gray-300'}`}
+              className={`px-6 py-2 rounded-full text-lg font-medium ${userType === 'business' ? 'bg-gradient-to-r from-sky-500 to-orange-300 text-white' : 'text-gray-600 dark:text-gray-300'}`}
               onClick={() => setUserType('business')}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -452,7 +454,7 @@ const GetStarted = () => {
             initial="hidden"
             animate="visible"
             exit="exit"
-            className="max-w-2xl mx-auto bg-gradient-to-b from-gray-100/60 dark:from-white/5 to-gray-200/60 dark:to-white/3 backdrop-blur-lg border border-orange-400/40 dark:border-orange-300/40 rounded-2xl p-8 shadow-[0_0_50px_rgba(255,165,0,0.3)]"
+            className="max-w-2xl mx-auto bg-gradient-to-b from-gray-100/60 dark:from-white/5 to-gray-200/60 dark:to-white/3 backdrop-blur-lg border border-orange-300/40 rounded-2xl p-8 shadow-[0_0_50px_rgba(255,165,0,0.3)]"
           >
             <div className="relative z-10">
               {userType === 'freelancer' ? (
@@ -465,7 +467,7 @@ const GetStarted = () => {
                       name="fullName"
                       value={formData.freelancer.fullName}
                       onChange={(e) => handleChange(e, 'freelancer')}
-                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 dark:focus:ring-orange-300 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-300 transition-all duration-300"
                       placeholder="John Doe"
                       required
                     />
@@ -478,7 +480,7 @@ const GetStarted = () => {
                       name="displayName"
                       value={formData.freelancer.displayName}
                       onChange={(e) => handleChange(e, 'freelancer')}
-                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 dark:focus:ring-orange-300 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-300 transition-all duration-300"
                       placeholder="JohnD"
                     />
                   </div>
@@ -489,7 +491,7 @@ const GetStarted = () => {
                       name="email"
                       value={formData.freelancer.email}
                       onChange={(e) => handleChange(e, 'freelancer')}
-                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 dark:focus:ring-orange-300 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-300 transition-all duration-300"
                       placeholder="john@example.com"
                       required
                     />
@@ -502,7 +504,7 @@ const GetStarted = () => {
                       name="phone"
                       value={formData.freelancer.phone}
                       onChange={(e) => handleChange(e, 'freelancer')}
-                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 dark:focus:ring-orange-300 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-300 transition-all duration-300"
                       placeholder="+1234567890"
                       required
                     />
@@ -514,7 +516,7 @@ const GetStarted = () => {
                       name="country"
                       value={formData.freelancer.country}
                       onChange={(e) => handleChange(e, 'freelancer')}
-                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-400 dark:focus:ring-orange-300 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-300 transition-all duration-300"
                       required
                     >
                       <option value="" disabled>
@@ -535,7 +537,7 @@ const GetStarted = () => {
                       name="city"
                       value={formData.freelancer.city}
                       onChange={(e) => handleChange(e, 'freelancer')}
-                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 dark:focus:ring-orange-300 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-300 transition-all duration-300"
                       placeholder="Toronto"
                     />
                   </div>
@@ -546,7 +548,7 @@ const GetStarted = () => {
                       name="skills"
                       value={formData.freelancer.skills}
                       onChange={(e) => handleChange(e, 'freelancer')}
-                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 dark:focus:ring-orange-300 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-300 transition-all duration-300"
                       placeholder="Sales, Marketing, Networking"
                     />
                   </div>
@@ -558,19 +560,25 @@ const GetStarted = () => {
                         onClick={openCamera}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="px-4 py-2 bg-gradient-to-r from-orange-400 to-sky-500 text-white rounded-lg font-semibold flex items-center gap-2"
+                        className="px-4 py-2 bg-gradient-to-r from-sky-500 to-orange-300 text-white rounded-lg font-semibold flex items-center gap-2"
                       >
                         <Camera className="w-5 h-5" />
                         Take Photo
                       </motion.button>
+                  
                     </div>
+                    {formData.freelancer.liveImage && (
+                      <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                        Selected: {formData.freelancer.liveImage.name}
+                      </p>
+                    )}
                     {errors.liveImage && <p className="text-red-400 text-sm mt-1">{errors.liveImage}</p>}
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
                       ID Proofs * (e.g., Passport, ID Card)
                     </label>
-                    <div className="relative w-full p-4 bg-gray-100/60 dark:bg-gray-800/50 border border-dashed border-orange-400 dark:border-orange-300 rounded-lg hover:bg-gray-200/60 dark:hover:bg-gray-800/20 transition-all duration-300">
+                    <div className="relative w-full p-4 bg-gray-100/60 dark:bg-gray-800/50 border border-dashed border-orange-300 rounded-lg hover:bg-gray-200/60 dark:hover:bg-gray-800/20 transition-all duration-300">
                       <input
                         type="file"
                         name="idProofs"
@@ -600,7 +608,7 @@ const GetStarted = () => {
                     type="submit"
                     whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(255,165,0,0.5)' }}
                     whileTap={{ scale: 0.95 }}
-                    className="group w-full px-8 py-4 text-center bg-gradient-to-r from-orange-400 to-sky-500 text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
+                    className="group w-full px-8 py-4 text-center bg-gradient-to-r from-sky-500 to-orange-300 text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
                   >
                     <span className="flex items-center justify-center gap-2">
                       Register as Freelancer
@@ -618,7 +626,7 @@ const GetStarted = () => {
                       name="companyName"
                       value={formData.business.companyName}
                       onChange={(e) => handleChange(e, 'business')}
-                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 dark:focus:ring-orange-300 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-300 transition-all duration-300"
                       placeholder="Acme Corp"
                       required
                     />
@@ -631,7 +639,7 @@ const GetStarted = () => {
                       name="legalName"
                       value={formData.business.legalName}
                       onChange={(e) => handleChange(e, 'business')}
-                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 dark:focus:ring-orange-300 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-300 transition-all duration-300"
                       placeholder="Acme Corporation Ltd"
                       required
                     />
@@ -643,7 +651,7 @@ const GetStarted = () => {
                       name="businessType"
                       value={formData.business.businessType}
                       onChange={(e) => handleChange(e, 'business')}
-                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-400 dark:focus:ring-orange-300 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-300 transition-all duration-300"
                       required
                     >
                       <option value="" disabled>
@@ -663,7 +671,7 @@ const GetStarted = () => {
                       name="contactName"
                       value={formData.business.contactName}
                       onChange={(e) => handleChange(e, 'business')}
-                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 dark:focus:ring-orange-300 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-300 transition-all duration-300"
                       placeholder="Jane Smith"
                       required
                     />
@@ -676,7 +684,7 @@ const GetStarted = () => {
                       name="email"
                       value={formData.business.email}
                       onChange={(e) => handleChange(e, 'business')}
-                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 dark:focus:ring-orange-300 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-300 transition-all duration-300"
                       placeholder="jane@acme.com"
                       required
                     />
@@ -689,7 +697,7 @@ const GetStarted = () => {
                       name="phone"
                       value={formData.business.phone}
                       onChange={(e) => handleChange(e, 'business')}
-                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 dark:focus:ring-orange-300 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-300 transition-all duration-300"
                       placeholder="+1234567890"
                       required
                     />
@@ -701,7 +709,7 @@ const GetStarted = () => {
                       name="country"
                       value={formData.business.country}
                       onChange={(e) => handleChange(e, 'business')}
-                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-400 dark:focus:ring-orange-300 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-orange-300 transition-all duration-300"
                       required
                     >
                       <option value="" disabled>
@@ -722,7 +730,7 @@ const GetStarted = () => {
                       name="city"
                       value={formData.business.city}
                       onChange={(e) => handleChange(e, 'business')}
-                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 dark:focus:ring-orange-300 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-300 transition-all duration-300"
                       placeholder="Vancouver"
                     />
                   </div>
@@ -733,7 +741,7 @@ const GetStarted = () => {
                       name="industry"
                       value={formData.business.industry}
                       onChange={(e) => handleChange(e, 'business')}
-                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400 dark:focus:ring-orange-300 transition-all duration-300"
+                      className="w-full p-3 bg-gray-100/60 dark:bg-gray-800/50 border border-gray-200 dark:border-white/10 rounded-lg text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-300 transition-all duration-300"
                       placeholder="IT Services"
                     />
                   </div>
@@ -747,19 +755,40 @@ const GetStarted = () => {
                         onClick={openCamera}
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="px-4 py-2 bg-gradient-to-r from-orange-400 to-sky-500 text-white rounded-lg font-semibold flex items-center gap-2"
+                        className="px-4 py-2 bg-gradient-to-r from-sky-500 to-orange-300 text-white rounded-lg font-semibold flex items-center gap-2"
                       >
                         <Camera className="w-5 h-5" />
                         Take Photo
                       </motion.button>
+                      <input
+                        type="file"
+                        accept="image/jpeg,image/png"
+                        onChange={(e) => handleFileChange(e, 'business', 'liveImage')}
+                        className="hidden"
+                        id="business-liveImage-upload"
+                      />
+                      <motion.label
+                        htmlFor="business-liveImage-upload"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="px-4 py-2 bg-gradient-to-r from-sky-500 to-orange-300 text-white rounded-lg font-semibold flex items-center gap-2 cursor-pointer"
+                      >
+                        <Upload className="w-5 h-5" />
+                        Upload Photo
+                      </motion.label>
                     </div>
+                    {formData.business.liveImage && (
+                      <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
+                        Selected: {formData.business.liveImage.name}
+                      </p>
+                    )}
                     {errors.liveImage && <p className="text-red-400 text-sm mt-1">{errors.liveImage}</p>}
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
                       ID Proofs * (e.g., Passport, ID Card)
                     </label>
-                    <div className="relative w-full p-4 bg-gray-100/60 dark:bg-gray-800/50 border border-dashed border-orange-400 dark:border-orange-300 rounded-lg hover:bg-gray-200/60 dark:hover:bg-gray-800/20 transition-all duration-300">
+                    <div className="relative w-full p-4 bg-gray-100/60 dark:bg-gray-800/50 border border-dashed border-orange-300 rounded-lg hover:bg-gray-200/60 dark:hover:bg-gray-800/20 transition-all duration-300">
                       <input
                         type="file"
                         name="idProofs"
@@ -788,7 +817,7 @@ const GetStarted = () => {
                     <label className="block text-sm font-medium text-gray-600 dark:text-gray-300 mb-2">
                       Business Documents (e.g., Incorporation Certificate)
                     </label>
-                    <div className="relative w-full p-4 bg-gray-100/60 dark:bg-gray-800/50 border border-dashed border-orange-400 dark:border-orange-300 rounded-lg hover:bg-gray-200/60 dark:hover:bg-gray-800/20 transition-all duration-300">
+                    <div className="relative w-full p-4 bg-gray-100/60 dark:bg-gray-800/50 border border-dashed border-orange-300 rounded-lg hover:bg-gray-200/60 dark:hover:bg-gray-800/20 transition-all duration-300">
                       <input
                         type="file"
                         name="businessDocs"
@@ -818,7 +847,7 @@ const GetStarted = () => {
                     type="submit"
                     whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(255,165,0,0.5)' }}
                     whileTap={{ scale: 0.95 }}
-                    className="group w-full px-8 py-4 mt-4 text-white bg-gradient-to-r from-orange-400 to-sky-500 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
+                    className="group w-full px-8 py-4 mt-4 text-white bg-gradient-to-r from-sky-500 to-orange-300 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
                   >
                     <span className="flex items-center justify-center gap-2">
                       Register as Business
@@ -830,6 +859,19 @@ const GetStarted = () => {
             </div>
           </motion.section>
         </AnimatePresence>
+
+        {/* SEO Metadata */}
+        <motion.div className="hidden">
+          <meta name="title" content="Reflo Hub Ltd – Get Started" />
+          <meta
+            name="description"
+            content="Join Reflo Hub Ltd as a freelancer or business. Register today to start generating leads or accessing global opportunities through our SaaS platform."
+          />
+          <meta
+            name="keywords"
+            content="Reflo Hub Ltd registration, freelancer sign-up, business registration, SaaS lead generation platform, join Reflo Hub, global collaboration platform"
+          />
+        </motion.div>
       </div>
 
       {isCameraOpen && (
@@ -864,7 +906,7 @@ const GetStarted = () => {
                     disabled={streamError}
                     whileHover={{ scale: streamError ? 1 : 1.05 }}
                     whileTap={{ scale: streamError ? 1 : 0.95 }}
-                    className={`px-4 py-2 bg-gradient-to-r from-orange-400 to-sky-500 text-white rounded-lg font-semibold ${streamError ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`px-4 py-2 bg-gradient-to-r from-sky-500 to-orange-300 text-white rounded-lg font-semibold ${streamError ? 'opacity-50 cursor-not-allowed' : ''}`}
                   >
                     Capture
                   </motion.button>
@@ -902,7 +944,7 @@ const GetStarted = () => {
                     onClick={saveCroppedImage}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-4 py-2 bg-gradient-to-r from-orange-400 to-sky-500 text-white rounded-lg font-semibold"
+                    className="px-4 py-2 bg-gradient-to-r from-sky-500 to-orange-300 text-white rounded-lg font-semibold"
                   >
                     Save
                   </motion.button>

@@ -9,7 +9,7 @@ const NondiscriminationStatement = () => {
     {
       title: 'Our Commitment to Inclusion and Fair Access',
       content: `
-        <p>Reflo Hub Ltd. forbids discrimination of any type based on the following grounds:</p>
+        <p>Reflo Hub. forbids discrimination of any type based on the following grounds:</p>
         <ul class="list-disc pl-5 space-y-2">
           <li>National origin, race, or ethnicity</li>
           <li>Gender identity or gender</li>
@@ -28,7 +28,7 @@ const NondiscriminationStatement = () => {
     {
       title: 'Fair Access for Freelancers',
       content: `
-        <p>Reflo Hub Ltd.'s commitments include:</p>
+        <p>Reflo Hub.'s commitments include:</p>
         <ul class="list-disc pl-5 space-y-2">
           <li>Giving all independent contractors, irrespective of location or experience, equal access to companies and leads.</li>
           <li>Avoiding partiality or bias in the distribution or evaluation of leads.</li>
@@ -40,7 +40,7 @@ const NondiscriminationStatement = () => {
     {
       title: 'Fair Treatment for Companies',
       content: `
-        <p>Reflo Hub Ltd. guarantees:</p>
+        <p>Reflo Hub. guarantees:</p>
         <ul class="list-disc pl-5 space-y-2">
           <li>All validated companies receive the same treatment, irrespective of their ownership, size, or location.</li>
           <li>Only plan features and usage—not name, industry, or background—are used to determine listings, lead access, and exposure.</li>
@@ -64,7 +64,7 @@ const NondiscriminationStatement = () => {
     {
       title: 'Enforcement & Monitoring',
       content: `
-        <p>To support this policy, Reflo Hub Ltd. keeps an eye on activity and does the following:</p>
+        <p>To support this policy, Reflo Hub. keeps an eye on activity and does the following:</p>
         <ul class="list-disc pl-5 space-y-2">
           <li>A mechanism within the app for users to report instances of abuse or prejudice</li>
           <li>AI-powered chat message moderation and automated review tools (non-invasive, anonymized)</li>
@@ -76,9 +76,9 @@ const NondiscriminationStatement = () => {
     {
       title: 'How to Report Discrimination',
       content: `
-        <p>Please report any instances of discrimination you encounter or observe on Reflo Hub Ltd right away by using the following form:</p>
+        <p>Please report any instances of discrimination you encounter or observe on Reflo Hub right away by using the following form:</p>
         <ul class="list-disc pl-5 space-y-2">
-          <li><strong>Email:</strong> <a href="mailto:support@reflohubltd.com" class="text-cyan-400 hover:underline">support@reflohubltd.com</a></li>
+          <li><strong>Email:</strong> <a href="mailto:support@reflohub.com" class="text-orange-400 dark:text-orange-300 hover:underline">support@reflohub.com</a></li>
           <li>In-dashboard Report Form > "Report a User" under user profile</li>
           <li>Confidential Reporting: When filing a complaint, you can ask to remain anonymous.</li>
         </ul>
@@ -88,20 +88,20 @@ const NondiscriminationStatement = () => {
     {
       title: 'Why This Matters to Us',
       content: `
-        <p>Reflo Hub Ltd is a global community as well as a platform. Our goal is to use the power of equal opportunity and ethical referrals to bridge cultural, industrial, and national divides. Everyone prospers when they are treated with respect.</p>
+        <p>Reflo Hub is a global community as well as a platform. Our goal is to use the power of equal opportunity and ethical referrals to bridge cultural, industrial, and national divides. Everyone prospers when they are treated with respect.</p>
       `,
     },
     {
       title: 'Legal Adherence',
       content: `
-        <p>The nondiscrimination policy of Reflo Hub Ltd. is consistent with:</p>
+        <p>The nondiscrimination policy of Reflo Hub. is consistent with:</p>
         <ul class="list-disc pl-5 space-y-2">
           <li>The Human Rights Act of Canada</li>
           <li>Human Rights Declaration of the United Nations</li>
           <li>The U.S. Civil Rights Act's Title VII (for U.S. users)</li>
           <li>The EU, UK, Australia, and other participating regions' laws pertaining to equal opportunity</li>
         </ul>
-        <p>Reflo Hub Ltd. maintains the right to amend this policy in response to platform requirements or legal developments.</p>
+        <p>Reflo Hub. maintains the right to amend this policy in response to platform requirements or legal developments.</p>
       `,
     },
   ];
@@ -121,11 +121,11 @@ const NondiscriminationStatement = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-white overflow-hidden perspective-1000 font-sans">
+    <section className="relative min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white overflow-hidden perspective-1000 font-sans">
       {/* Cosmic Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950">
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,_rgba(0,212,255,0.2),_transparent,_rgba(138,43,226,0.2))] animate-[gradient-shift_25s_ease_infinite] bg-[length:200%_200%]"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,_rgba(0,212,255,0.1),_transparent,_rgba(138,43,226,0.1))] animate-[gradient-shift_30s_ease_infinite_reverse] bg-[length:200%_200%]"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950">
+        <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 to-orange-300/10 dark:from-sky-500/10 dark:to-orange-300/10 animate-[gradient-shift_25s_ease_infinite] bg-[length:200%_200%]"></div>
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
       </div>
 
       {/* Glowing Orbs */}
@@ -133,10 +133,10 @@ const NondiscriminationStatement = () => {
         {[...Array(25)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-3 h-3 bg-cyan-400/70 dark:bg-cyan-200/70 rounded-full blur-md"
+            className="absolute w-3 h-3 bg-orange-300/70 rounded-full blur-md"
             style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
             animate={{ scale: [1, 2, 1], opacity: [0.5, 1, 0.5], x: Math.random() * 80 - 40, y: Math.random() * 80 - 40 }}
-            transition={{ duration: Math.random() * 10 + 10, repeat: true, repeatType: 'reverse', delay: Math.random() * 3 }}
+            transition={{ duration: Math.random() * 10 + 10, repeat: Infinity, repeatType: 'reverse', delay: Math.random() * 3 }}
           />
         ))}
       </div>
@@ -151,17 +151,17 @@ const NondiscriminationStatement = () => {
           className="text-center mb-20"
         >
           <motion.div
-            className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-gray-200 dark:border-cyan-200/40 rounded-full px-6 py-2 mb-6 shadow-[0_0_30px_rgba(0,212,255,0.4)]"
-            whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)' }}
+            className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-gray-200 dark:border-orange-300/40 rounded-full px-6 py-2 mb-6 shadow-[0_0_30px_rgba(255,165,0,0.4)]"
+            whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(255, 165, 0, 0.5)' }}
           >
-            <Sparkles className="w-5 h-5 text-cyan-400" />
+            <Sparkles className="w-5 h-5 text-orange-400" />
             <span className="text-sm font-medium text-gray-900 dark:text-gray-100">Nondiscrimination Statement</span>
           </motion.div>
-          <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_30px_rgba(0,212,255,0.7)] animate-[pulse_3s_ease_infinite]">
-            Reflo Hub Ltd Nondiscrimination Statement
+          <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-sky-500 to-orange-300 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_30px_rgba(255,165,0,0.7)] animate-[pulse_3s_ease_infinite]">
+            Reflo Hub Nondiscrimination Statement
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            At Reflo Hub Ltd., we think that respect for one another and fair opportunity are the cornerstones of international cooperation.
+            At Reflo Hub., we think that respect for one another and fair opportunity are the cornerstones of international cooperation.
           </p>
         </motion.div>
 
@@ -171,10 +171,10 @@ const NondiscriminationStatement = () => {
           {statementSections.map((section, index) => (
             <div
               key={index}
-              className="mb-4 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-gray-200 dark:border-cyan-200/40 rounded-lg overflow-hidden"
+              className="mb-4 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-gray-200 dark:border-orange-300/40 rounded-lg overflow-hidden"
             >
               <motion.button
-                className="w-full px-6 py-4 text-left flex justify-between items-center text-lg font-semibold text-gray-900 dark:text-white hover:bg-cyan-500/10 dark:hover:bg-cyan-200/10 transition-all duration-300"
+                className="w-full px-6 py-4 text-left flex justify-between items-center text-lg font-semibold text-gray-900 dark:text-white hover:bg-orange-300/10 transition-all duration-300"
                 onClick={() => toggleSection(index)}
                 whileHover={{ scale: 1.01 }}
               >
@@ -206,16 +206,16 @@ const NondiscriminationStatement = () => {
           animate="visible"
           className="text-center mt-16"
         >
-          <h2 className="text-3xl font-bold text-cyan-600 dark:text-cyan-200 mb-4">Have Questions?</h2>
+          <h2 className="text-3xl font-bold text-orange-400 dark:text-orange-300 mb-4">Have Questions?</h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
             Contact our support team for any inquiries about our nondiscrimination statement.
           </p>
           <motion.a
-            href="mailto:support@reflohubltd.com"
-            variants={{ hover: { scale: 1.05, boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)' }, tap: { scale: 0.95 } }}
+            href="mailto:support@reflohub.com"
+            variants={{ hover: { scale: 1.05, boxShadow: '0 0 40px rgba(255, 165, 0, 0.5)' }, tap: { scale: 0.95 } }}
             whileHover="hover"
             whileTap="tap"
-            className="group inline-flex px-8 py-4 text-white bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
+            className="group inline-flex px-8 py-4 text-white bg-gradient-to-r from-sky-500 to-orange-300 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
           >
             <span className="flex items-center gap-2">
               Contact Support
@@ -226,14 +226,14 @@ const NondiscriminationStatement = () => {
 
         {/* SEO Metadata */}
         <motion.div className="hidden">
-          <meta name="title" content="Reflo Hub Ltd – Nondiscrimination Statement" />
+          <meta name="title" content="Reflo Hub – Nondiscrimination Statement" />
           <meta
             name="description"
-            content="Review the Nondiscrimination Statement for Reflo Hub Ltd, ensuring equal opportunity and fair treatment for all freelancers and businesses on our SaaS platform."
+            content="Review the Nondiscrimination Statement for Reflo Hub, ensuring equal opportunity and fair treatment for all freelancers and businesses on our SaaS platform."
           />
           <meta
             name="keywords"
-            content="Reflo Hub Ltd nondiscrimination policy, equal opportunity for freelancers, fairness statement for business platforms, SaaS anti-discrimination statement, inclusive diversity in lead referral programs, respectful freelancer-business partnership, global inclusive policy for users, equitable treatment on freelancer platforms, Reflo Hub Ltd accessibility and equality policy, zero tolerance for discrimination"
+            content="Reflo Hub nondiscrimination policy, equal opportunity for freelancers, fairness statement for business platforms, SaaS anti-discrimination statement, inclusive diversity in lead referral programs, respectful freelancer-business partnership, global inclusive policy for users, equitable treatment on freelancer platforms, Reflo Hub accessibility and equality policy, zero tolerance for discrimination"
           />
         </motion.div>
       </div>

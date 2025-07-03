@@ -5,7 +5,7 @@ const Countries = () => {
   return (
     <section id="countries" className="py-24 bg-gray-100 dark:bg-gray-950 relative overflow-hidden">
       {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-400/10 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-sky-500/10 to-transparent"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -15,9 +15,9 @@ const Countries = () => {
           className="text-center mb-16"
         >
           <div className="flex items-center justify-center mb-6">
-            <Globe className="w-12 h-12 text-orange-400 mr-4" />
+            <Globe className="w-12 h-12 text-sky-500 mr-4" />
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
-              Global <span className="bg-gradient-to-r from-orange-400 to-sky-500 bg-clip-text text-transparent">Reach</span>
+              Global <span className="bg-gradient-to-r from-sky-500 to-orange-400 bg-clip-text text-transparent">Reach</span>
             </h2>
           </div>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -47,7 +47,7 @@ const Countries = () => {
                 boxShadow: '0 0 30px rgba(14,165,233,0.4)' // sky-500 glow
               }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-3 bg-gradient-to-r from-orange-400 to-sky-500 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-200"
+              className="px-8 py-3 bg-gradient-to-r from-sky-500 to-orange-400 text-white rounded-xl font-semibold hover:shadow-lg transition-all duration-200"
             >
               Join Waitlist
             </motion.button>

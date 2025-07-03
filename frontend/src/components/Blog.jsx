@@ -127,7 +127,7 @@ const Blog = () => {
     <section className="relative min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950">
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-sky-500/10 dark:from-orange-400/10 dark:to-sky-500/10 animate-[gradient-shift_20s_ease_infinite] bg-[length:200%_200%]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 to-orange-300/10 dark:from-sky-500/10 dark:to-orange-300/10 animate-[gradient-shift_20s_ease_infinite] bg-[length:200%_200%]"></div>
       </div>
 
       {/* Floating Particles */}
@@ -135,7 +135,7 @@ const Blog = () => {
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-orange-400/30 dark:bg-orange-300/30 rounded-full blur-sm"
+            className="absolute w-2 h-2 bg-orange-300/30 dark:bg-orange-300/30 rounded-full blur-sm"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -172,7 +172,7 @@ const Blog = () => {
             <Sparkles className="w-5 h-5 text-orange-400" />
             <span className="text-sm font-medium text-gray-700 dark:text-gray-100">Reflo Hub Insights</span>
           </motion.div>
-          <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-orange-400 to-sky-500 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_20px_rgba(255,165,0,0.3)]">
+          <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-sky-500 to-orange-300 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_20px_rgba(255,165,0,0.3)]">
             Cosmic Chronicles
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -208,8 +208,8 @@ const Blog = () => {
                 />
                 <div className="p-6 relative z-10 flex flex-col flex-grow">
                   <p className="text-sm text-gray-400 mb-2">{post.date}</p>
-                  <h2 className="text-xl font-bold text-black-900 dark:text-white mb-3 line-clamp-2">{post.title}</h2>
-                  <p className="text-black-900 dark:text-gray-300 text-sm mb-4 flex-grow line-clamp-3">{post.excerpt}</p>
+                  <h2 className="text-xl font-bold text-black dark:text-white mb-3 line-clamp-2">{post.title}</h2>
+                  <p className="text-black dark:text-gray-300 text-sm mb-4 flex-grow line-clamp-3">{post.excerpt}</p>
                   <div className="group inline-flex items-center text-orange-400 dark:text-orange-300 hover:text-sky-500 dark:hover:text-sky-400 transition-colors duration-200">
                     Read More
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform duration-300" />
@@ -297,8 +297,8 @@ const Blog = () => {
                         <BookOpen className="w-5 h-5" />
                         <span className="font-medium">Blog Post</span>
                       </div>
-                      <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{selectedPost.title}</h2>
-                      <p className="text-gray-600 dark:text-gray-300 mb-8">{selectedPost.date}</p>
+                      <h2 className="text-3xl font-bold text-black dark:text-white mb-2">{selectedPost.title}</h2>
+                      <p className="text-black dark:text-gray-300 mb-8">{selectedPost.date}</p>
                       
                       <div 
                         className="prose prose-invert prose-lg"
@@ -350,20 +350,20 @@ const Blog = () => {
         .prose-invert h3 {
           font-size: 1.25rem;
           font-weight: 600;
-          color: #e5e7eb;
+          color: #000000;
           margin-top: 1.5rem;
           margin-bottom: 0.75rem;
         }
         .prose-invert p {
           margin-bottom: 1rem;
           line-height: 1.7;
-          color: #d1d5db;
+          color: #000000;
         }
         .prose-invert ul {
           list-style-type: disc;
           padding-left: 1.5rem;
           margin-bottom: 1.5rem;
-          color: #d1d5db;
+          color: #000000;
         }
         .prose-invert li {
           margin-bottom: 0.5rem;

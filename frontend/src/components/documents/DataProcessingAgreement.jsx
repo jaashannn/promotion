@@ -75,7 +75,7 @@ const DataProcessingAgreement = () => {
           <li>Payment processors: Wise (just for subscriptions), PayPal, and Stripe</li>
           <li>Email/Communication: SendGrid, Intercom, Mailgun</li>
         </ul>
-        <p>Written agreements guaranteeing equal data protection obligations apply to all subprocessors. Before adding new subprocessors, Reflo Hub Ltd. must give at least ten days' notice by email or platform notification. You can contact <a href="mailto:privacy@reflohubltd.com" class="text-cyan-400 hover:underline">privacy@reflohubltd.com</a> to object on reasonable grounds.</p>
+        <p>Written agreements guaranteeing equal data protection obligations apply to all subprocessors. Before adding new subprocessors, Reflo Hub Ltd. must give at least ten days' notice by email or platform notification. You can contact <a href="mailto:privacy@reflohubltd.com" class="text-orange-400 dark:text-orange-300 hover:underline">privacy@reflohubltd.com</a> to object on reasonable grounds.</p>
       `,
     },
     {
@@ -170,7 +170,7 @@ const DataProcessingAgreement = () => {
       content: `
         <p>Please get in touch if you have any queries or worries regarding this DPA or your data protection.</p>
         <p><strong>Officer of Data Protection</strong></p>
-        <p><strong>Email:</strong> <a href="mailto:privacy@reflohubltd.com" class="text-cyan-400 hover:underline">privacy@reflohubltd.com</a></p>
+        <p><strong>Email:</strong> <a href="mailto:privacy@reflohubltd.com" class="text-orange-400 dark:text-orange-300 hover:underline">privacy@reflohubltd.com</a></p>
         <p><strong>Address:</strong> [Insert Address]</p>
       `,
     },
@@ -191,11 +191,11 @@ const DataProcessingAgreement = () => {
   };
 
   return (
-    <section className="relative min-h-screen bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-white overflow-hidden perspective-1000 font-sans">
+    <section className="relative min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white overflow-hidden perspective-1000 font-sans">
       {/* Cosmic Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950">
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,_rgba(0,212,255,0.2),_transparent,_rgba(138,43,226,0.2))] animate-[gradient-shift_25s_ease_infinite] bg-[length:200%_200%]"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,_rgba(0,212,255,0.1),_transparent,_rgba(138,43,226,0.1))] animate-[gradient-shift_30s_ease_infinite_reverse] bg-[length:200%_200%]"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950">
+        <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 to-orange-300/10 dark:from-sky-500/10 dark:to-orange-300/10 animate-[gradient-shift_25s_ease_infinite] bg-[length:200%_200%]"></div>
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
       </div>
 
       {/* Glowing Orbs */}
@@ -203,10 +203,10 @@ const DataProcessingAgreement = () => {
         {[...Array(25)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-3 h-3 bg-cyan-400/70 dark:bg-cyan-200/70 rounded-full blur-md"
+            className="absolute w-3 h-3 bg-orange-300/70 rounded-full blur-md"
             style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
             animate={{ scale: [1, 2, 1], opacity: [0.5, 1, 0.5], x: Math.random() * 80 - 40, y: Math.random() * 80 - 40 }}
-            transition={{ duration: Math.random() * 10 + 10, repeat: true, repeatType: 'reverse', delay: Math.random() * 3 }}
+            transition={{ duration: Math.random() * 10 + 10, repeat: Infinity, repeatType: 'reverse', delay: Math.random() * 3 }}
           />
         ))}
       </div>
@@ -221,13 +221,13 @@ const DataProcessingAgreement = () => {
           className="text-center mb-20"
         >
           <motion.div
-            className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-gray-200 dark:border-cyan-200/40 rounded-full px-6 py-2 mb-6 shadow-[0_0_30px_rgba(0,212,255,0.4)]"
-            whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)' }}
+            className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-gray-200 dark:border-orange-300/40 rounded-full px-6 py-2 mb-6 shadow-[0_0_30px_rgba(255,165,0,0.4)]"
+            whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(255, 165, 0, 0.5)' }}
           >
-            <Sparkles className="w-5 h-5 text-cyan-400" />
+            <Sparkles className="w-5 h-5 text-orange-400" />
             <span className="text-sm font-medium text-gray-900 dark:text-gray-100">Data Processing Agreement</span>
           </motion.div>
-          <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-cyan-600 dark:from-cyan-200 to-violet-600 dark:to-violet-400 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_30px_rgba(0,212,255,0.7)] animate-[pulse_3s_ease_infinite]">
+          <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-sky-500 to-orange-300 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_30px_rgba(255,165,0,0.7)] animate-[pulse_3s_ease_infinite]">
             Global Data Processing Agreement
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -237,14 +237,14 @@ const DataProcessingAgreement = () => {
 
         {/* DPA Sections */}
         <motion.div variants={sectionVariants} initial="hidden" animate="visible" className="max-w-4xl mx-auto">
-          <p className="text-gray-500 dark:text-gray-400 mb-6">Last Updated: [Insert Date]</p>
+          <p className="text-gray-500 dark:text-gray-400 mb-6">Last Updated: 2025-07-01</p>
           {dpaSections.map((section, index) => (
             <div
               key={index}
-              className="mb-4 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-gray-200 dark:border-cyan-200/40 rounded-lg overflow-hidden"
+              className="mb-4 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-gray-200 dark:border-orange-300/40 rounded-lg overflow-hidden"
             >
               <motion.button
-                className="w-full px-6 py-4 text-left flex justify-between items-center text-lg font-semibold text-gray-900 dark:text-white hover:bg-cyan-500/10 dark:hover:bg-cyan-200/10 transition-all duration-300"
+                className="w-full px-6 py-4 text-left flex justify-between items-center text-lg font-semibold text-gray-900 dark:text-white hover:bg-orange-300/10 transition-all duration-300"
                 onClick={() => toggleSection(index)}
                 whileHover={{ scale: 1.01 }}
               >
@@ -276,16 +276,16 @@ const DataProcessingAgreement = () => {
           animate="visible"
           className="text-center mt-16"
         >
-          <h2 className="text-3xl font-bold text-cyan-600 dark:text-cyan-200 mb-4">Have Questions?</h2>
+          <h2 className="text-3xl font-bold text-orange-400 dark:text-orange-300 mb-4">Have Questions?</h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
             Contact our Data Protection Officer for any inquiries about our data processing agreement.
           </p>
           <motion.a
             href="mailto:privacy@reflohubltd.com"
-            variants={{ hover: { scale: 1.05, boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)' }, tap: { scale: 0.95 } }}
+            variants={{ hover: { scale: 1.05, boxShadow: '0 0 40px rgba(255, 165, 0, 0.5)' }, tap: { scale: 0.95 } }}
             whileHover="hover"
             whileTap="tap"
-            className="group inline-flex px-8 py-4 text-white bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
+            className="group inline-flex px-8 py-4 text-white bg-gradient-to-r from-sky-500 to-orange-300 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
           >
             <span className="flex items-center gap-2">
               Contact Data Protection Officer

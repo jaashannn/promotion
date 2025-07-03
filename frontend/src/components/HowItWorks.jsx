@@ -44,7 +44,7 @@ const HowItWorks = () => {
       className="py-24 bg-gray-100 dark:bg-gray-950 text-gray-900 dark:text-white relative overflow-hidden"
     >
       {/* Background Accent */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-orange-400/10 dark:via-orange-400/10 to-transparent"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-sky-500/10 dark:via-sky-500/10 to-transparent"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
@@ -55,7 +55,7 @@ const HowItWorks = () => {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             How It{' '}
-            <span className="bg-gradient-to-r from-orange-400 to-sky-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-sky-500 to-orange-400 bg-clip-text text-transparent">
               Works
             </span>
           </h2>
@@ -88,8 +88,8 @@ const HowItWorks = () => {
                   className="group relative"
                 >
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-orange-400/20 to-sky-500/20 dark:from-orange-400/20 dark:to-sky-500/20 rounded-xl flex items-center justify-center group-hover:from-orange-400/30 group-hover:to-sky-500/30 transition-all duration-300">
-                      <step.icon className="w-8 h-8 text-orange-400 dark:text-orange-300" />
+                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-sky-500/20 to-orange-400/20 dark:from-sky-500/20 dark:to-orange-400/20 rounded-xl flex items-center justify-center group-hover:from-sky-500/30 group-hover:to-orange-400/30 transition-all duration-300">
+                      <step.icon className="w-8 h-8 text-sky-500 dark:text-sky-400" />
                     </div>
                     <div className="flex-1">
                       <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{step.title}</h4>
@@ -97,7 +97,7 @@ const HowItWorks = () => {
                     </div>
                   </div>
                   {index < freelancerSteps.length - 1 && (
-                    <div className="absolute left-8 top-16 w-0.5 h-8 bg-gradient-to-b from-orange-400/50 to-transparent"></div>
+                    <div className="absolute left-8 top-16 w-0.5 h-8 bg-gradient-to-b from-sky-500/50 to-transparent"></div>
                   )}
                 </motion.div>
               ))}
@@ -126,8 +126,8 @@ const HowItWorks = () => {
                   className="group relative"
                 >
                   <div className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-orange-400/20 to-sky-500/20 dark:from-orange-400/20 dark:to-sky-500/20 rounded-xl flex items-center justify-center group-hover:from-orange-400/30 group-hover:to-sky-500/30 transition-all duration-300">
-                      <step.icon className="w-8 h-8 text-sky-500 dark:text-sky-400" />
+                    <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-r from-sky-500/20 to-orange-400/20 dark:from-sky-500/20 dark:to-orange-400/20 rounded-xl flex items-center justify-center group-hover:from-sky-500/30 group-hover:to-orange-400/30 transition-all duration-300">
+                      <step.icon className="w-8 h-8 text-orange-400 dark:text-orange-300" />
                     </div>
                     <div className="flex-1">
                       <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">{step.title}</h4>
@@ -135,7 +135,7 @@ const HowItWorks = () => {
                     </div>
                   </div>
                   {index < businessSteps.length - 1 && (
-                    <div className="absolute left-8 top-16 w-0.5 h-8 bg-gradient-to-b from-sky-500/50 to-transparent"></div>
+                    <div className="absolute left-8 top-16 w-0.5 h-8 bg-gradient-to-b from-orange-400/50 to-transparent"></div>
                   )}
                 </motion.div>
               ))}

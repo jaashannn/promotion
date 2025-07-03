@@ -10,11 +10,11 @@ const FAQ = () => {
       title: 'General Enquiries',
       questions: [
         {
-          q: 'What is Reflo Hub  exactly?',
-          a: 'Reflo Hub  is a cutting-edge, SaaS-based referral network that links companies and independent contractors. After a successful conversion, businesses pay freelancers directly. Freelancers provide leads from their network. Reflo Hub  does not handle payments directly; instead, it offers tools, tracking, and management.',
+          q: 'What is Reflo Hub exactly?',
+          a: 'Reflo Hub is a cutting-edge, SaaS-based referral network that links companies and independent contractors. After a successful conversion, businesses pay freelancers directly. Freelancers provide leads from their network. Reflo Hub does not handle payments directly; instead, it offers tools, tracking, and management.',
         },
         {
-          q: 'How does Reflo Hub  benefit businesses and freelancers?',
+          q: 'How does Reflo Hub benefit businesses and freelancers?',
           a: '<ul><li><strong>Companies:</strong> Get high-quality leads without paying for marketing upfront. Only 3–4 companies per category and city ensure high-quality lead distribution.</li><li><strong>Freelancers:</strong> Earn money by recommending contacts without selling. Work locally, earn globally.</li></ul>',
         },
         {
@@ -176,8 +176,8 @@ const FAQ = () => {
     <section className="relative min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white overflow-hidden perspective-1000 font-sans">
       {/* Cosmic Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950">
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,_rgba(0,212,255,0.2),_transparent,_rgba(138,43,226,0.2))] animate-[gradient-shift_25s_ease_infinite] bg-[length:200%_200%]"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,_rgba(0,212,255,0.1),_transparent,_rgba(138,43,226,0.1))] animate-[gradient-shift_30s_ease_infinite_reverse] bg-[length:200%_200%]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 to-orange-300/10 dark:from-sky-500/10 dark:to-orange-300/10 animate-[gradient-shift_25s_ease_infinite] bg-[length:200%_200%]"></div>
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
       </div>
 
       {/* Glowing Orbs */}
@@ -185,7 +185,7 @@ const FAQ = () => {
         {[...Array(25)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-3 h-3 bg-cyan-400/70 rounded-full blur-md"
+            className="absolute w-3 h-3 bg-orange-300/70 rounded-full blur-md"
             style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
             animate={{ scale: [1, 2, 1], opacity: [0.5, 1, 0.5], x: Math.random() * 80 - 40, y: Math.random() * 80 - 40 }}
             transition={{ duration: Math.random() * 10 + 10, repeat: Infinity, repeatType: 'reverse', delay: Math.random() * 3 }}
@@ -203,17 +203,17 @@ const FAQ = () => {
           className="text-center mb-20"
         >
           <motion.div
-            className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-gray-200 dark:border-cyan-500/40 rounded-full px-6 py-2 mb-6 shadow-[0_0_30px_rgba(0,212,255,0.4)]"
-            whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)' }}
+            className="inline-flex items-center gap-2 bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-gray-200 dark:border-orange-300/40 rounded-full px-6 py-2 mb-6 shadow-[0_0_30px_rgba(255,165,0,0.4)]"
+            whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(255, 165, 0, 0.5)' }}
           >
-            <Sparkles className="w-5 h-5 text-cyan-400" />
+            <Sparkles className="w-5 h-5 text-orange-400" />
             <span className="text-sm font-medium text-gray-700 dark:text-gray-100">FAQs</span>
           </motion.div>
-          <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-cyan-600 dark:from-cyan-300 via-violet-600 dark:via-violet-400 to-cyan-600 dark:to-cyan-300 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_30px_rgba(0,212,255,0.7)] animate-[pulse_3s_ease_infinite]">
+          <h1 className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-sky-500 to-orange-300 bg-clip-text text-transparent mb-4 drop-shadow-[0_0_30px_rgba(255,165,0,0.7)] animate-[pulse_3s_ease_infinite]">
             Frequently Asked Questions
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Discover how Reflo Hub exclusive referral SaaS platform connects freelancers and businesses globally with zero-commission leads.
+            Discover how Reflo Hub's exclusive referral SaaS platform connects freelancers and businesses globally with zero-commission leads.
           </p>
         </motion.div>
 
@@ -226,17 +226,17 @@ const FAQ = () => {
             animate="visible"
             className="mb-12"
           >
-            <h2 className="text-3xl font-bold text-cyan-600 dark:text-cyan-300 mb-6">{category.title}</h2>
+            <h2 className="text-3xl font-bold text-orange-400 dark:text-orange-300 mb-6">{category.title}</h2>
             <div className="space-y-4">
               {category.questions.map((item, qIndex) => {
                 const globalIndex = `${catIndex}-${qIndex}`;
                 return (
                   <div
                     key={globalIndex}
-                    className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-gray-200 dark:border-cyan-500/40 rounded-lg overflow-hidden"
+                    className="bg-gray-100/60 dark:bg-white/5 backdrop-blur-lg border border-gray-200 dark:border-orange-300/40 rounded-lg overflow-hidden"
                   >
                     <motion.button
-                      className="w-full px-6 py-4 text-left flex justify-between items-center text-lg font-semibold text-gray-900 dark:text-white hover:bg-cyan-500/10 transition-all duration-300"
+                      className="w-full px-6 py-4 text-left flex justify-between items-center text-lg font-semibold text-gray-900 dark:text-white hover:bg-orange-300/10 transition-all duration-300"
                       onClick={() => toggleQuestion(globalIndex)}
                       whileHover={{ scale: 1.01 }}
                     >
@@ -271,12 +271,12 @@ const FAQ = () => {
           variants={sectionVariants}
           initial="hidden"
           animate="visible"
-          className="max-w-4xl mx-auto mt-16 bg-gradient-to-b from-gray-100/60 dark:from-white/5 to-gray-100/30 dark:to-white/3 backdrop-blur-lg border border-gray-200 dark:border-cyan-500/40 rounded-2xl p-8 shadow-[0_0_50px_rgba(0,212,255,0.3)]"
+          className="max-w-4xl mx-auto mt-16 bg-gradient-to-b from-gray-100/60 dark:from-white/5 to-gray-100/30 dark:to-white/3 backdrop-blur-lg border border-gray-200 dark:border-orange-300/40 rounded-2xl p-8 shadow-[0_0_50px_rgba(255,165,0,0.3)]"
         >
-          <h2 className="text-3xl font-bold text-cyan-600 dark:text-cyan-300 mb-6">Why Reflo Hub is Different</h2>
+          <h2 className="text-3xl font-bold text-orange-400 dark:text-orange-300 mb-6">Why Reflo Hub is Different</h2>
           <table className="w-full text-left text-gray-600 dark:text-gray-300">
             <thead>
-              <tr className="border-b border-gray-200 dark:border-cyan-500/20">
+              <tr className="border-b border-gray-200 dark:border-orange-300/20">
                 <th className="py-3">Feature</th>
                 <th className="py-3">Traditional Platforms</th>
                 <th className="py-3">Reflo Hub</th>
@@ -284,10 +284,10 @@ const FAQ = () => {
             </thead>
             <tbody>
               {comparisonData.map((row, i) => (
-                <tr key={i} className="border-b border-gray-200 dark:border-cyan-500/10">
+                <tr key={i} className="border-b border-gray-200 dark:border-orange-300/10">
                   <td className="py-3">{row.feature}</td>
                   <td className="py-3">{row.traditional}</td>
-                  <td className="py-3 text-cyan-600 dark:text-cyan-300">{row.reflo}</td>
+                  <td className="py-3 text-orange-400 dark:text-orange-300">{row.reflo}</td>
                 </tr>
               ))}
             </tbody>
@@ -301,19 +301,19 @@ const FAQ = () => {
           animate="visible"
           className="text-center mt-16"
         >
-          <h2 className="text-3xl font-bold text-cyan-600 dark:text-cyan-300 mb-4">Need More Help?</h2>
+          <h2 className="text-3xl font-bold text-orange-400 dark:text-orange-300 mb-4">Need More Help?</h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6">
             Visit our Help Centre, use the Support Ticket system on your dashboard, or email us at{' '}
-            <a href="mailto:support@reflohub.com" className="text-cyan-400 hover:underline">
+            <a href="mailto:support@reflohub.com" className="text-orange-400 dark:text-orange-300 hover:underline">
               support@reflohub.com
             </a>.
           </p>
           <motion.a
             href="/get-started"
-            variants={{ hover: { scale: 1.05, boxShadow: '0 0 40px rgba(0, 212, 255, 0.5)' }, tap: { scale: 0.95 } }}
+            variants={{ hover: { scale: 1.05, boxShadow: '0 0 40px rgba(255, 165, 0, 0.5)' }, tap: { scale: 0.95 } }}
             whileHover="hover"
             whileTap="tap"
-            className="group inline-flex px-8 py-4 text-white bg-gradient-to-r from-cyan-500 dark:from-cyan-600 to-violet-500 dark:to-violet-600 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
+            className="group inline-flex px-8 py-4 text-white bg-gradient-to-r from-sky-500 to-orange-300 rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300"
           >
             <span className="flex items-center gap-2">
               Join Reflo Hub Now

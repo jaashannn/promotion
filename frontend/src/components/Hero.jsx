@@ -6,7 +6,7 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-gray-950 text-gray-900 dark:text-white">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-100 dark:from-gray-950 via-gray-200 dark:via-gray-900 to-gray-100 dark:to-gray-950">
-        <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-sky-500/10 dark:from-orange-400/10 dark:to-sky-500/10 animate-[gradient-shift_20s_ease_infinite] bg-[length:200%_200%]"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-sky-500/10 to-orange-400/10 dark:from-sky-500/10 dark:to-orange-400/10 animate-[gradient-shift_20s_ease_infinite] bg-[length:200%_200%]"></div>
       </div>
 
       {/* Floating Particles */}
@@ -49,7 +49,7 @@ const Hero = () => {
           </motion.div>
 
           <motion.h1
-            className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-orange-400 to-sky-500 bg-clip-text text-transparent mb-6 drop-shadow-[0_0_30px_rgba(255,165,0,0.6)]"
+            className="text-5xl md:text-7xl font-extrabold bg-gradient-to-r from-sky-500 to-orange-400 bg-clip-text text-transparent mb-6 drop-shadow-[0_0_30px_rgba(255,165,0,0.6)]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -80,13 +80,13 @@ const Hero = () => {
                   boxShadow: '0 0 40px rgba(255, 165, 0, 0.4)' 
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative px-8 py-4 bg-gradient-to-r from-orange-300 to-sky-500 text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
+                className="group relative px-8 py-4 bg-gradient-to-r from-sky-500 to-orange-300 text-white rounded-xl font-semibold text-lg hover:shadow-2xl transition-all duration-300 overflow-hidden"
               >
                 <span className="relative z-10 flex items-center">
                   Join as Freelancer
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-300 to-sky-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-sky-500 to-orange-300 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </motion.button>
             </a>
 
